@@ -1,0 +1,741 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the idtgv installation profile.
+ */
+
+/**
+ * Implements hook_install().
+ *
+ * Perform actions to set up the site for this profile.
+ *
+ * @see system_install()
+ */
+function gtk_install() {
+  // Add text formats.
+  gtk_add_text_formats();
+  // Add custom languages.
+  gtk_add_custom_languages();
+  // Create administrator account.
+  gtk_create_administrator();
+  // Set theme settings.
+  gtk_manage_themes();
+  // Sets user interface text and content language detection.
+  gtk_set_language_detection();
+  // Sets the prefix for all the languages.
+  gtk_set_language_prefix();
+  // Sets the default translations string source.
+  gtk_set_string_source_language();
+  // Set variables.
+  gtk_set_variables();
+  // Creates main-menu items.
+  gtk_create_main_menu_items();
+  // Creates Autopromo block.
+  // Enable modules.
+  gtk_enable_modules();
+  // Creates footer menu items.
+  gtk_create_footer_menu_items();
+  // Download and import translations.
+  gtk_import_translations();
+  // Creates taxonomy terms.
+  gtk_create_taxonomy();
+  // Import translations.
+  gtk_import_custom_translations();
+  // Sets default account settings configuration.
+  gtk_set_default_account_settings();
+}
+
+/**
+ * Enables modules.
+ */
+function gtk_enable_modules() {
+  // The feature idtgv_f_block_settings needs to be enabled after the theme
+  // idtgv_theme is enabled.
+  //$modules = array('idtgv_f_block_settings');
+  //module_enable($modules);
+    // TODO adjust.
+}
+
+/**
+ *  Adds custom languages.
+ */
+function gtk_add_custom_languages() {
+  // TODO We must check if every language we add below is also selected as
+  // installation language In case we select a language from the ones listed
+  // below we will get an error (duplicate key). Thus only install the site in
+  // english for now.
+  // Add French language and set as default language.
+//  locale_add_language($langcode = 'fr', $name ='French', $native = 'French', $direction = LANGUAGE_LTR, $domain = '', $prefix = '', $enabled = TRUE, $default = TRUE);
+//  // Add English (British) language.
+//  locale_add_language($langcode = 'en-gb', $name = 'English', $native = 'English', $direction = LANGUAGE_LTR, $domain = '', $prefix = 'en');
+//  // Add Italian language.
+//  locale_add_language($langcode = 'it', $name = 'Italian', $native = 'Italiano', $direction = LANGUAGE_LTR, $domain = '', $prefix = 'it');
+  // TODO Add languages ES, DE.
+
+//  // Disable the master english.
+//  db_update('languages')
+//    ->fields(array(
+//      'name' => 'Master English',
+//      'native' => 'Master English',
+//      'enabled' => 0,
+//    ))
+//    ->condition('language', 'en')
+//    ->execute();
+}
+
+/**
+ * Sets user interface text and content language detection.
+ */
+function gtk_set_language_detection() {
+  // Sets user interface text detection.
+  language_negotiation_set(
+    LANGUAGE_TYPE_INTERFACE,
+    array(
+      DEFAULT_LANGUAGE_NEGOTIATION_FALLBACK => 1,
+      LOCALE_LANGUAGE_NEGOTIATION_URL => 2,
+    )
+  );
+  // Set the weights also.
+  $providers_weight = variable_get("locale_language_providers_weight_" . LANGUAGE_TYPE_INTERFACE, array());
+  $providers_weight[DEFAULT_LANGUAGE_NEGOTIATION_FALLBACK] = -20;
+  $providers_weight[LOCALE_LANGUAGE_NEGOTIATION_URL] = -19;
+  variable_set("locale_language_providers_weight_" . LANGUAGE_TYPE_INTERFACE, $providers_weight);
+  // Sets content language detection.
+  language_negotiation_set(
+    LANGUAGE_TYPE_CONTENT,
+    array(
+      DEFAULT_LANGUAGE_NEGOTIATION_FALLBACK => 1,
+      LOCALE_LANGUAGE_NEGOTIATION_URL => 2,
+      LOCALE_LANGUAGE_NEGOTIATION_INTERFACE => 5,
+    )
+  );
+  // Sets the weight also.
+  $providers_weight = variable_get("locale_language_providers_weight_" . LANGUAGE_TYPE_CONTENT, array());
+  $providers_weight[DEFAULT_LANGUAGE_NEGOTIATION_FALLBACK] = -20;
+  $providers_weight[LOCALE_LANGUAGE_NEGOTIATION_URL] = -19;
+  variable_set("locale_language_providers_weight_" . LANGUAGE_TYPE_CONTENT, $providers_weight);
+}
+
+/**
+ * Sets the prefix for all the languages.
+ */
+function gtk_set_language_prefix() {
+//  $default_language = language_default('language');
+//  $languages = language_list();
+//
+//  foreach ($languages as $language) {
+//    switch ($language->language) {
+//      case $default_language:
+//        $prefix = '';
+//        break;
+//      case 'en-gb':
+//        $prefix = 'en';
+//        break;
+//      case 'en':
+//        $prefix = 'en-master';
+//        break;
+//      default:
+//        $prefix = $language->language;
+//        break;
+//    }
+//    // Update the language prefixes.
+//    db_update('languages')
+//      ->fields(array(
+//        'prefix' => $prefix,
+//      ))
+//      ->condition('language', $language->language)
+//      ->execute();
+//  }
+}
+
+/**
+ * Adds text formats.
+ */
+function gtk_add_text_formats() {
+  $filtered_html_format = array(
+    'format' => 'filtered_html',
+    'name' => 'Filtered HTML',
+    'weight' => 0,
+    'filters' => array(
+      // URL filter.
+      'filter_url' => array(
+        'weight' => 1,
+        'status' => 1,
+      ),
+      // HTML filter.
+      'filter_html' => array(
+        'weight' => 1,
+        'status' => 1,
+        'settings' => array(
+          'allowed_html' => '<a> <em> <strong> <cite> <blockquote> <code> <ul> <ol> <li> <dl> <dt> <dd> <p> <u>',
+          'filter_html_help' => 1,
+          'filter_html_nofollow' => 0,
+        ),
+      ),
+      // Line break filter.
+      'filter_autop' => array(
+        'weight' => 2,
+        'status' => 1,
+      ),
+      // HTML corrector filter.
+      'filter_htmlcorrector' => array(
+        'weight' => 10,
+        'status' => 1,
+      ),
+    ),
+  );
+  $filtered_html_format = (object) $filtered_html_format;
+  filter_format_save($filtered_html_format);
+
+  $full_html_format = array(
+    'format' => 'full_html',
+    'name' => 'Full HTML',
+    'weight' => 0,
+    'filters' => array(
+      // URL filter.
+      'filter_url' => array(
+        'weight' => 0,
+        'status' => 1,
+      ),
+      // Line break filter.
+      'filter_autop' => array(
+        'weight' => 1,
+        'status' => 1,
+      ),
+      // HTML corrector filter.
+      'filter_htmlcorrector' => array(
+        'weight' => 10,
+        'status' => 1,
+      ),
+    ),
+  );
+  $full_html_format = (object) $full_html_format;
+  filter_format_save($full_html_format);
+
+  // Enable default permissions for system roles.
+  $filtered_html_permission = filter_permission_name($filtered_html_format);
+  user_role_grant_permissions(DRUPAL_ANONYMOUS_RID, array(
+    'access content',
+    'access comments',
+    $filtered_html_permission
+  ));
+  user_role_grant_permissions(DRUPAL_AUTHENTICATED_RID, array(
+    'access content',
+    'access comments',
+    'post comments',
+    'skip comment approval',
+    $filtered_html_permission
+  ));
+}
+
+/**
+ * Creates the administrator role.
+ */
+function gtk_create_administrator() {
+  // Create a default role for site administrators, with all available permissions assigned.
+  $admin_role = new stdClass();
+  $admin_role->name = 'administrator';
+  $admin_role->weight = 2;
+  user_role_save($admin_role);
+  user_role_grant_permissions($admin_role->rid, array_keys(module_invoke_all('permission')));
+  // Set this as the administrator role.
+  variable_set('user_admin_role', $admin_role->rid);
+
+  // Assign user 1 the "administrator" role.
+  db_insert('users_roles')->fields(array(
+    'uid' => 1,
+    'rid' => $admin_role->rid
+  ))->execute();
+}
+
+/**
+ * Enable, set default, disable themes.
+ */
+function gtk_manage_themes() {
+  // Enable the admin and gtk_theme themes.
+  $theme_enable = array(
+    'theme_default' => 'bartik',
+    'admin_theme' => variable_get('admin_theme', 'seven'),
+  );
+  theme_enable($theme_enable);
+  foreach ($theme_enable as $var => $theme) {
+    variable_set($var, $theme);
+  }
+
+  // Disable default Bartik theme.
+  //theme_disable(array('bartik'));
+}
+
+/**
+ * Sets variables.
+ */
+function gtk_set_variables() {
+  //Sets jquery version to 1.7.
+//  variable_set('jquery_update_jquery_version', '1.8');
+}
+
+/**
+ * Sets the default translations string source.
+ */
+function gtk_set_string_source_language() {
+  // TODO: the variables can be exported with features.
+  variable_set('i18n_string_source_language', 'en');
+  variable_set('site_slogan', st('Site slogan goes here.'));
+}
+
+/**
+ * Creates main-menu items.
+ */
+function gtk_create_main_menu_items($language_list = array()) {
+  global $language;
+
+//  $main_menu_defaults = array(
+//    'link_path' => '<front>',
+//    'menu_name' => 'main-menu',
+//  );
+//
+//  $main_menu = array(
+//    array(
+//      'link_title' => t('iDESTINATIONS'),
+//      'options' => array(
+//        'attributes' => array(
+//          'class' => 'destinations',
+//        ),
+//      ),
+//    ),
+//    array(
+//      'link_title' => t('iDSERVICES'),
+//      'options' => array(
+//        'attributes' => array(
+//          'class' => 'services',
+//        ),
+//      ),
+//    ),
+//    array(
+//      'link_title' => t('iDACTUS'),
+//      'options' => array(
+//        'attributes' => array(
+//          'class' => 'news',
+//        ),
+//      ),
+//    ),
+//    array(
+//      'link_title' => t('iDTGV ?'),
+//      'options' => array(
+//        'attributes' => array(
+//          'class' => 'idtgv',
+//        ),
+//      ),
+//    ),
+//    array(
+//      'link_title' => t('UNE QUESTION ?'),
+//      'options' => array(
+//        'attributes' => array(
+//          'class' => 'question',
+//        ),
+//      ),
+//    ),
+//    array(
+//      'link_title' => t('MON iDTGV'),
+//      'link_path' => 'https://ventes.idtgv.com/SsoLoginIDTGV.aspx',
+//      'options' => array(
+//        'attributes' => array(
+//          'class' => 'account',
+//        ),
+//      ),
+//    ),
+//  );
+//
+//  $weight = 0;
+//  $languages = gtk_language_list($language_list);
+//  foreach ($languages as $langcode => $language) {
+//    if ($language->enabled) {
+//      foreach ($main_menu as $item) {
+//        if ($language->language != language_default()->language) {
+//          $item['link_title'] .= ' (' . $language->prefix . ')';
+//        }
+//        $item = $item + $main_menu_defaults + array('language' => $langcode, 'weight' => $weight);
+//        menu_link_save($item);
+//        $weight++;
+//      }
+//    }
+//  }
+//
+//  menu_rebuild();
+}
+
+/**
+ * Generates footer menu items.
+ */
+function gtk_create_footer_menu_items($language_list = array()) {
+  $language_default = language_default();
+  $menu_name = 'menu-footer-menu';
+  $menu_item_titles = array(
+    'TOP DESTINATIONS' => array(
+      'Billets Paris Marseille',
+      'Billets Paris Nice',
+      'Billets Paris Rennes',
+      'Billets Bordeaux Paris',
+      'Toutes nos destinations',
+      'Tous nos billets de train',
+    ),
+    'RÉSERVER UN BILLET iDTGV' => array(
+      'Plus d\'informations',
+      'Séjour ou Week-end à Marseille',
+      'Séjour ou Week-end à Grenoble',
+      'Séjour ou Week-end à Rennes',
+      'Réservation billet de train',
+      'Vos allers-retours avec iDTGV',
+    ),
+    'iDSERVICES' => array(
+      'iDZEN',
+      'iDZAP',
+      'DIGITAB',
+      'iDBISTRO',
+      'iDCAB',
+      'Tous nos services',
+    ),
+    'LIENS UTILES' => array(
+      'Qui sommes-nous ?',
+      'CGV',
+      'Questions fréquentes',
+      'Plan du site',
+      'Réseaux sociaux',
+      'Nos partenaires',
+    ),
+  );
+
+  $weight = 0;
+  $languages = gtk_language_list($language_list);
+  foreach ($languages as $langcode => $language) {
+    if ($language->enabled) {
+      foreach ($menu_item_titles as $parent => $children) {
+        $item = array(
+          'link_title' => t($parent),
+          'link_path' => '<nolink>',
+          'menu_name' => $menu_name,
+          'expanded' => TRUE,
+          'weight' => $weight++,
+          'language'  => $langcode,
+        );
+        if ($language->language != $language_default->language) {
+          $item['link_title'] .= ' (' . $language->prefix . ')';
+        }
+        $mlid = menu_link_save($item);
+
+        $child_weight = 0;
+        foreach ($children as $child) {
+          $item = array(
+            'link_title' => t($child),
+            'link_path' => '<front>',
+            'menu_name' => $menu_name,
+            'weight' => $child_weight++,
+            'language'  => $langcode,
+            'plid' => $mlid,
+          );
+          if ($language->language != $language_default->language) {
+            $item['link_title'] .= ' (' . $language->prefix . ')';
+          }
+          menu_link_save($item);
+        }
+      }
+    }
+  }
+
+  menu_rebuild();
+}
+
+/**
+ * Downloads and imports translations.
+ *
+ * Downloads and imports the available .po translation files.
+ * Uses the features of the l10n_update module.
+ */
+function gtk_import_translations() {
+//  global $conf;
+//  // Run the import only if the module l10n_update is enabled and there's no
+//  // restriction added by the global configuration.
+//  // Add "$conf['skip_translation_import'] = TRUE;" to settings.php to bypass
+//  // this step.
+//  if (module_exists('l10n_update') && !$conf['skip_translation_import']) {
+//    module_load_include('inc', 'l10n_update', 'l10n_update.check');
+//    $history = l10n_update_get_history();
+//    $available = l10n_update_available_releases();
+//    $updates = l10n_update_build_updates($history, $available);
+//    $mode = variable_get('l10n_update_import_mode', LOCALE_IMPORT_KEEP);
+//    module_load_include('batch.inc', 'l10n_update');
+//    // Filter out updates in other languages. If no languages, all of them will
+//    // be updated.
+//    $updates = _l10n_update_prepare_updates($updates);
+//    $batch = gtk_l10n_update_batch_multiple($updates, $mode);
+//    batch_set($batch);
+//  }
+}
+
+/**
+ * Creates a big batch for multiple projects and languages.
+ *
+ * @param $updates
+ *   Array of update sources to be run.
+ * @param $mode
+ *   Import mode. How to treat existing and modified translations.
+ * @return array
+ */
+function gtk_l10n_update_batch_multiple($updates, $import_mode) {
+  foreach ($updates as $update) {
+    $id = $update->filename;
+    if ($update->type == 'download') {
+      $operations[] = array('_l10n_update_batch_download', array($id, $update));
+      $operations[] = array('_l10n_update_batch_import', array($id, NULL, $import_mode));
+    }
+    else {
+      $operations[] = array('_l10n_update_batch_import', array($id, $update, $import_mode));
+    }
+    // This one takes always parameters from results.
+    $operations[] = array('_l10n_update_batch_history', array($id));
+  }
+  if (!empty($operations)) {
+    return idtgv_import_l10n_update_create_batch($operations);
+  }
+}
+
+/**
+ * Creates batch stub for this module.
+ *
+ * @param $operations
+ *   Operations to perform in this batch.
+ * @return array
+ *   A batch definition:
+ *   - 'operations': Batch operations
+ *   - 'title': Batch title.
+ *   - 'init_message': Initial batch UI message.
+ *   - 'error_message': Batch error message.
+ *   - 'file': File containing callback function.
+ *   - 'finished': Batch completed callback function.
+ */
+function idtgv_import_l10n_update_create_batch($operations = array()) {
+  $t = get_t();
+  $batch = array(
+    'operations'    => $operations,
+    'title'         => $t('Updating translation.'),
+    'init_message'  => $t('Downloading and importing files.'),
+    'error_message' => $t('Error importing interface translations'),
+    'file'          => drupal_get_path('module', 'l10n_update') . '/l10n_update.batch.inc',
+    // Do not use the finished callback while the install.
+    //'finished'      => '_l10n_update_batch_finished',
+  );
+  return $batch;
+}
+
+/**
+ * Creates taxonomy terms.
+ */
+function gtk_create_taxonomy($language_list = array()) {
+//  // Initializes array.
+//  $taxonomy_data = array();
+//  // Basic taxonomy information.
+//  $vocabulary = array(
+//    'idservices_category' => array(
+//      array(
+//        'name' => 'Les iDServices + a la carte',
+//        'fields' => array(
+//          'field_image' => 'a_la_carte.png',
+//        ),
+//      ),
+//      array(
+//        'name' => 'Les iDServices Gratuits Qui Comptent',
+//        'fields' => array(
+//          'field_image' => 'gratuits_qui_copmtent.png',
+//        ),
+//      ),
+//      array(
+//        'name' => 'Les iDServices Qui Facilitent la Vie',
+//        'fields' => array(
+//          'field_image' => 'facilitent_la_vie.png',
+//        ),
+//      ),
+//    ),
+//    'idservices_type' => array(
+//      array(
+//        'name' => 'Service +',
+//        'fields' => array(
+//          'field_type' => 'plus',
+//        ),
+//      ),
+//      array(
+//        'name' => 'Gratuit',
+//        'fields' => array(
+//          'field_type' => 'free',
+//        ),
+//      ),
+//    ),
+//    'idestinations_category' => array(
+//      array(
+//        'name' => 'iDPlage',
+//        'fields' => array(
+//          'field_icon' => 'sun',
+//        ),
+//      ),
+//      array(
+//        'name' => 'iDNeige',
+//        'fields' => array(
+//          'field_icon' => 'snow',
+//        ),
+//      ),
+//    ),
+//    'idestinations_journey_mode' => array(
+//      array(
+//        'name' => 'Train',
+//        'translatable' => FALSE,
+//      ),
+//      array(
+//        'name' => 'Bus',
+//        'translatable' => FALSE,
+//      ),
+//      array(
+//        'name' => 'Bateau',
+//        'translatable' => FALSE,
+//      ),
+//    ),
+//  );
+//  // Sets basic taxonomy information.
+//  $languages = gtk_language_list($language_list);
+//  foreach ($vocabulary as $vocabulary_name => $terms) {
+//    foreach ($terms as $key => $term_data) {
+//      if (isset($term_data['translatable']) && ($term_data['translatable'] == FALSE)) {
+//        $taxonomy_data[$vocabulary_name][$key][LANGUAGE_NONE] = array(
+//            'name' => $term_data['name'],
+//          ) + $term_data;
+//      }
+//      else {
+//        foreach ($languages as $langcode => $language) {
+//          if ($language->enabled) {
+//            if ($language->language != language_default()->language) {
+//              $taxonomy_data[$vocabulary_name][$key][$langcode] = array(
+//                  'name' => $term_data['name'] . ' (' . $language->name . ')',
+//                ) + $term_data;
+//            }
+//            else {
+//              $taxonomy_data[$vocabulary_name][$key][$langcode] = array(
+//                  'name' => $term_data['name'],
+//                ) + $term_data;
+//            }
+//          }
+//        }
+//      }
+//    }
+//  }
+//  // Saves taxonomy.
+//  gtk_save_taxonomy($taxonomy_data);
+}
+
+/**
+ * Helper function that saves taxonomy.
+ */
+function gtk_save_taxonomy($taxonomy_data) {
+  // Sets destination directory for image upload.
+  $directory = file_default_scheme() . '://';
+  foreach ($taxonomy_data as $vocabulary => $term_data) {
+    // Loads destination vocabulary of the taxonomy term.
+    if ($destinations_vocabulary = taxonomy_vocabulary_machine_name_load($vocabulary)) {
+      // Loops through every term group. A term group is an array of terms that
+      // belong to one translation set.
+      foreach ($term_data as $weight => $term_group) {
+        // Creates translation set.
+        $translation_set = i18n_translation_set_create('taxonomy_term', $vocabulary);
+
+        foreach ($term_group as $langcode => $term) {
+          $new_term = new stdClass();
+          $new_term->language = $langcode;
+          $new_term->vid = $destinations_vocabulary->vid;
+          $new_term->name = $term['name'];
+          $new_term->weight = $weight;
+          $new_term->i18n_tsid = $translation_set->tsid;
+          // Checks existence of field information.
+          if (!empty($term['fields'])) {
+            foreach ($term['fields'] as $field_name => $value) {
+              switch ($field_name) {
+                case 'field_image':
+                  $image = (array)file_save_data(
+                    file_get_contents(drupal_get_path('profile', 'gtk') . '/img/' . $value),
+                    file_stream_wrapper_uri_normalize($directory),
+                    FILE_EXISTS_RENAME);
+                  // If file was successfully uploaded, save the file into the image
+                  // field of the taxonomy term.
+                  if ($image != FALSE) {
+                    if ($image) {
+                      $image['alt'] = $term['name'];
+                      $new_term->{$field_name}[LANGUAGE_NONE][0] = $image;
+                    }
+                  }
+                  break;
+                case 'field_type':
+                  $new_term->{$field_name}[LANGUAGE_NONE][0]['value'] = $value;
+                  break;
+                case 'field_icon':
+                  $new_term->{$field_name}[LANGUAGE_NONE][0]['value'] = $value;
+                  break;
+              }
+            }
+          }
+          taxonomy_term_save($new_term);
+        }
+      }
+    }
+  }
+}
+
+
+
+
+/**
+ * Imports translation .po file.
+ */
+function gtk_import_translation_file($translations_file_name, $mode, $group, $langcode) {
+//  $files = file_load_multiple(array(), array("uri"=> drupal_get_path('profile', 'gtk') . '/translations/' . $translations_file_name));
+//  if (empty($files)) {
+//    // Loads the translation file.
+//    $file = new stdClass;
+//    $file->uid = 1;
+//    $file->filename = $translations_file_name;
+//    $file->uri = drupal_get_path('profile', 'gtk') . '/translations/' . $translations_file_name;
+//    $file->filemime = 'application/octet-stream';
+//    $file->filesize = filesize($file->uri);
+//    $file->status = 1;
+//  }
+//  else {
+//    $file = array_shift($files);
+//  }
+//  // Sets import parameters.
+//  if ($file = file_save($file)) {
+//    // Now import strings into the language
+//    _locale_import_po($file, $langcode, $mode , $group);
+//  }
+}
+
+/**
+ * Import custom translations.
+ */
+function gtk_import_custom_translations() {
+  gtk_import_translation_file('custom_fields.fr.po', LOCALE_IMPORT_KEEP, 'field', 'fr');
+  foreach (language_list() as $language) {
+    if ($language->enabled) {
+      gtk_import_translation_file('custom.' . $language->language . '.po', LOCALE_IMPORT_OVERWRITE, 'default', $language->language);
+    }
+  }
+}
+
+/**
+ * Returns the list of languages.
+ */
+function gtk_language_list($languages = array()) {
+  return  (!empty($languages)) ? array_intersect_key(language_list(), $languages) : language_list();
+}
+
+/**
+ * Sets default account settings.
+ */
+function gtk_set_default_account_settings() {
+  variable_set('user_register', USER_REGISTER_ADMINISTRATORS_ONLY);
+}
