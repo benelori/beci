@@ -23,10 +23,6 @@ function gtk_install() {
   gtk_manage_themes();
   // Sets user interface text and content language detection.
   gtk_set_language_detection();
-  // Sets the prefix for all the languages.
-  gtk_set_language_prefix();
-  // Sets the default translations string source.
-  gtk_set_string_source_language();
   // Set variables.
   gtk_set_variables();
   // Creates main-menu items.
@@ -34,8 +30,6 @@ function gtk_install() {
   // Creates Autopromo block.
   // Enable modules.
   gtk_enable_modules();
-  // Creates footer menu items.
-  gtk_create_footer_menu_items();
   // Download and import translations.
   gtk_import_translations();
   // Creates taxonomy terms.
@@ -50,11 +44,11 @@ function gtk_install() {
  * Enables modules.
  */
 function gtk_enable_modules() {
-  // The feature idtgv_f_block_settings needs to be enabled after the theme
-  // idtgv_theme is enabled.
-  //$modules = array('idtgv_f_block_settings');
-  //module_enable($modules);
-    // TODO adjust.
+  // The feature gtk_f_block_settings needs to be enabled after the theme
+  // bootstrap is enabled.
+  $modules = array('gtk_f_block_settings');
+  module_enable($modules);
+  // TODO test if this is actually still needed.
 }
 
 /**
@@ -66,22 +60,9 @@ function gtk_add_custom_languages() {
   // below we will get an error (duplicate key). Thus only install the site in
   // english for now.
   // Add French language and set as default language.
-//  locale_add_language($langcode = 'fr', $name ='French', $native = 'French', $direction = LANGUAGE_LTR, $domain = '', $prefix = '', $enabled = TRUE, $default = TRUE);
-//  // Add English (British) language.
-//  locale_add_language($langcode = 'en-gb', $name = 'English', $native = 'English', $direction = LANGUAGE_LTR, $domain = '', $prefix = 'en');
-//  // Add Italian language.
-//  locale_add_language($langcode = 'it', $name = 'Italian', $native = 'Italiano', $direction = LANGUAGE_LTR, $domain = '', $prefix = 'it');
-  // TODO Add languages ES, DE.
-
-//  // Disable the master english.
-//  db_update('languages')
-//    ->fields(array(
-//      'name' => 'Master English',
-//      'native' => 'Master English',
-//      'enabled' => 0,
-//    ))
-//    ->condition('language', 'en')
-//    ->execute();
+  locale_add_language($langcode = 'hu', $name ='Hungarian', $native = 'Hungarian', $direction = LANGUAGE_LTR, $domain = '', $prefix = '', $enabled = TRUE);
+  // Add Italian language.
+  locale_add_language($langcode = 'ro', $name = 'Romanian', $native = 'Romanian', $direction = LANGUAGE_LTR, $domain = '', $prefix = 'ro', $enabled = TRUE);
 }
 
 /**
@@ -115,38 +96,6 @@ function gtk_set_language_detection() {
   $providers_weight[DEFAULT_LANGUAGE_NEGOTIATION_FALLBACK] = -20;
   $providers_weight[LOCALE_LANGUAGE_NEGOTIATION_URL] = -19;
   variable_set("locale_language_providers_weight_" . LANGUAGE_TYPE_CONTENT, $providers_weight);
-}
-
-/**
- * Sets the prefix for all the languages.
- */
-function gtk_set_language_prefix() {
-//  $default_language = language_default('language');
-//  $languages = language_list();
-//
-//  foreach ($languages as $language) {
-//    switch ($language->language) {
-//      case $default_language:
-//        $prefix = '';
-//        break;
-//      case 'en-gb':
-//        $prefix = 'en';
-//        break;
-//      case 'en':
-//        $prefix = 'en-master';
-//        break;
-//      default:
-//        $prefix = $language->language;
-//        break;
-//    }
-//    // Update the language prefixes.
-//    db_update('languages')
-//      ->fields(array(
-//        'prefix' => $prefix,
-//      ))
-//      ->condition('language', $language->language)
-//      ->execute();
-//  }
 }
 
 /**
@@ -255,7 +204,7 @@ function gtk_create_administrator() {
 function gtk_manage_themes() {
   // Enable the admin and gtk_theme themes.
   $theme_enable = array(
-    'theme_default' => 'bartik',
+    'theme_default' => 'bootstrap_business',
     'admin_theme' => variable_get('admin_theme', 'seven'),
   );
   theme_enable($theme_enable);
@@ -264,186 +213,101 @@ function gtk_manage_themes() {
   }
 
   // Disable default Bartik theme.
-  //theme_disable(array('bartik'));
+  theme_disable(array('bartik'));
 }
 
 /**
  * Sets variables.
  */
 function gtk_set_variables() {
-  //Sets jquery version to 1.7.
-//  variable_set('jquery_update_jquery_version', '1.8');
-}
-
-/**
- * Sets the default translations string source.
- */
-function gtk_set_string_source_language() {
-  // TODO: the variables can be exported with features.
-  variable_set('i18n_string_source_language', 'en');
-  variable_set('site_slogan', st('Site slogan goes here.'));
+  // Sets jquery version to 1.8.
+  variable_set('jquery_update_jquery_version', '1.8');
 }
 
 /**
  * Creates main-menu items.
  */
 function gtk_create_main_menu_items($language_list = array()) {
-  global $language;
+  $main_menu_defaults = array(
+    'link_path' => '<front>',
+    'menu_name' => 'main-menu',
+  );
 
-//  $main_menu_defaults = array(
-//    'link_path' => '<front>',
-//    'menu_name' => 'main-menu',
-//  );
-//
-//  $main_menu = array(
-//    array(
-//      'link_title' => t('iDESTINATIONS'),
-//      'options' => array(
-//        'attributes' => array(
-//          'class' => 'destinations',
-//        ),
-//      ),
-//    ),
-//    array(
-//      'link_title' => t('iDSERVICES'),
-//      'options' => array(
-//        'attributes' => array(
-//          'class' => 'services',
-//        ),
-//      ),
-//    ),
-//    array(
-//      'link_title' => t('iDACTUS'),
-//      'options' => array(
-//        'attributes' => array(
-//          'class' => 'news',
-//        ),
-//      ),
-//    ),
-//    array(
-//      'link_title' => t('iDTGV ?'),
-//      'options' => array(
-//        'attributes' => array(
-//          'class' => 'idtgv',
-//        ),
-//      ),
-//    ),
-//    array(
-//      'link_title' => t('UNE QUESTION ?'),
-//      'options' => array(
-//        'attributes' => array(
-//          'class' => 'question',
-//        ),
-//      ),
-//    ),
-//    array(
-//      'link_title' => t('MON iDTGV'),
-//      'link_path' => 'https://ventes.idtgv.com/SsoLoginIDTGV.aspx',
-//      'options' => array(
-//        'attributes' => array(
-//          'class' => 'account',
-//        ),
-//      ),
-//    ),
-//  );
-//
-//  $weight = 0;
-//  $languages = gtk_language_list($language_list);
-//  foreach ($languages as $langcode => $language) {
-//    if ($language->enabled) {
-//      foreach ($main_menu as $item) {
-//        if ($language->language != language_default()->language) {
-//          $item['link_title'] .= ' (' . $language->prefix . ')';
-//        }
-//        $item = $item + $main_menu_defaults + array('language' => $langcode, 'weight' => $weight);
-//        menu_link_save($item);
-//        $weight++;
-//      }
-//    }
-//  }
-//
-//  menu_rebuild();
-}
-
-/**
- * Generates footer menu items.
- */
-function gtk_create_footer_menu_items($language_list = array()) {
-  $language_default = language_default();
-  $menu_name = 'menu-footer-menu';
-  $menu_item_titles = array(
-    'TOP DESTINATIONS' => array(
-      'Billets Paris Marseille',
-      'Billets Paris Nice',
-      'Billets Paris Rennes',
-      'Billets Bordeaux Paris',
-      'Toutes nos destinations',
-      'Tous nos billets de train',
+  $main_menu = array(
+    array(
+      'link_title' => t('About Us'),
+      'children' => array(
+        array(
+          'link_title' => t('Objectives'),
+        ),
+        array(
+          'link_title' => t('Activities'),
+        ),
+        array(
+          'link_title' => t('Membership Statuses'),
+        ),
+        array(
+          'link_title' => t('Highschool Program'),
+        ),
+      ),
     ),
-    'RÉSERVER UN BILLET iDTGV' => array(
-      'Plus d\'informations',
-      'Séjour ou Week-end à Marseille',
-      'Séjour ou Week-end à Grenoble',
-      'Séjour ou Week-end à Rennes',
-      'Réservation billet de train',
-      'Vos allers-retours avec iDTGV',
+    array(
+      'link_title' => t('Members'),
+      'children' => array(
+        array(
+          'link_title' => t('Coordinators'),
+        ),
+        array(
+          'link_title' => t('Members'),
+        ),
+      ),
     ),
-    'iDSERVICES' => array(
-      'iDZEN',
-      'iDZAP',
-      'DIGITAB',
-      'iDBISTRO',
-      'iDCAB',
-      'Tous nos services',
+    array(
+      'link_title' => t('Partners'),
+      'children' => array(
+        array(
+          'link_title' => t('Organizations'),
+        ),
+        array(
+          'link_title' => t('Invited Lecturers'),
+        ),
+      ),
     ),
-    'LIENS UTILES' => array(
-      'Qui sommes-nous ?',
-      'CGV',
-      'Questions fréquentes',
-      'Plan du site',
-      'Réseaux sociaux',
-      'Nos partenaires',
+    array(
+      'link_title' => t('Results'),
+    ),
+    array(
+      'link_title' => t('Images'),
     ),
   );
 
-  $weight = 0;
   $languages = gtk_language_list($language_list);
   foreach ($languages as $langcode => $language) {
     if ($language->enabled) {
-      foreach ($menu_item_titles as $parent => $children) {
-        $item = array(
-          'link_title' => t($parent),
-          'link_path' => '<nolink>',
-          'menu_name' => $menu_name,
-          'expanded' => TRUE,
-          'weight' => $weight++,
-          'language'  => $langcode,
-        );
-        if ($language->language != $language_default->language) {
-          $item['link_title'] .= ' (' . $language->prefix . ')';
-        }
-        $mlid = menu_link_save($item);
-
-        $child_weight = 0;
-        foreach ($children as $child) {
-          $item = array(
-            'link_title' => t($child),
-            'link_path' => '<front>',
-            'menu_name' => $menu_name,
-            'weight' => $child_weight++,
-            'language'  => $langcode,
-            'plid' => $mlid,
-          );
-          if ($language->language != $language_default->language) {
-            $item['link_title'] .= ' (' . $language->prefix . ')';
-          }
-          menu_link_save($item);
-        }
-      }
+      gtk_save_menu_link($language, $langcode, $main_menu, $main_menu_defaults);
+      // TODO make translation sets.
     }
   }
 
   menu_rebuild();
+}
+
+/**
+ * Saves menu links.
+ */
+function gtk_save_menu_link($language, $langcode, $main_menu, $main_menu_defaults, $plid = 0) {
+  $weight = 0;
+  foreach ($main_menu as $item) {
+      if ($language->language != language_default()->language) {
+        $item['link_title'] .= ' (' . $language->prefix . ')';
+      }
+      $menu_item = $item + $main_menu_defaults + array('language' => $langcode, 'weight' => $weight, 'plid' => $plid);
+      menu_link_save($menu_item);
+      if (isset($item['children'])) {
+        gtk_save_menu_link($language, $langcode, $item['children'], $main_menu_defaults, $menu_item['mlid']);
+      }
+      $weight++;
+    }
 }
 
 /**

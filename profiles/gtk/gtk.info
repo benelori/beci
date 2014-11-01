@@ -25,6 +25,7 @@ dependencies[] = file
 dependencies[] = rdf
 dependencies[] = locale
 dependencies[] = translation
+dependencies[] = variable
 dependencies[] = entity
 dependencies[] = ctools
 dependencies[] = features
@@ -61,11 +62,15 @@ dependencies[] = i18n_sync
 dependencies[] = i18n_field
 dependencies[] = xmlsitemap
 dependencies[] = xmlsitemap_node
+dependencies[] = superfish
 
 ; List of custom modules.
 
 ; List of features.
+dependencies[] = gtk_f_general_settings
+dependencies[] = gtk_f_block_settings
 
 ; List of development modules.
 dependencies[] = module_filter
+dependencies[] = devel
 

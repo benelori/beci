@@ -78,6 +78,7 @@ function bootstrap_business_preprocess_html(&$variables) {
 		array('type' => 'inline', 'scope' => 'header'));
 	}
 	//EOF:Javascript
+  drupal_add_css(path_to_theme() . '/css/custom.css');
 }
 
 /**
