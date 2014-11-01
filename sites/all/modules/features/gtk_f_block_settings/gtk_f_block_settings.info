@@ -1,0 +1,8 @@
+name = GTK Block Settings
+description = Feature that contains block settings.
+core = 7.x
+package = GTK
+dependencies[] = fe_block
+dependencies[] = superfish
+features[fe_block_settings][] = superfish-1
+features[features_api][] = api:2
