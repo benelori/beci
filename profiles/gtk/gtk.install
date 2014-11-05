@@ -13,8 +13,6 @@
  * @see system_install()
  */
 function gtk_install() {
-  // Add text formats.
-  gtk_add_text_formats();
   // Add custom languages.
   gtk_add_custom_languages();
   // Create administrator account.
@@ -27,7 +25,6 @@ function gtk_install() {
   gtk_set_variables();
   // Creates main-menu items.
   gtk_create_main_menu_items();
-  // Creates Autopromo block.
   // Enable modules.
   gtk_enable_modules();
   // Download and import translations.
@@ -96,86 +93,6 @@ function gtk_set_language_detection() {
   $providers_weight[DEFAULT_LANGUAGE_NEGOTIATION_FALLBACK] = -20;
   $providers_weight[LOCALE_LANGUAGE_NEGOTIATION_URL] = -19;
   variable_set("locale_language_providers_weight_" . LANGUAGE_TYPE_CONTENT, $providers_weight);
-}
-
-/**
- * Adds text formats.
- */
-function gtk_add_text_formats() {
-  $filtered_html_format = array(
-    'format' => 'filtered_html',
-    'name' => 'Filtered HTML',
-    'weight' => 0,
-    'filters' => array(
-      // URL filter.
-      'filter_url' => array(
-        'weight' => 1,
-        'status' => 1,
-      ),
-      // HTML filter.
-      'filter_html' => array(
-        'weight' => 1,
-        'status' => 1,
-        'settings' => array(
-          'allowed_html' => '<a> <em> <strong> <cite> <blockquote> <code> <ul> <ol> <li> <dl> <dt> <dd> <p> <u>',
-          'filter_html_help' => 1,
-          'filter_html_nofollow' => 0,
-        ),
-      ),
-      // Line break filter.
-      'filter_autop' => array(
-        'weight' => 2,
-        'status' => 1,
-      ),
-      // HTML corrector filter.
-      'filter_htmlcorrector' => array(
-        'weight' => 10,
-        'status' => 1,
-      ),
-    ),
-  );
-  $filtered_html_format = (object) $filtered_html_format;
-  filter_format_save($filtered_html_format);
-
-  $full_html_format = array(
-    'format' => 'full_html',
-    'name' => 'Full HTML',
-    'weight' => 0,
-    'filters' => array(
-      // URL filter.
-      'filter_url' => array(
-        'weight' => 0,
-        'status' => 1,
-      ),
-      // Line break filter.
-      'filter_autop' => array(
-        'weight' => 1,
-        'status' => 1,
-      ),
-      // HTML corrector filter.
-      'filter_htmlcorrector' => array(
-        'weight' => 10,
-        'status' => 1,
-      ),
-    ),
-  );
-  $full_html_format = (object) $full_html_format;
-  filter_format_save($full_html_format);
-
-  // Enable default permissions for system roles.
-  $filtered_html_permission = filter_permission_name($filtered_html_format);
-  user_role_grant_permissions(DRUPAL_ANONYMOUS_RID, array(
-    'access content',
-    'access comments',
-    $filtered_html_permission
-  ));
-  user_role_grant_permissions(DRUPAL_AUTHENTICATED_RID, array(
-    'access content',
-    'access comments',
-    'post comments',
-    'skip comment approval',
-    $filtered_html_permission
-  ));
 }
 
 /**

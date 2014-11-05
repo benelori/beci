@@ -1,0 +1,128 @@
+<?php
+
+/**
+ * @file
+ * Update functions for the gtk_updates module.
+ */
+
+/**
+ * Reverts all the components of the given features.
+ * @param $modules
+ *  An array of features to be reverted. The key is the features name and an
+ * array for each component which needs to be reverted.
+ */
+function gtk_updates_features_revert($modules) {
+  $items = array();
+  // Process modules.
+  foreach ($modules as $module => $components_needed) {
+    if (($feature = feature_load($module, TRUE)) && module_exists($module)) {
+      $components = array();
+      // Forcefully revert all components of a feature.
+      foreach (array_keys($feature->info['features']) as $component) {
+        if (features_hook($component, 'features_revert')) {
+          $components[] = $component;
+        }
+      }
+
+      if (!empty($components_needed) && is_array($components_needed)) {
+        $components = array_intersect($components, $components_needed);
+      }
+      if (!empty($components)) {
+        $items[$module] = $components;
+      }
+    }
+  }
+
+  if (!empty($items)) {
+    features_revert($items);
+  }
+}
+
+/**
+ * Adds url alias.
+ */
+function gtk_updates_add_url_alias() {
+  $url_alias = array();
+
+  // List of "ro" aliases.
+  $url_alias['ro'] = array(
+    array(
+      'source' => 'resources',
+      'alias' => 'resurse',
+    ),
+    array(
+      'source' => 'about-us',
+      'alias' => 'despre-noi',
+    ),
+    array(
+      'source' => 'get-involved',
+      'alias' => 'implicate',
+    ),
+    array(
+      'source' => 'partners',
+      'alias' => 'parteneri',
+    ),
+    array(
+      'source' => 'prizes',
+      'alias' => 'premii',
+    ),
+    array(
+      'source' => 'research-and-studies',
+      'alias' => 'cercetare-si-studiu',
+    ),
+    array(
+      'source' => 'testimonials',
+      'alias' => 'ce-spun-oamenii-despre-noi',
+    ),
+  );
+
+  // List of "en" aliases.
+  $url_alias['en'] = array(
+    array(
+      'source' => 'resources',
+      'alias' => 'resources',
+    ),
+    array(
+      'source' => 'about-us',
+      'alias' => 'about-us',
+    ),
+    array(
+      'source' => 'about-us',
+      'alias' => 'about-us',
+    ),
+    array(
+      'source' => 'get-involved',
+      'alias' => 'get-involved',
+    ),
+    array(
+      'source' => 'partners',
+      'alias' => 'partners',
+    ),
+    array(
+      'source' => 'prizes',
+      'alias' => 'prizes',
+    ),
+    array(
+      'source' => 'research-and-studies',
+      'alias' => 'research-and-studies',
+    ),
+    array(
+      'source' => 'testimonials',
+      'alias' => 'testimonials',
+    ),
+  );
+
+  // Create the listed aliases for the corresponding language.
+  foreach ($url_alias as $language_code => $aliases) {
+    foreach ($aliases as $alias) {
+      // Insert the new alias in the url_alias table.
+      db_insert('url_alias')
+        ->fields(array(
+          'source' => $alias['source'],
+          'alias' => $alias['alias'],
+          'language' => $language_code,
+        ))
+        ->execute();
+    }
+  }
+}
