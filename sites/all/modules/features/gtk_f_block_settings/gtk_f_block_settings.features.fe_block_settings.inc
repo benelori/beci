@@ -40,5 +40,33 @@ function gtk_f_block_settings_default_fe_block_settings() {
     'visibility' => 0,
   );
 
+  $export['views-blog_posts-block_homepage'] = array(
+    'cache' => -1,
+    'custom' => 0,
+    'delta' => 'blog_posts-block_homepage',
+    'i18n_block_language' => array(),
+    'i18n_mode' => 0,
+    'module' => 'views',
+    'node_types' => array(),
+    'pages' => '',
+    'roles' => array(),
+    'themes' => array(
+      'bootstrap_business' => array(
+        'region' => 'content',
+        'status' => 1,
+        'theme' => 'bootstrap_business',
+        'weight' => 0,
+      ),
+      'seven' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'seven',
+        'weight' => 0,
+      ),
+    ),
+    'title' => '',
+    'visibility' => 0,
+  );
+
   return $export;
 }

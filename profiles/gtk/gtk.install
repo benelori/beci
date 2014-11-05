@@ -152,6 +152,9 @@ function gtk_create_main_menu_items($language_list = array()) {
 
   $main_menu = array(
     array(
+      'link_title' => t('News'),
+    ),
+    array(
       'link_title' => t('About Us'),
       'children' => array(
         array(
@@ -161,10 +164,13 @@ function gtk_create_main_menu_items($language_list = array()) {
           'link_title' => t('Activities'),
         ),
         array(
-          'link_title' => t('Membership Statuses'),
+          'link_title' => t('Results'),
         ),
         array(
           'link_title' => t('Highschool Program'),
+        ),
+        array(
+          'link_title' => t('Antal Zsolt Foundation'),
         ),
       ),
     ),
@@ -177,24 +183,44 @@ function gtk_create_main_menu_items($language_list = array()) {
         array(
           'link_title' => t('Members'),
         ),
+        array(
+          'link_title' => t('Membership Statuses'),
+        ),
+        array(
+          'link_title' => t('Membership Application'),
+        ),
       ),
     ),
     array(
-      'link_title' => t('Partners'),
+      'link_title' => t('Support'),
       'children' => array(
+        array(
+          'link_title' => t('Partners'),
+        ),
         array(
           'link_title' => t('Organizations'),
         ),
         array(
-          'link_title' => t('Invited Lecturers'),
+          'link_title' => t('Support Us!'),
         ),
       ),
     ),
     array(
-      'link_title' => t('Results'),
+      'link_title' => t('Invited Lecturers'),
     ),
     array(
-      'link_title' => t('Images'),
+      'link_title' => t('Media Gallery'),
+      'children' => array(
+        array(
+          'link_title' => t('Photos'),
+        ),
+        array(
+          'link_title' => t('Videos'),
+        ),
+      ),
+    ),
+    array(
+      'link_title' => t('Contact'),
     ),
   );
 
@@ -202,7 +228,7 @@ function gtk_create_main_menu_items($language_list = array()) {
   foreach ($languages as $langcode => $language) {
     if ($language->enabled) {
       gtk_save_menu_link($language, $langcode, $main_menu, $main_menu_defaults);
-      // TODO make translation sets.
+      // TODO make translation sets and generate multilingual text with adding langcode param to t().
     }
   }
 

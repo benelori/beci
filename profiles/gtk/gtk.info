@@ -65,6 +65,7 @@ dependencies[] = xmlsitemap_node
 dependencies[] = superfish
 dependencies[] = ckeditor
 dependencies[] = inline_entity_form
+dependencies[] = backup_migrate
 
 ; List of custom modules.
 
@@ -73,8 +74,9 @@ dependencies[] = gtk_f_general_settings
 dependencies[] = gtk_f_block_settings
 dependencies[] = gtk_f_content_types
 dependencies[] = gtk_f_text_formats
+dependencies[] = gtk_f_blog_posts_view
 
 ; List of development modules.
 dependencies[] = module_filter
 dependencies[] = devel
-
+dependencies[] = diff
