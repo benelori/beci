@@ -4,5 +4,7 @@ core = 7.x
 package = GTK
 dependencies[] = fe_block
 dependencies[] = superfish
+dependencies[] = views
 features[fe_block_settings][] = superfish-1
+features[fe_block_settings][] = views-blog_posts-block_homepage
 features[features_api][] = api:2
