@@ -121,7 +121,7 @@ function gtk_create_administrator() {
 function gtk_manage_themes() {
   // Enable the admin and gtk_theme themes.
   $theme_enable = array(
-    'theme_default' => 'bootstrap_business',
+    'theme_default' => 'gtk',
     'admin_theme' => variable_get('admin_theme', 'seven'),
   );
   theme_enable($theme_enable);
@@ -178,13 +178,19 @@ function gtk_create_main_menu_items($language_list = array()) {
       'link_title' => t('Members'),
       'children' => array(
         array(
+          'link_title' => t('Membership Statuses'),
+        ),
+        array(
           'link_title' => t('Coordinators'),
         ),
         array(
           'link_title' => t('Members'),
         ),
         array(
-          'link_title' => t('Membership Statuses'),
+          'link_title' => t('Alumni'),
+        ),
+        array(
+          'link_title' => t('Highschool Alumni'),
         ),
         array(
           'link_title' => t('Membership Application'),

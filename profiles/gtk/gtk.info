@@ -66,8 +66,12 @@ dependencies[] = superfish
 dependencies[] = ckeditor
 dependencies[] = inline_entity_form
 dependencies[] = backup_migrate
+dependencies[] = views_slideshow
+dependencies[] = views_slideshow_cycle
 
 ; List of custom modules.
+dependencies[] = gtk_general
+dependencies[] = gtk_updates
 
 ; List of features.
 dependencies[] = gtk_f_general_settings

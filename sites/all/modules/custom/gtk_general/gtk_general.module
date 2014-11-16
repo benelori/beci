@@ -1,0 +1,53 @@
+<?php
+
+/**
+ * Implements hook_block_info().
+ */
+function gtk_general_block_info() {
+  return array(
+    'membership_application' => array(
+      'info' => t('GTK Membership Application'),
+      'cache' => DRUPAL_NO_CACHE,
+    ),
+    'support' => array(
+      'info' => t('GTK Support Us'),
+      'cache' => DRUPAL_NO_CACHE,
+    ),
+  );
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function gtk_general_block_view($delta = '') {
+  $block = array();
+
+  switch ($delta) {
+    case 'membership_application':
+
+      $query = db_select('node', 'n');
+
+      $query->join('field_data_field_image', 'i', 'n.nid = i.entity_id');
+      $query->join('field_data_field_simple_pages', 's', 'n.nid = s.entity_id');
+
+      $query ->condition('s.field_simple_pages_value', 'Application', '=');
+
+      $query->fields('i');
+
+      $result = $query->execute()->fetchAll();
+      $url = '';
+      if (!empty($result)) {
+        $image = file_load($result[0]->field_image_fid);
+        $url = file_create_url($image->uri);
+      }
+      $block['content'] = '<img src="' . $url . '"/>';
+
+      break;
+
+    case 'support':
+
+      $block['content'] = l('Support Us', 'content/support-us');
+      break;
+  }
+  return $block;
+}

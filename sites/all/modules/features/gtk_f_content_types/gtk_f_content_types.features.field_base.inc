@@ -37,6 +37,32 @@ function gtk_f_content_types_field_default_field_bases() {
     'type' => 'text_long',
   );
 
+  // Exported field_base: 'field_homepage'
+  $field_bases['field_homepage'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_homepage',
+    'foreign keys' => array(),
+    'indexes' => array(
+      'value' => array(
+        0 => 'value',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'list',
+    'settings' => array(
+      'allowed_values' => array(
+        0 => '',
+        1 => '',
+      ),
+      'allowed_values_function' => '',
+    ),
+    'translatable' => 0,
+    'type' => 'list_boolean',
+  );
+
   // Exported field_base: 'field_image'
   $field_bases['field_image'] = array(
     'active' => 1,
@@ -192,13 +218,40 @@ function gtk_f_content_types_field_default_field_bases() {
     'type' => 'image',
   );
 
-  // Exported field_base: 'field_subtitle'
-  $field_bases['field_subtitle'] = array(
+  // Exported field_base: 'field_simple_pages'
+  $field_bases['field_simple_pages'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_subtitle',
+    'field_name' => 'field_simple_pages',
+    'foreign keys' => array(),
+    'indexes' => array(
+      'value' => array(
+        0 => 'value',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'list',
+    'settings' => array(
+      'allowed_values' => array(
+        'Application' => 'Application',
+        'Foundation' => 'Foundation',
+        'Support' => 'Support',
+      ),
+      'allowed_values_function' => '',
+    ),
+    'translatable' => 0,
+    'type' => 'list_text',
+  );
+
+  // Exported field_base: 'field_summary'
+  $field_bases['field_summary'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_summary',
     'foreign keys' => array(
       'format' => array(
         'columns' => array(
@@ -214,11 +267,9 @@ function gtk_f_content_types_field_default_field_bases() {
     ),
     'locked' => 0,
     'module' => 'text',
-    'settings' => array(
-      'max_length' => 255,
-    ),
+    'settings' => array(),
     'translatable' => 0,
-    'type' => 'text',
+    'type' => 'text_long',
   );
 
   // Exported field_base: 'title_field'
