@@ -68,6 +68,7 @@ dependencies[] = inline_entity_form
 dependencies[] = backup_migrate
 dependencies[] = views_slideshow
 dependencies[] = views_slideshow_cycle
+dependencies[] = conditional_fields
 
 ; List of custom modules.
 dependencies[] = gtk_general
