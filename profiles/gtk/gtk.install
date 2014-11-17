@@ -121,7 +121,7 @@ function gtk_create_administrator() {
 function gtk_manage_themes() {
   // Enable the admin and gtk_theme themes.
   $theme_enable = array(
-    'theme_default' => 'gtk',
+    'theme_default' => 'bootstrap_business',
     'admin_theme' => variable_get('admin_theme', 'seven'),
   );
   theme_enable($theme_enable);

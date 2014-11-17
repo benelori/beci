@@ -29,6 +29,12 @@ function gtk_f_block_settings_default_fe_block_settings() {
         'theme' => 'bootstrap_business',
         'weight' => 0,
       ),
+      'gtk' => array(
+        'region' => 'navigation',
+        'status' => 1,
+        'theme' => 'gtk',
+        'weight' => 0,
+      ),
       'seven' => array(
         'region' => '',
         'status' => 0,
@@ -52,9 +58,15 @@ function gtk_f_block_settings_default_fe_block_settings() {
     'roles' => array(),
     'themes' => array(
       'bootstrap_business' => array(
-        'region' => 'content',
+        'region' => 'content_home',
         'status' => 1,
         'theme' => 'bootstrap_business',
+        'weight' => 0,
+      ),
+      'gtk' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'gtk',
         'weight' => 0,
       ),
       'seven' => array(

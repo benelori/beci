@@ -19,6 +19,7 @@ regions[banner] = Banner
 regions[highlighted] = Highlighted
 regions[promoted] = Promoted
 regions[content] = Content
+regions[content_home] = Home Page Content
 regions[sidebar_first] = Sidebar First
 regions[sidebar_second] = Sidebar Second
 regions[bottom_content] = Bottom Content

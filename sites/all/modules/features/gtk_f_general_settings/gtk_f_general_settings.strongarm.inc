@@ -13,10 +13,17 @@ function gtk_f_general_settings_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'admin_theme';
+  $strongarm->value = 'seven';
+  $export['admin_theme'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'color_bootstrap_business_files';
   $strongarm->value = array(
-    0 => 'public://color/bootstrap_business-af946996/logo.png',
-    1 => 'public://color/bootstrap_business-af946996/colors.css',
+    0 => 'public://color/bootstrap_business-04e04e92/logo.png',
+    1 => 'public://color/bootstrap_business-04e04e92/colors.css',
   );
   $export['color_bootstrap_business_files'] = $strongarm;
 
@@ -24,7 +31,7 @@ function gtk_f_general_settings_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'color_bootstrap_business_logo';
-  $strongarm->value = 'public://color/bootstrap_business-af946996/logo.png';
+  $strongarm->value = 'public://color/bootstrap_business-04e04e92/logo.png';
   $export['color_bootstrap_business_logo'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -43,9 +50,16 @@ function gtk_f_general_settings_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'color_bootstrap_business_stylesheets';
   $strongarm->value = array(
-    0 => 'public://color/bootstrap_business-af946996/colors.css',
+    0 => 'public://color/bootstrap_business-04e04e92/colors.css',
   );
   $export['color_bootstrap_business_stylesheets'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_node_pattern';
+  $strongarm->value = '[node:title]';
+  $export['pathauto_node_pattern'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
