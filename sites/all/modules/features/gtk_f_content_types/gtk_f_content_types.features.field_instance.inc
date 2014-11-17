@@ -22,7 +22,7 @@ function gtk_f_content_types_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 2,
+        'weight' => 1,
       ),
       'teaser' => array(
         'label' => 'hidden',
@@ -36,7 +36,7 @@ function gtk_f_content_types_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_body',
-    'label' => 'Body',
+    'label' => 'Content',
     'required' => 1,
     'settings' => array(
       'text_processing' => 1,
@@ -50,6 +50,48 @@ function gtk_f_content_types_field_default_field_instances() {
       ),
       'type' => 'text_textarea',
       'weight' => 4,
+    ),
+  );
+
+  // Exported field_instance: 'node-gtk_blog_post-field_homepage'
+  $field_instances['node-gtk_blog_post-field_homepage'] = array(
+    'bundle' => 'gtk_blog_post',
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
+    'deleted' => 0,
+    'description' => 'Enable this to put this blog post into the homepage slideshow.',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 3,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_homepage',
+    'label' => 'Homepage',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'display_label' => 1,
+      ),
+      'type' => 'options_onoff',
+      'weight' => 5,
     ),
   );
 
@@ -67,7 +109,7 @@ function gtk_f_content_types_field_default_field_instances() {
           'image_style' => '',
         ),
         'type' => 'image',
-        'weight' => 1,
+        'weight' => 0,
       ),
       'teaser' => array(
         'label' => 'hidden',
@@ -103,52 +145,46 @@ function gtk_f_content_types_field_default_field_instances() {
         'progress_indicator' => 'throbber',
       ),
       'type' => 'image_image',
-      'weight' => 3,
+      'weight' => 2,
     ),
   );
 
-  // Exported field_instance: 'node-gtk_blog_post-field_subtitle'
-  $field_instances['node-gtk_blog_post-field_subtitle'] = array(
+  // Exported field_instance: 'node-gtk_blog_post-field_summary'
+  $field_instances['node-gtk_blog_post-field_summary'] = array(
     'bundle' => 'gtk_blog_post',
     'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'hidden',
-        'module' => 'text',
+        'label' => 'above',
         'settings' => array(),
-        'type' => 'text_default',
-        'weight' => 0,
+        'type' => 'hidden',
+        'weight' => 2,
       ),
       'teaser' => array(
-        'label' => 'hidden',
-        'module' => 'title',
-        'settings' => array(
-          'title_class' => '',
-          'title_link' => '',
-          'title_style' => '',
-        ),
-        'type' => 'title_linked',
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
         'weight' => 0,
       ),
     ),
     'entity_type' => 'node',
-    'field_name' => 'field_subtitle',
-    'label' => 'Subtitle',
+    'field_name' => 'field_summary',
+    'label' => 'Summary',
     'required' => 0,
     'settings' => array(
-      'text_processing' => 0,
+      'text_processing' => 1,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
       'active' => 1,
       'module' => 'text',
       'settings' => array(
-        'size' => 60,
+        'rows' => 5,
       ),
-      'type' => 'text_textfield',
-      'weight' => 2,
+      'type' => 'text_textarea',
+      'weight' => 3,
     ),
   );
 
@@ -189,6 +225,88 @@ function gtk_f_content_types_field_default_field_instances() {
       ),
       'type' => 'text_textarea',
       'weight' => 2,
+    ),
+  );
+
+  // Exported field_instance: 'node-gtk_simple_page-field_image'
+  $field_instances['node-gtk_simple_page-field_image'] = array(
+    'bundle' => 'gtk_simple_page',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 2,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_image',
+    'label' => 'Image',
+    'required' => 0,
+    'settings' => array(
+      'alt_field' => 0,
+      'default_image' => 0,
+      'file_directory' => '',
+      'file_extensions' => 'png gif jpg jpeg',
+      'max_filesize' => '',
+      'max_resolution' => '',
+      'min_resolution' => '',
+      'title_field' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'image',
+      'settings' => array(
+        'preview_image_style' => 'thumbnail',
+        'progress_indicator' => 'throbber',
+      ),
+      'type' => 'image_image',
+      'weight' => 3,
+    ),
+  );
+
+  // Exported field_instance: 'node-gtk_simple_page-field_simple_pages'
+  $field_instances['node-gtk_simple_page-field_simple_pages'] = array(
+    'bundle' => 'gtk_simple_page',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 1,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_simple_pages',
+    'label' => 'Simple Pages',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_buttons',
+      'weight' => 7,
     ),
   );
 
@@ -517,14 +635,18 @@ function gtk_f_content_types_field_default_field_instances() {
   // Translatables
   // Included for use with string extractors like potx.
   t('Body');
+  t('Content');
   t('Description');
+  t('Enable this to put this blog post into the homepage slideshow.');
+  t('Homepage');
   t('Image');
   t('Membership');
   t('Name');
   t('Organization Link');
   t('Organization Logo');
   t('Person Image');
-  t('Subtitle');
+  t('Simple Pages');
+  t('Summary');
 
   return $field_instances;
 }

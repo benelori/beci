@@ -230,6 +230,9 @@ function gtk_f_content_types_strongarm() {
       'token' => array(
         'custom_settings' => FALSE,
       ),
+      'diff_standard' => array(
+        'custom_settings' => FALSE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(
@@ -237,22 +240,22 @@ function gtk_f_content_types_strongarm() {
           'weight' => '0',
         ),
         'metatags' => array(
-          'weight' => '7',
+          'weight' => '8',
         ),
         'title' => array(
           'weight' => '1',
         ),
         'path' => array(
-          'weight' => '6',
+          'weight' => '7',
         ),
         'xmlsitemap' => array(
-          'weight' => '5',
+          'weight' => '6',
         ),
       ),
       'display' => array(
         'language' => array(
           'default' => array(
-            'weight' => '3',
+            'weight' => '4',
             'visible' => FALSE,
           ),
           'teaser' => array(
@@ -289,6 +292,9 @@ function gtk_f_content_types_strongarm() {
       'token' => array(
         'custom_settings' => FALSE,
       ),
+      'diff_standard' => array(
+        'custom_settings' => FALSE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(
@@ -296,22 +302,22 @@ function gtk_f_content_types_strongarm() {
           'weight' => '0',
         ),
         'metatags' => array(
-          'weight' => '5',
+          'weight' => '6',
         ),
         'title' => array(
           'weight' => '1',
         ),
         'path' => array(
-          'weight' => '3',
+          'weight' => '4',
         ),
         'xmlsitemap' => array(
-          'weight' => '4',
+          'weight' => '5',
         ),
       ),
       'display' => array(
         'language' => array(
           'default' => array(
-            'weight' => '1',
+            'weight' => '3',
             'visible' => FALSE,
           ),
         ),
@@ -500,14 +506,18 @@ function gtk_f_content_types_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'node_options_gtk_blog_post';
-  $strongarm->value = array();
+  $strongarm->value = array(
+    0 => 'status',
+  );
   $export['node_options_gtk_blog_post'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'node_options_gtk_simple_page';
-  $strongarm->value = array();
+  $strongarm->value = array(
+    0 => 'status',
+  );
   $export['node_options_gtk_simple_page'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -556,14 +566,14 @@ function gtk_f_content_types_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'node_submitted_gtk_blog_post';
-  $strongarm->value = 1;
+  $strongarm->value = 0;
   $export['node_submitted_gtk_blog_post'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'node_submitted_gtk_simple_page';
-  $strongarm->value = 1;
+  $strongarm->value = 0;
   $export['node_submitted_gtk_simple_page'] = $strongarm;
 
   $strongarm = new stdClass();

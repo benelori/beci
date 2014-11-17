@@ -1,0 +1,4 @@
+name = GTK General
+description = This module contains general jook imlpementations.
+core = 7.x
+package = GTK
