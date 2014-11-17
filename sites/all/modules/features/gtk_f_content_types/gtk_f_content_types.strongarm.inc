@@ -413,6 +413,81 @@ function gtk_f_content_types_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'i18n_node_extended_gtk_blog_post';
+  $strongarm->value = '1';
+  $export['i18n_node_extended_gtk_blog_post'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'i18n_node_extended_gtk_simple_page';
+  $strongarm->value = '1';
+  $export['i18n_node_extended_gtk_simple_page'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'i18n_node_extended_organizations';
+  $strongarm->value = '1';
+  $export['i18n_node_extended_organizations'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'i18n_node_options_gtk_blog_post';
+  $strongarm->value = array(
+    0 => 'current',
+    1 => 'required',
+    2 => 'lock',
+  );
+  $export['i18n_node_options_gtk_blog_post'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'i18n_node_options_gtk_simple_page';
+  $strongarm->value = array(
+    0 => 'current',
+    1 => 'required',
+    2 => 'lock',
+  );
+  $export['i18n_node_options_gtk_simple_page'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'i18n_node_options_organizations';
+  $strongarm->value = array(
+    0 => 'current',
+    1 => 'required',
+    2 => 'lock',
+  );
+  $export['i18n_node_options_organizations'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'i18n_sync_node_type_gtk_blog_post';
+  $strongarm->value = array();
+  $export['i18n_sync_node_type_gtk_blog_post'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'i18n_sync_node_type_gtk_simple_page';
+  $strongarm->value = array();
+  $export['i18n_sync_node_type_gtk_simple_page'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'i18n_sync_node_type_organizations';
+  $strongarm->value = array();
+  $export['i18n_sync_node_type_organizations'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'language_content_type_gtk_blog_post';
   $strongarm->value = '2';
   $export['language_content_type_gtk_blog_post'] = $strongarm;
