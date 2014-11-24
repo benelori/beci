@@ -386,16 +386,16 @@ function gtk_f_content_types_strongarm() {
           'weight' => '0',
         ),
         'metatags' => array(
-          'weight' => '7',
+          'weight' => '8',
         ),
         'title' => array(
           'weight' => '-5',
         ),
         'path' => array(
-          'weight' => '6',
+          'weight' => '7',
         ),
         'xmlsitemap' => array(
-          'weight' => '5',
+          'weight' => '6',
         ),
       ),
       'display' => array(
@@ -606,7 +606,9 @@ function gtk_f_content_types_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'node_options_person';
-  $strongarm->value = array();
+  $strongarm->value = array(
+    0 => 'status',
+  );
   $export['node_options_person'] = $strongarm;
 
   $strongarm = new stdClass();
