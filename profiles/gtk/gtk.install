@@ -139,6 +139,7 @@ function gtk_manage_themes() {
 function gtk_set_variables() {
   // Sets jquery version to 1.8.
   variable_set('jquery_update_jquery_version', '1.8');
+  variable_set('node_admin_theme', 1);
 }
 
 /**
@@ -345,162 +346,33 @@ function idtgv_import_l10n_update_create_batch($operations = array()) {
  * Creates taxonomy terms.
  */
 function gtk_create_taxonomy($language_list = array()) {
-//  // Initializes array.
-//  $taxonomy_data = array();
-//  // Basic taxonomy information.
-//  $vocabulary = array(
-//    'idservices_category' => array(
-//      array(
-//        'name' => 'Les iDServices + a la carte',
-//        'fields' => array(
-//          'field_image' => 'a_la_carte.png',
-//        ),
-//      ),
-//      array(
-//        'name' => 'Les iDServices Gratuits Qui Comptent',
-//        'fields' => array(
-//          'field_image' => 'gratuits_qui_copmtent.png',
-//        ),
-//      ),
-//      array(
-//        'name' => 'Les iDServices Qui Facilitent la Vie',
-//        'fields' => array(
-//          'field_image' => 'facilitent_la_vie.png',
-//        ),
-//      ),
-//    ),
-//    'idservices_type' => array(
-//      array(
-//        'name' => 'Service +',
-//        'fields' => array(
-//          'field_type' => 'plus',
-//        ),
-//      ),
-//      array(
-//        'name' => 'Gratuit',
-//        'fields' => array(
-//          'field_type' => 'free',
-//        ),
-//      ),
-//    ),
-//    'idestinations_category' => array(
-//      array(
-//        'name' => 'iDPlage',
-//        'fields' => array(
-//          'field_icon' => 'sun',
-//        ),
-//      ),
-//      array(
-//        'name' => 'iDNeige',
-//        'fields' => array(
-//          'field_icon' => 'snow',
-//        ),
-//      ),
-//    ),
-//    'idestinations_journey_mode' => array(
-//      array(
-//        'name' => 'Train',
-//        'translatable' => FALSE,
-//      ),
-//      array(
-//        'name' => 'Bus',
-//        'translatable' => FALSE,
-//      ),
-//      array(
-//        'name' => 'Bateau',
-//        'translatable' => FALSE,
-//      ),
-//    ),
-//  );
-//  // Sets basic taxonomy information.
-//  $languages = gtk_language_list($language_list);
-//  foreach ($vocabulary as $vocabulary_name => $terms) {
-//    foreach ($terms as $key => $term_data) {
-//      if (isset($term_data['translatable']) && ($term_data['translatable'] == FALSE)) {
-//        $taxonomy_data[$vocabulary_name][$key][LANGUAGE_NONE] = array(
-//            'name' => $term_data['name'],
-//          ) + $term_data;
-//      }
-//      else {
-//        foreach ($languages as $langcode => $language) {
-//          if ($language->enabled) {
-//            if ($language->language != language_default()->language) {
-//              $taxonomy_data[$vocabulary_name][$key][$langcode] = array(
-//                  'name' => $term_data['name'] . ' (' . $language->name . ')',
-//                ) + $term_data;
-//            }
-//            else {
-//              $taxonomy_data[$vocabulary_name][$key][$langcode] = array(
-//                  'name' => $term_data['name'],
-//                ) + $term_data;
-//            }
-//          }
-//        }
-//      }
-//    }
-//  }
-//  // Saves taxonomy.
-//  gtk_save_taxonomy($taxonomy_data);
-}
-
-/**
- * Helper function that saves taxonomy.
- */
-function gtk_save_taxonomy($taxonomy_data) {
-  // Sets destination directory for image upload.
-  $directory = file_default_scheme() . '://';
+  // Basic taxonomy information.
+  $taxonomy_data = array(
+    'type_of_person' => array(
+      'member' => t('Member'),
+      'lecturer' => t('Lecturer'),
+      'alumni' => t('Alumni'),
+      'highschool_alumni' => t('Highschool Alumni'),
+    ),
+    'membership' => array(
+      'junior' => t('Junior'),
+      'senior' => t('Senior'),
+    ),
+  );
   foreach ($taxonomy_data as $vocabulary => $term_data) {
-    // Loads destination vocabulary of the taxonomy term.
     if ($destinations_vocabulary = taxonomy_vocabulary_machine_name_load($vocabulary)) {
       // Loops through every term group. A term group is an array of terms that
       // belong to one translation set.
-      foreach ($term_data as $weight => $term_group) {
+      foreach ($term_data as $name) {
         // Creates translation set.
-        $translation_set = i18n_translation_set_create('taxonomy_term', $vocabulary);
-
-        foreach ($term_group as $langcode => $term) {
-          $new_term = new stdClass();
-          $new_term->language = $langcode;
-          $new_term->vid = $destinations_vocabulary->vid;
-          $new_term->name = $term['name'];
-          $new_term->weight = $weight;
-          $new_term->i18n_tsid = $translation_set->tsid;
-          // Checks existence of field information.
-          if (!empty($term['fields'])) {
-            foreach ($term['fields'] as $field_name => $value) {
-              switch ($field_name) {
-                case 'field_image':
-                  $image = (array)file_save_data(
-                    file_get_contents(drupal_get_path('profile', 'gtk') . '/img/' . $value),
-                    file_stream_wrapper_uri_normalize($directory),
-                    FILE_EXISTS_RENAME);
-                  // If file was successfully uploaded, save the file into the image
-                  // field of the taxonomy term.
-                  if ($image != FALSE) {
-                    if ($image) {
-                      $image['alt'] = $term['name'];
-                      $new_term->{$field_name}[LANGUAGE_NONE][0] = $image;
-                    }
-                  }
-                  break;
-                case 'field_type':
-                  $new_term->{$field_name}[LANGUAGE_NONE][0]['value'] = $value;
-                  break;
-                case 'field_icon':
-                  $new_term->{$field_name}[LANGUAGE_NONE][0]['value'] = $value;
-                  break;
-              }
-            }
-          }
-          taxonomy_term_save($new_term);
-        }
+        $new_term = new stdClass();
+        $new_term->vid = $destinations_vocabulary->vid;
+        $new_term->name = $name;
+        taxonomy_term_save($new_term);
       }
     }
   }
 }
-
-
-
 
 /**
  * Imports translation .po file.
