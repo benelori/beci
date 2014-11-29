@@ -80,6 +80,7 @@ dependencies[] = gtk_f_block_settings
 dependencies[] = gtk_f_content_types
 dependencies[] = gtk_f_text_formats
 dependencies[] = gtk_f_blog_posts_view
+dependencies[] = gtk_f_members
 
 ; List of development modules.
 dependencies[] = module_filter
