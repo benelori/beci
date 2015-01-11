@@ -38,9 +38,15 @@ function gtk_f_members_views_default_views() {
   $handler->display->display_options['relationships']['term_node_tid']['field'] = 'term_node_tid';
   $handler->display->display_options['relationships']['term_node_tid']['required'] = TRUE;
   $handler->display->display_options['relationships']['term_node_tid']['vocabularies'] = array(
-    'membership' => 'membership',
     'type_of_person' => 'type_of_person',
+    'blog_categories' => 0,
+    'membership' => 0,
+    'portfolio_category' => 0,
   );
+  /* Relationship: Content: Taxonomy terms on node */
+  $handler->display->display_options['relationships']['term_node_tid_1']['id'] = 'term_node_tid_1';
+  $handler->display->display_options['relationships']['term_node_tid_1']['table'] = 'node';
+  $handler->display->display_options['relationships']['term_node_tid_1']['field'] = 'term_node_tid';
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
@@ -140,6 +146,58 @@ function gtk_f_members_views_default_views() {
   $handler = $view->new_display('page', 'Members', 'page_3');
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['title'] = 'Members';
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['style_options']['grouping'] = array(
+    0 => array(
+      'field' => 'name',
+      'rendered' => 1,
+      'rendered_strip' => 0,
+    ),
+  );
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['relationships'] = FALSE;
+  /* Relationship: Content: Taxonomy terms on node */
+  $handler->display->display_options['relationships']['term_node_tid']['id'] = 'term_node_tid';
+  $handler->display->display_options['relationships']['term_node_tid']['table'] = 'node';
+  $handler->display->display_options['relationships']['term_node_tid']['field'] = 'term_node_tid';
+  $handler->display->display_options['relationships']['term_node_tid']['required'] = TRUE;
+  $handler->display->display_options['relationships']['term_node_tid']['vocabularies'] = array(
+    'type_of_person' => 'type_of_person',
+    'blog_categories' => 0,
+    'membership' => 0,
+    'portfolio_category' => 0,
+  );
+  /* Relationship: Content: Taxonomy terms on node */
+  $handler->display->display_options['relationships']['term_node_tid_1']['id'] = 'term_node_tid_1';
+  $handler->display->display_options['relationships']['term_node_tid_1']['table'] = 'node';
+  $handler->display->display_options['relationships']['term_node_tid_1']['field'] = 'term_node_tid';
+  $handler->display->display_options['relationships']['term_node_tid_1']['label'] = 'Membership';
+  $handler->display->display_options['relationships']['term_node_tid_1']['required'] = TRUE;
+  $handler->display->display_options['relationships']['term_node_tid_1']['vocabularies'] = array(
+    'membership' => 'membership',
+    'blog_categories' => 0,
+    'portfolio_category' => 0,
+    'type_of_person' => 0,
+  );
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  /* Field: Taxonomy term: Name */
+  $handler->display->display_options['fields']['name']['id'] = 'name';
+  $handler->display->display_options['fields']['name']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['fields']['name']['field'] = 'name';
+  $handler->display->display_options['fields']['name']['relationship'] = 'term_node_tid_1';
+  $handler->display->display_options['fields']['name']['label'] = '';
+  $handler->display->display_options['fields']['name']['element_label_colon'] = FALSE;
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filter criterion: Content: Published */
@@ -183,6 +241,7 @@ function gtk_f_members_views_default_views() {
     t('Alumni Members'),
     t('Highschool Alumni'),
     t('Lecturers'),
+    t('Membership'),
   );
   $export['members'] = $view;
 

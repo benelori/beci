@@ -1,0 +1,383 @@
+<?php
+/**
+ * @file
+ * Install, update and uninstall functions for the standard installation profile.
+ */
+
+/**
+ * Implements hook_install().
+ *
+ * Perform actions to set up the site for this profile.
+ *
+ * @see system_install()
+ */
+require_once 'blocks.inc';
+require_once 'menu.inc';
+/**
+ * @throws Exception
+ */
+function drupalexp_yamato_install() {
+	// Add text formats.
+	$filtered_html_format = array(
+		'format' => 'filtered_html',
+		'name' => 'Filtered HTML',
+		'weight' => 0,
+		'filters' => array(
+			// URL filter.
+			'filter_url' => array(
+				'weight' => 0,
+				'status' => 1,
+			),
+			// HTML filter.
+			'filter_html' => array(
+				'weight' => 1,
+				'status' => 1,
+			),
+			// Line break filter.
+			'filter_autop' => array(
+				'weight' => 2,
+				'status' => 1,
+			),
+			// HTML corrector filter.
+			'filter_htmlcorrector' => array(
+				'weight' => 10,
+				'status' => 1,
+			),
+		),
+	);
+	$filtered_html_format = (object) $filtered_html_format;
+	filter_format_save($filtered_html_format);
+
+	$full_html_format = array(
+		'format' => 'full_html',
+		'name' => 'Full HTML',
+		'weight' => 1,
+		'filters' => array(
+			// URL filter.
+			'filter_url' => array(
+				'weight' => 0,
+				'status' => 1,
+			),
+			// Line break filter.
+			'filter_autop' => array(
+				'weight' => 1,
+				'status' => 1,
+			),
+			// HTML corrector filter.
+			'filter_htmlcorrector' => array(
+				'weight' => 10,
+				'status' => 1,
+			),
+		),
+	);
+	$full_html_format = (object) $full_html_format;
+	filter_format_save($full_html_format);
+  $default_theme = 'yamato';
+  $admin_theme = 'seven';
+//	$enable = array(
+//		'theme_default' => $default_theme,
+//		'admin_theme' => $admin_theme,
+//	);
+//	theme_enable($enable);
+//	variable_set('theme_default',$default_theme);
+//	variable_set('admin_theme',$admin_theme);
+  // Enable some standard blocks.
+	$blocks = array(
+    array(
+      'module' => 'node',
+      'delta' => 'recent',
+      'theme' => $admin_theme,
+      'status' => 1,
+      'weight' => 10,
+      'region' => 'dashboard_main',
+      'pages' => '',
+      'cache' => -1,
+    ),
+    array(
+      'module' => 'system',
+      'delta' => 'main',
+      'theme' => $admin_theme,
+      'status' => 1,
+      'weight' => 0,
+      'region' => 'content',
+      'pages' => '',
+      'cache' => -1,
+    ),
+    array(
+      'module' => 'system',
+      'delta' => 'help',
+      'theme' => $admin_theme,
+      'status' => 1,
+      'weight' => 0,
+      'region' => 'help',
+      'pages' => '',
+      'cache' => -1,
+    ),
+    array(
+      'module' => 'user',
+      'delta' => 'login',
+      'theme' => $admin_theme,
+      'status' => 1,
+      'weight' => 10,
+      'region' => 'content',
+      'pages' => '',
+      'cache' => -1,
+    ),
+    array(
+      'module' => 'user',
+      'delta' => 'new',
+      'theme' => $admin_theme,
+      'status' => 1,
+      'weight' => 0,
+      'region' => 'dashboard_sidebar',
+      'pages' => '',
+      'cache' => -1,
+    ),
+    array(
+      'module' => 'search',
+      'delta' => 'form',
+      'theme' => $admin_theme,
+      'status' => 1,
+      'weight' => -10,
+      'region' => 'dashboard_sidebar',
+      'pages' => '',
+      'cache' => -1,
+    ),
+  );
+	drupalexp_profile_blocks($blocks, $default_theme);
+  $query = db_insert('block')->fields(array('module', 'delta', 'theme', 'status', 'weight', 'region', 'pages', 'cache'));
+  foreach ($blocks as $block) {
+    $query->values($block);
+  }
+  $query->execute();
+
+
+  // Enable default permissions for system roles.
+  $filtered_html_permission = filter_permission_name($filtered_html_format);
+  user_role_grant_permissions(DRUPAL_ANONYMOUS_RID, array('access content', 'access comments', $filtered_html_permission));
+  user_role_grant_permissions(DRUPAL_AUTHENTICATED_RID, array('access content', 'access comments', 'post comments', 'skip comment approval', $filtered_html_permission));
+
+  // Create a Home link in the main menu.
+	$items = array(
+		array(
+			'link_title' => st('Home'),
+			'link_path' => '<front>',
+			'menu_name' => 'main-menu',
+			'weight' => 0,
+		),
+	);
+	drupalexp_profile_menu_items($items);
+	foreach($items as $item){
+		menu_link_save($item);
+	}
+  // Update the menu router information.
+  menu_rebuild();
+
+  // Enable the admin theme.
+  db_update('system')
+    ->fields(array('status' => 1))
+    ->condition('type', 'theme')
+    ->condition('name', 'seven')
+    ->execute();
+  variable_set('node_admin_theme', '1');
+	variable_set('jquery_update_jquery_version','1.7');
+  // Add custom languages.
+  gtk_add_custom_languages();
+  // Create administrator account.
+  gtk_create_administrator();
+  // Set theme settings.
+  gtk_manage_themes();
+//  // Sets user interface text and content language detection.
+//  gtk_set_language_detection();
+//  // Set variables.
+//  gtk_set_variables();
+  // Creates main-menu items.
+  gtk_create_main_menu_items();
+  // Enable modules.
+//  gtk_enable_modules();
+//  // Download and import translations.
+//  gtk_import_translations();
+//  // Creates taxonomy terms.
+//  gtk_create_taxonomy();
+//  // Import translations.
+//  gtk_import_custom_translations();
+//  // Sets default account settings configuration.
+//  gtk_set_default_account_settings();
+}
+
+/**
+ *  Adds custom languages.
+ */
+function gtk_add_custom_languages() {
+  // TODO We must check if every language we add below is also selected as
+  // installation language In case we select a language from the ones listed
+  // below we will get an error (duplicate key). Thus only install the site in
+  // english for now.
+  // Add French language and set as default language.
+  locale_add_language($langcode = 'hu', $name ='Hungarian', $native = 'Hungarian', $direction = LANGUAGE_LTR, $domain = '', $prefix = '', $enabled = TRUE);
+  // Add Italian language.
+  locale_add_language($langcode = 'ro', $name = 'Romanian', $native = 'Romanian', $direction = LANGUAGE_LTR, $domain = '', $prefix = 'ro', $enabled = TRUE);
+}
+
+/**
+ * Creates the administrator role.
+ */
+function gtk_create_administrator() {
+  // Create a default role for site administrators, with all available permissions assigned.
+  $admin_role = new stdClass();
+  $admin_role->name = 'administrator';
+  $admin_role->weight = 2;
+  user_role_save($admin_role);
+  user_role_grant_permissions($admin_role->rid, array_keys(module_invoke_all('permission')));
+  // Set this as the administrator role.
+  variable_set('user_admin_role', $admin_role->rid);
+
+  // Assign user 1 the "administrator" role.
+  db_insert('users_roles')->fields(array(
+    'uid' => 1,
+    'rid' => $admin_role->rid
+  ))->execute();
+}
+
+/**
+ * Enable, set default, disable themes.
+ */
+function gtk_manage_themes() {
+  // Enable the admin and gtk_theme themes.
+  $theme_enable = array(
+    'theme_default' => 'yamato',
+    'admin_theme' => variable_get('admin_theme', 'seven'),
+  );
+  theme_enable($theme_enable);
+  foreach ($theme_enable as $var => $theme) {
+    variable_set($var, $theme);
+  }
+
+  // Disable default Bartik theme.
+  theme_disable(array('bartik'));
+}
+
+/**
+ * Creates main-menu items.
+ */
+function gtk_create_main_menu_items($language_list = array()) {
+  $main_menu_defaults = array(
+    'link_path' => '<front>',
+    'menu_name' => 'main-menu',
+  );
+
+  $main_menu = array(
+    array(
+      'link_title' => t('News'),
+    ),
+    array(
+      'link_title' => t('About Us'),
+      'children' => array(
+        array(
+          'link_title' => t('Objectives'),
+        ),
+        array(
+          'link_title' => t('Activities'),
+        ),
+        array(
+          'link_title' => t('Results'),
+        ),
+        array(
+          'link_title' => t('Highschool Program'),
+        ),
+        array(
+          'link_title' => t('Antal Zsolt Foundation'),
+        ),
+      ),
+    ),
+    array(
+      'link_title' => t('Members'),
+      'children' => array(
+        array(
+          'link_title' => t('Membership Statuses'),
+        ),
+        array(
+          'link_title' => t('Coordinators'),
+        ),
+        array(
+          'link_title' => t('Members'),
+        ),
+        array(
+          'link_title' => t('Alumni'),
+        ),
+        array(
+          'link_title' => t('Highschool Alumni'),
+        ),
+        array(
+          'link_title' => t('Membership Application'),
+        ),
+      ),
+    ),
+    array(
+      'link_title' => t('Support'),
+      'children' => array(
+        array(
+          'link_title' => t('Partners'),
+        ),
+        array(
+          'link_title' => t('Organizations'),
+        ),
+        array(
+          'link_title' => t('Support Us!'),
+        ),
+      ),
+    ),
+    array(
+      'link_title' => t('Invited Lecturers'),
+    ),
+    array(
+      'link_title' => t('Media Gallery'),
+      'children' => array(
+        array(
+          'link_title' => t('Photos'),
+        ),
+        array(
+          'link_title' => t('Videos'),
+        ),
+      ),
+    ),
+    array(
+      'link_title' => t('Contact'),
+    ),
+  );
+
+  $languages = gtk_language_list($language_list);
+  foreach ($languages as $langcode => $language) {
+    if ($language->enabled) {
+      gtk_save_menu_link($language, $langcode, $main_menu, $main_menu_defaults);
+      // TODO make translation sets and generate multilingual text with adding langcode param to t().
+    }
+  }
+
+  menu_rebuild();
+}
+
+/**
+ * Saves menu links.
+ */
+function gtk_save_menu_link($language, $langcode, $main_menu, $main_menu_defaults, $plid = 0) {
+  $weight = 0;
+  foreach ($main_menu as $item) {
+    if ($language->language != language_default()->language) {
+      $item['link_title'] .= ' (' . $language->prefix . ')';
+    }
+    $menu_item = $item + $main_menu_defaults + array('language' => $langcode, 'weight' => $weight, 'plid' => $plid);
+    menu_link_save($menu_item);
+    if (isset($item['children'])) {
+      gtk_save_menu_link($language, $langcode, $item['children'], $main_menu_defaults, $menu_item['mlid']);
+    }
+    $weight++;
+  }
+}
+
+/**
+ * Returns the list of languages.
+ */
+function gtk_language_list($languages = array()) {
+  return  (!empty($languages)) ? array_intersect_key(language_list(), $languages) : language_list();
+}
