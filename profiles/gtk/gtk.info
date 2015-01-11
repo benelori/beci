@@ -19,7 +19,6 @@ dependencies[] = taxonomy
 dependencies[] = dblog
 dependencies[] = search
 dependencies[] = shortcut
-dependencies[] = toolbar
 dependencies[] = field_ui
 dependencies[] = file
 dependencies[] = rdf
@@ -69,6 +68,7 @@ dependencies[] = backup_migrate
 dependencies[] = views_slideshow
 dependencies[] = views_slideshow_cycle
 dependencies[] = conditional_fields
+dependencies[] = admin_menu
 
 ; List of custom modules.
 dependencies[] = gtk_general
@@ -81,8 +81,29 @@ dependencies[] = gtk_f_content_types
 dependencies[] = gtk_f_text_formats
 dependencies[] = gtk_f_blog_posts_view
 dependencies[] = gtk_f_members
+dependencies[] = gtk_f_support
+dependencies[] = gtk_f_users_and_permissions
 
 ; List of development modules.
 dependencies[] = module_filter
 dependencies[] = devel
 dependencies[] = diff
+
+; Contrib Modules
+dependencies[] = block_class
+dependencies[] = imce
+dependencies[] = media
+dependencies[] = media_vimeo
+dependencies[] = media_youtube
+dependencies[] = shortcode
+; Drupalexp Modules
+dependencies[] = dexp
+dependencies[] = dexp_grid
+dependencies[] = dexp_animation
+dependencies[] = dexp_layerslider
+dependencies[] = dexp_menu
+dependencies[] = dexp_page_elements
+dependencies[] = dexp_portfolio
+dependencies[] = dexp_shortcodes
+dependencies[] = dexp_views_bxslider
+dependencies[] = dexp_widget

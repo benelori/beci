@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Dexp Yamato feature.
+ */
+
+include_once 'dexp_yamato.features.inc';

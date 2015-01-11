@@ -1,0 +1,347 @@
+/*----------------------------------------------------------------------
+# Package - JM Template
+# ----------------------------------------------------------------------
+# Author - JoomlaMan http://www.joomlaman.com
+# Copyright Copyright under commercial licence (C) 2012 - 2013 JoomlaMan
+# License http://www.gnu.org/licenses/gpl-3.0.html GNU/GPLv3
+-----------------------------------------------------------------------*/
+
+.rtl {
+	.pull-left{
+		float: right !important;
+	}
+	.pull-right{
+		float: left !important;
+	}
+	.unstyled i {
+		margin: 0 0 0 10px;
+	}
+	.fa.pull-left{
+		margin-left: .3em;
+		margin-right: 0;
+	}
+	.fa.pull-right{
+		margin-right: .3em;
+		margin-left: 0;
+	}
+	//========== Menu Top =========//
+	.menu-topbar li a:after {
+		padding-left: 0;
+		padding-right: 5px;
+	}
+	ul.star, ul.tick, ul.arrow {
+		li {
+			&:before {
+				.right;
+				padding-right: 0;
+				padding-left: 5px;
+			}
+		}
+	}
+	ul.arrow {
+		li:before {
+			content:   "\f104" !important;
+		}
+	}
+	ul.spot {
+		li{
+			&:before{
+				float: right;
+				margin-right: 0;
+				margin-left: 5px;
+			}
+		}
+	}
+	.social-icons ul li i {
+		margin: 0;
+	}
+	#block-views-latest-news-block, #block-views-clients-block, .view-latest-projects, .view-blog, #block-views-cl-block {
+		.bx-controls-direction {
+			a.bx-prev, a.bx-next {
+				right: inherit;
+				left: 28px;
+			}
+			a.bx-prev {
+				right: inherit;
+				left: 0;
+			}
+		}
+	}
+	.view-latest-news {
+		.bxslide {
+			direction: rtl;
+		}
+	}
+	.feature-event {
+		direction: rtl;
+		.blog-date {
+			.right;
+			margin: 0 0 0 10px;
+		}
+	}
+	.sh-blog-teaser {
+		direction: rtl;
+	}
+	//========== Search ===========//
+	#section-header {
+		.region-search {
+			float: left;
+			padding-left: 15px;
+			padding-right: 0;
+		}
+		.region-navigation {
+			float: left;
+		}
+	}
+	.search-menu {
+		#search-block-form {
+			right: inherit;
+			left: 0;
+			.form-item-search-block-form {
+				&:before {
+					right: inherit;
+					left: 5px;
+				}
+				input[type="text"] {
+					padding-right: 10px;
+					padding-left: 25px;
+				}
+			}
+		}
+	}
+	//========== section page title =========//
+	#section-page-title {
+		.page_subtitle{
+			float: left;
+			text-align: left;
+		}
+	}
+	//========== Shortcode =========//
+	/*accordions*/
+	[id*="dexp-accordions-"], [id^="dexp-accordions-"] {
+		.panel-default .panel-heading{
+			h4.panel-title {
+				a{
+					&:after{
+						left: 5px;
+						right: auto;
+					}
+				}
+			}
+		}
+	}
+	[id*="dexp-testimonial-"],[id^="dexp-testimonial-"] {
+		.testimonials-content{
+			&:before{
+				.rotate(180deg);
+			}
+		}
+	}
+	.dexp-shortcodes-box{
+		&.box-left {
+			.box-icon{
+				margin-right: 0;
+				margin-left: 10px;
+				float: right;
+			}
+		}     
+	} 
+	
+	.view-testimonial {
+		.bx-wrapper {
+			.bx-viewport {
+				.bxslide{
+					direction: rtl;
+					margin: 0 30px 0 0 ;
+				}
+			}
+		}
+	}
+	.node-testimonial {
+		.testimonial-content {
+			.testimonial-image{
+				float:right; 
+				margin:0 0 0 10px;
+			}
+		}
+	}
+	  
+	//========== Portfolio =========//
+	.node-dexp-portfolio {
+		.portfolio-description{
+			text-align: right;
+		}
+		.portfolio-details{
+			.field-name-field-portfolio-categories,.field-name-field-portfolio-url{
+				.field-items{
+					.field-item{
+						&:before{
+							float: right;
+							padding: 0 0 0 6px;
+						}
+					}
+				}
+			}
+		}
+	}
+	//========== Typo =========//
+	.sh-blocknumber { 
+    padding: 5px 60px 5px 0px;
+	    span{
+	        left: inherit;
+	        right: 0;
+	    }
+	}
+	.sh-bubble {
+		cite {
+        padding-left: 0px;
+        padding-right: 40px;
+        	span{
+        		left: inherit;
+        		right: 0;
+        		border-left-color: inherit transparent !important;
+        		//border-right-color: rgba(0, 0, 0, 0) !important;
+        	}
+        }
+	} 
+	//========== Bottom =========//
+	.block.text-right .content {
+	    text-align: left !important;
+	}
+	.block.text-left .content{
+		text-align: right !important;
+	}
+	//========== section-top-bar =========//
+	#section-top-bar {
+		.region-top-right{
+			.fa-button{
+				&:after{
+					left: 3px;
+					right: auto;
+				}
+			}
+		}
+	}
+	.fa-button, ul.icons-social li a{
+		margin-right: 2px;
+		margin-left: 0;
+		&:after{
+			left: 3px;
+			right: auto;
+		}
+	}
+	.menu-topbar {
+		li {
+			a{
+				&:before{
+					padding-left: 5px;
+					padding-right: 0;
+				}
+			}
+			i{
+				margin: 0;
+			}
+		}
+	}
+	//========== section-header =========//
+	#section-header {
+		.dexp-dropdown{
+			float: left;
+			>ul{
+				>li{
+				}
+			}
+		}
+		a.site-logo{
+			text-align:  right;
+		}
+	}
+	//========== section-action =========//
+	#section-action {
+		h3{
+			text-align: left;
+		}
+		.block{
+			.col-lg-2,.col-md-2, .col-sm-2{       
+				border-left: @borderW1 #ddd;   
+				border-right: none;
+				&:last-child{
+					border-left: none;
+					border-right: none;
+				}    
+			}                  		
+		}
+	}
+	//========== section-action =========//
+	#section-sub-inner{
+		i{
+			.rotate(180deg);
+		}
+	}
+	.view-latest-news {
+		.create-date{
+			float: right;
+			margin: 0 0 0 10px;
+		}
+		.blog-content{
+			float: right;
+		}
+	}
+	//========== Other =========//
+	p.sp-blocknumber{
+		padding-right: 60px;
+		padding-left: 0;
+		.rounded{
+			left: auto;
+			right: 0;
+		}
+	}
+	.page_title{
+		float: left;
+	}
+	.webform-container-inline label{
+		float: right;
+		padding-left: 7px;
+		padding-right: 0;      
+		text-align: right;
+	}
+	.style-border{
+		[class*='col-']{
+			border-left: 1px solid #dddddd;
+			border-right: none;
+			&:last-child{
+				border: none;         
+			}
+		}        
+	}
+	.stats.brddark{
+		border-left: 1px solid #dddddd;
+		border-right: none;
+		&:last-child{
+			border: none;
+		}
+	}
+	#search-block-form {
+		input[type="text"]{
+			.border-radius(0 4px 4px 0);
+		}
+		.form-actions{
+			.border-radius(4px 0 0 4px);
+			float: left;
+		}
+	}
+	.blog-new-style2 {
+		.create-date,.create-date:hover{
+			float: right;
+			margin: 3px 0 0 10px;
+		}
+	}
+	//========== Responsive =========//
+	@media (max-width: 767px){
+		#section-action{
+			h3{
+				text-align: center;
+			}
+		}
+	}
+}

@@ -12,7 +12,20 @@
  *
  * @see system_install()
  */
+require_once 'blocks.inc';
+
 function gtk_install() {
+
+  $default_theme = 'yamato';
+  $admin_theme = 'seven';
+  // Enable some standard blocks.
+  $blocks = array();
+  drupalexp_profile_blocks($blocks, $default_theme);
+  $query = db_insert('block')->fields(array('module', 'delta', 'theme', 'status', 'weight', 'region', 'pages', 'cache'));
+  foreach ($blocks as $block) {
+    $query->values($block);
+  }
+  $query->execute();
   // Add custom languages.
   gtk_add_custom_languages();
   // Create administrator account.
@@ -121,7 +134,7 @@ function gtk_create_administrator() {
 function gtk_manage_themes() {
   // Enable the admin and gtk_theme themes.
   $theme_enable = array(
-    'theme_default' => 'bootstrap_business',
+    'theme_default' => 'yamato',
     'admin_theme' => variable_get('admin_theme', 'seven'),
   );
   theme_enable($theme_enable);
