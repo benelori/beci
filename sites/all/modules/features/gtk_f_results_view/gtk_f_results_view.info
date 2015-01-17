@@ -1,11 +1,9 @@
-name = Support
-description = View containing supporter data
+name = GTK results view
 core = 7.x
 package = GTK
 dependencies[] = dexp_grid
-dependencies[] = dexp_views_bxslider
 dependencies[] = views
 features[ctools][] = views:views_default:3.0
 features[features_api][] = api:2
-features[views_view][] = support
+features[views_view][] = results
 features_exclude[dependencies][ctools] = ctools

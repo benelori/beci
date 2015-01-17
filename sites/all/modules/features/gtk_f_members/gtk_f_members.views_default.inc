@@ -30,16 +30,26 @@ function gtk_f_members_views_default_views() {
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '10';
-  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['style_plugin'] = 'dexp_grid2';
+  $handler->display->display_options['style_options']['grid_bootstrap'] = '1';
+  $handler->display->display_options['style_options']['grid_cols_lg'] = '3';
+  $handler->display->display_options['style_options']['grid_cols_md'] = '3';
+  $handler->display->display_options['style_options']['grid_cols_sm'] = '6';
+  $handler->display->display_options['style_options']['grid_cols_xs'] = '12';
+  $handler->display->display_options['style_options']['grid_margin'] = '10';
+  $handler->display->display_options['style_options']['grid_itemWidth'] = '360';
+  $handler->display->display_options['style_options']['grid_itemHeight'] = '220';
+  $handler->display->display_options['style_options']['grid_phoneWidth'] = '768';
   $handler->display->display_options['row_plugin'] = 'node';
+  $handler->display->display_options['row_options']['links'] = FALSE;
   /* Relationship: Content: Taxonomy terms on node */
   $handler->display->display_options['relationships']['term_node_tid']['id'] = 'term_node_tid';
   $handler->display->display_options['relationships']['term_node_tid']['table'] = 'node';
   $handler->display->display_options['relationships']['term_node_tid']['field'] = 'term_node_tid';
+  $handler->display->display_options['relationships']['term_node_tid']['label'] = 'Type of Person';
   $handler->display->display_options['relationships']['term_node_tid']['required'] = TRUE;
   $handler->display->display_options['relationships']['term_node_tid']['vocabularies'] = array(
     'type_of_person' => 'type_of_person',
-    'blog_categories' => 0,
     'membership' => 0,
     'portfolio_category' => 0,
   );
@@ -47,6 +57,17 @@ function gtk_f_members_views_default_views() {
   $handler->display->display_options['relationships']['term_node_tid_1']['id'] = 'term_node_tid_1';
   $handler->display->display_options['relationships']['term_node_tid_1']['table'] = 'node';
   $handler->display->display_options['relationships']['term_node_tid_1']['field'] = 'term_node_tid';
+  /* Field: Content: Person Image */
+  $handler->display->display_options['fields']['field_person_image']['id'] = 'field_person_image';
+  $handler->display->display_options['fields']['field_person_image']['table'] = 'field_data_field_person_image';
+  $handler->display->display_options['fields']['field_person_image']['field'] = 'field_person_image';
+  $handler->display->display_options['fields']['field_person_image']['label'] = '';
+  $handler->display->display_options['fields']['field_person_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_person_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_person_image']['settings'] = array(
+    'image_style' => '',
+    'image_link' => '',
+  );
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
@@ -54,6 +75,8 @@ function gtk_f_members_views_default_views() {
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_type'] = 'h3';
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
@@ -78,126 +101,156 @@ function gtk_f_members_views_default_views() {
   $handler->display->display_options['filters']['name']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['filters']['name']['field'] = 'name';
   $handler->display->display_options['filters']['name']['relationship'] = 'term_node_tid';
-  $handler->display->display_options['filters']['name']['value'] = 'Lecturer';
-
-  /* Display: Alumni Members */
-  $handler = $view->new_display('page', 'Alumni Members', 'page');
-  $handler->display->display_options['defaults']['sorts'] = FALSE;
-  /* Sort criterion: Content: Post date */
-  $handler->display->display_options['sorts']['created']['id'] = 'created';
-  $handler->display->display_options['sorts']['created']['table'] = 'node';
-  $handler->display->display_options['sorts']['created']['field'] = 'created';
-  $handler->display->display_options['sorts']['created']['order'] = 'DESC';
-  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
-  $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filter criterion: Content: Published */
-  $handler->display->display_options['filters']['status']['id'] = 'status';
-  $handler->display->display_options['filters']['status']['table'] = 'node';
-  $handler->display->display_options['filters']['status']['field'] = 'status';
-  $handler->display->display_options['filters']['status']['value'] = 1;
-  $handler->display->display_options['filters']['status']['group'] = 1;
-  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filter criterion: Content: Type */
-  $handler->display->display_options['filters']['type']['id'] = 'type';
-  $handler->display->display_options['filters']['type']['table'] = 'node';
-  $handler->display->display_options['filters']['type']['field'] = 'type';
-  $handler->display->display_options['filters']['type']['value'] = array(
-    'person' => 'person',
+  $handler->display->display_options['filters']['name']['value'] = 'coordinator';
+  /* Filter criterion: Content: Language */
+  $handler->display->display_options['filters']['language']['id'] = 'language';
+  $handler->display->display_options['filters']['language']['table'] = 'node';
+  $handler->display->display_options['filters']['language']['field'] = 'language';
+  $handler->display->display_options['filters']['language']['value'] = array(
+    '***CURRENT_LANGUAGE***' => '***CURRENT_LANGUAGE***',
   );
-  /* Filter criterion: Taxonomy term: Name */
-  $handler->display->display_options['filters']['name']['id'] = 'name';
-  $handler->display->display_options['filters']['name']['table'] = 'taxonomy_term_data';
-  $handler->display->display_options['filters']['name']['field'] = 'name';
-  $handler->display->display_options['filters']['name']['relationship'] = 'term_node_tid';
-  $handler->display->display_options['filters']['name']['value'] = 'Alumni';
-  $handler->display->display_options['path'] = 'members';
 
-  /* Display: Highschool Alumni */
-  $handler = $view->new_display('page', 'Highschool Alumni', 'page_1');
-  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
-  $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filter criterion: Content: Published */
-  $handler->display->display_options['filters']['status']['id'] = 'status';
-  $handler->display->display_options['filters']['status']['table'] = 'node';
-  $handler->display->display_options['filters']['status']['field'] = 'status';
-  $handler->display->display_options['filters']['status']['value'] = 1;
-  $handler->display->display_options['filters']['status']['group'] = 1;
-  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filter criterion: Content: Type */
-  $handler->display->display_options['filters']['type']['id'] = 'type';
-  $handler->display->display_options['filters']['type']['table'] = 'node';
-  $handler->display->display_options['filters']['type']['field'] = 'type';
-  $handler->display->display_options['filters']['type']['value'] = array(
-    'person' => 'person',
-  );
-  /* Filter criterion: Taxonomy term: Name */
-  $handler->display->display_options['filters']['name']['id'] = 'name';
-  $handler->display->display_options['filters']['name']['table'] = 'taxonomy_term_data';
-  $handler->display->display_options['filters']['name']['field'] = 'name';
-  $handler->display->display_options['filters']['name']['relationship'] = 'term_node_tid';
-  $handler->display->display_options['filters']['name']['value'] = 'Highschool Alumni';
-  $handler->display->display_options['path'] = 'highschool';
-
-  /* Display: Lecturers */
-  $handler = $view->new_display('page', 'Lecturers', 'page_2');
-  $handler->display->display_options['path'] = 'lecturers';
-
-  /* Display: Members */
-  $handler = $view->new_display('page', 'Members', 'page_3');
+  /* Display: Coordinators */
+  $handler = $view->new_display('block', 'Coordinators', 'block_1');
   $handler->display->display_options['defaults']['title'] = FALSE;
-  $handler->display->display_options['title'] = 'Members';
+  $handler->display->display_options['title'] = 'Coordinators';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
-  $handler->display->display_options['style_plugin'] = 'default';
-  $handler->display->display_options['style_options']['grouping'] = array(
-    0 => array(
-      'field' => 'name',
-      'rendered' => 1,
-      'rendered_strip' => 0,
-    ),
-  );
+  $handler->display->display_options['style_plugin'] = 'dexp_grid2';
+  $handler->display->display_options['style_options']['grid_bootstrap'] = '1';
+  $handler->display->display_options['style_options']['grid_cols_lg'] = '4';
+  $handler->display->display_options['style_options']['grid_cols_md'] = '4';
+  $handler->display->display_options['style_options']['grid_cols_sm'] = '6';
+  $handler->display->display_options['style_options']['grid_cols_xs'] = '12';
+  $handler->display->display_options['style_options']['grid_margin'] = '10';
+  $handler->display->display_options['style_options']['grid_itemWidth'] = '360';
+  $handler->display->display_options['style_options']['grid_itemHeight'] = '220';
+  $handler->display->display_options['style_options']['grid_phoneWidth'] = '768';
   $handler->display->display_options['defaults']['style_options'] = FALSE;
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
-  $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['row_plugin'] = 'node';
+  $handler->display->display_options['row_options']['links'] = FALSE;
   $handler->display->display_options['defaults']['row_options'] = FALSE;
-  $handler->display->display_options['defaults']['relationships'] = FALSE;
-  /* Relationship: Content: Taxonomy terms on node */
-  $handler->display->display_options['relationships']['term_node_tid']['id'] = 'term_node_tid';
-  $handler->display->display_options['relationships']['term_node_tid']['table'] = 'node';
-  $handler->display->display_options['relationships']['term_node_tid']['field'] = 'term_node_tid';
-  $handler->display->display_options['relationships']['term_node_tid']['required'] = TRUE;
-  $handler->display->display_options['relationships']['term_node_tid']['vocabularies'] = array(
-    'type_of_person' => 'type_of_person',
-    'blog_categories' => 0,
-    'membership' => 0,
-    'portfolio_category' => 0,
+
+  /* Display: Manager */
+  $handler = $view->new_display('block', 'Manager', 'manager');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Manager';
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'dexp_grid2';
+  $handler->display->display_options['style_options']['grid_bootstrap'] = '1';
+  $handler->display->display_options['style_options']['grid_cols_lg'] = '4';
+  $handler->display->display_options['style_options']['grid_cols_md'] = '4';
+  $handler->display->display_options['style_options']['grid_cols_sm'] = '6';
+  $handler->display->display_options['style_options']['grid_cols_xs'] = '12';
+  $handler->display->display_options['style_options']['grid_margin'] = '10';
+  $handler->display->display_options['style_options']['grid_itemWidth'] = '360';
+  $handler->display->display_options['style_options']['grid_itemHeight'] = '220';
+  $handler->display->display_options['style_options']['grid_phoneWidth'] = '768';
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'node';
+  $handler->display->display_options['row_options']['links'] = FALSE;
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'person' => 'person',
   );
-  /* Relationship: Content: Taxonomy terms on node */
-  $handler->display->display_options['relationships']['term_node_tid_1']['id'] = 'term_node_tid_1';
-  $handler->display->display_options['relationships']['term_node_tid_1']['table'] = 'node';
-  $handler->display->display_options['relationships']['term_node_tid_1']['field'] = 'term_node_tid';
-  $handler->display->display_options['relationships']['term_node_tid_1']['label'] = 'Membership';
-  $handler->display->display_options['relationships']['term_node_tid_1']['required'] = TRUE;
-  $handler->display->display_options['relationships']['term_node_tid_1']['vocabularies'] = array(
-    'membership' => 'membership',
-    'blog_categories' => 0,
-    'portfolio_category' => 0,
-    'type_of_person' => 0,
+  /* Filter criterion: Taxonomy term: Name */
+  $handler->display->display_options['filters']['name']['id'] = 'name';
+  $handler->display->display_options['filters']['name']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['filters']['name']['field'] = 'name';
+  $handler->display->display_options['filters']['name']['relationship'] = 'term_node_tid';
+  $handler->display->display_options['filters']['name']['value'] = 'manager';
+  /* Filter criterion: Content: Language */
+  $handler->display->display_options['filters']['language']['id'] = 'language';
+  $handler->display->display_options['filters']['language']['table'] = 'node';
+  $handler->display->display_options['filters']['language']['field'] = 'language';
+  $handler->display->display_options['filters']['language']['value'] = array(
+    '***CURRENT_LANGUAGE***' => '***CURRENT_LANGUAGE***',
   );
-  $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Field: Content: Title */
-  $handler->display->display_options['fields']['title']['id'] = 'title';
-  $handler->display->display_options['fields']['title']['table'] = 'node';
-  $handler->display->display_options['fields']['title']['field'] = 'title';
-  $handler->display->display_options['fields']['title']['label'] = '';
-  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
-  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  /* Field: Taxonomy term: Name */
-  $handler->display->display_options['fields']['name']['id'] = 'name';
-  $handler->display->display_options['fields']['name']['table'] = 'taxonomy_term_data';
-  $handler->display->display_options['fields']['name']['field'] = 'name';
-  $handler->display->display_options['fields']['name']['relationship'] = 'term_node_tid_1';
-  $handler->display->display_options['fields']['name']['label'] = '';
-  $handler->display->display_options['fields']['name']['element_label_colon'] = FALSE;
+
+  /* Display: Strategical, profession supporter and coordinator */
+  $handler = $view->new_display('block', 'Strategical, profession supporter and coordinator', 'block_2');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Strategic, professional supporter and coordinator';
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'dexp_grid2';
+  $handler->display->display_options['style_options']['grid_bootstrap'] = '1';
+  $handler->display->display_options['style_options']['grid_cols_lg'] = '4';
+  $handler->display->display_options['style_options']['grid_cols_md'] = '4';
+  $handler->display->display_options['style_options']['grid_cols_sm'] = '6';
+  $handler->display->display_options['style_options']['grid_cols_xs'] = '12';
+  $handler->display->display_options['style_options']['grid_margin'] = '10';
+  $handler->display->display_options['style_options']['grid_itemWidth'] = '360';
+  $handler->display->display_options['style_options']['grid_itemHeight'] = '220';
+  $handler->display->display_options['style_options']['grid_phoneWidth'] = '768';
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'node';
+  $handler->display->display_options['row_options']['links'] = FALSE;
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'person' => 'person',
+  );
+  /* Filter criterion: Taxonomy term: Name */
+  $handler->display->display_options['filters']['name']['id'] = 'name';
+  $handler->display->display_options['filters']['name']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['filters']['name']['field'] = 'name';
+  $handler->display->display_options['filters']['name']['relationship'] = 'term_node_tid';
+  $handler->display->display_options['filters']['name']['value'] = 'main_coordinator';
+  /* Filter criterion: Content: Language */
+  $handler->display->display_options['filters']['language']['id'] = 'language';
+  $handler->display->display_options['filters']['language']['table'] = 'node';
+  $handler->display->display_options['filters']['language']['field'] = 'language';
+  $handler->display->display_options['filters']['language']['value'] = array(
+    '***CURRENT_LANGUAGE***' => '***CURRENT_LANGUAGE***',
+  );
+
+  /* Display: Senior Members */
+  $handler = $view->new_display('block', 'Senior Members', 'block_3');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Senior Members';
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'dexp_grid2';
+  $handler->display->display_options['style_options']['grid_bootstrap'] = '1';
+  $handler->display->display_options['style_options']['grid_cols_lg'] = '4';
+  $handler->display->display_options['style_options']['grid_cols_md'] = '4';
+  $handler->display->display_options['style_options']['grid_cols_sm'] = '6';
+  $handler->display->display_options['style_options']['grid_cols_xs'] = '12';
+  $handler->display->display_options['style_options']['grid_margin'] = '10';
+  $handler->display->display_options['style_options']['grid_itemWidth'] = '360';
+  $handler->display->display_options['style_options']['grid_itemHeight'] = '220';
+  $handler->display->display_options['style_options']['grid_phoneWidth'] = '768';
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'node';
+  $handler->display->display_options['row_options']['links'] = FALSE;
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filter criterion: Content: Published */
@@ -220,7 +273,180 @@ function gtk_f_members_views_default_views() {
   $handler->display->display_options['filters']['name']['field'] = 'name';
   $handler->display->display_options['filters']['name']['relationship'] = 'term_node_tid';
   $handler->display->display_options['filters']['name']['value'] = 'Member';
-  $handler->display->display_options['path'] = 'members';
+  /* Filter criterion: Content: Language */
+  $handler->display->display_options['filters']['language']['id'] = 'language';
+  $handler->display->display_options['filters']['language']['table'] = 'node';
+  $handler->display->display_options['filters']['language']['field'] = 'language';
+  $handler->display->display_options['filters']['language']['value'] = array(
+    '***CURRENT_LANGUAGE***' => '***CURRENT_LANGUAGE***',
+  );
+  /* Filter criterion: Taxonomy term: Name */
+  $handler->display->display_options['filters']['name_1']['id'] = 'name_1';
+  $handler->display->display_options['filters']['name_1']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['filters']['name_1']['field'] = 'name';
+  $handler->display->display_options['filters']['name_1']['relationship'] = 'term_node_tid_1';
+  $handler->display->display_options['filters']['name_1']['value'] = 'Senior';
+
+  /* Display: Junior Members */
+  $handler = $view->new_display('block', 'Junior Members', 'block_4');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Junior Members';
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'dexp_grid2';
+  $handler->display->display_options['style_options']['grid_bootstrap'] = '1';
+  $handler->display->display_options['style_options']['grid_cols_lg'] = '4';
+  $handler->display->display_options['style_options']['grid_cols_md'] = '4';
+  $handler->display->display_options['style_options']['grid_cols_sm'] = '6';
+  $handler->display->display_options['style_options']['grid_cols_xs'] = '12';
+  $handler->display->display_options['style_options']['grid_margin'] = '10';
+  $handler->display->display_options['style_options']['grid_itemWidth'] = '360';
+  $handler->display->display_options['style_options']['grid_itemHeight'] = '220';
+  $handler->display->display_options['style_options']['grid_phoneWidth'] = '768';
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'node';
+  $handler->display->display_options['row_options']['links'] = FALSE;
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['sorts'] = FALSE;
+  /* Sort criterion: Content: Title */
+  $handler->display->display_options['sorts']['title']['id'] = 'title';
+  $handler->display->display_options['sorts']['title']['table'] = 'node';
+  $handler->display->display_options['sorts']['title']['field'] = 'title';
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'person' => 'person',
+  );
+  /* Filter criterion: Taxonomy term: Name */
+  $handler->display->display_options['filters']['name']['id'] = 'name';
+  $handler->display->display_options['filters']['name']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['filters']['name']['field'] = 'name';
+  $handler->display->display_options['filters']['name']['relationship'] = 'term_node_tid';
+  $handler->display->display_options['filters']['name']['value'] = 'Member';
+  /* Filter criterion: Content: Language */
+  $handler->display->display_options['filters']['language']['id'] = 'language';
+  $handler->display->display_options['filters']['language']['table'] = 'node';
+  $handler->display->display_options['filters']['language']['field'] = 'language';
+  $handler->display->display_options['filters']['language']['value'] = array(
+    '***CURRENT_LANGUAGE***' => '***CURRENT_LANGUAGE***',
+  );
+  /* Filter criterion: Taxonomy term: Name */
+  $handler->display->display_options['filters']['name_1']['id'] = 'name_1';
+  $handler->display->display_options['filters']['name_1']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['filters']['name_1']['field'] = 'name';
+  $handler->display->display_options['filters']['name_1']['relationship'] = 'term_node_tid_1';
+  $handler->display->display_options['filters']['name_1']['value'] = 'Junior';
+
+  /* Display: Alumni Members */
+  $handler = $view->new_display('block', 'Alumni Members', 'block_5');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Alumni members';
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'dexp_grid2';
+  $handler->display->display_options['style_options']['grid_bootstrap'] = '1';
+  $handler->display->display_options['style_options']['grid_cols_lg'] = '4';
+  $handler->display->display_options['style_options']['grid_cols_md'] = '4';
+  $handler->display->display_options['style_options']['grid_cols_sm'] = '6';
+  $handler->display->display_options['style_options']['grid_cols_xs'] = '12';
+  $handler->display->display_options['style_options']['grid_margin'] = '10';
+  $handler->display->display_options['style_options']['grid_itemWidth'] = '360';
+  $handler->display->display_options['style_options']['grid_itemHeight'] = '220';
+  $handler->display->display_options['style_options']['grid_phoneWidth'] = '768';
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'node';
+  $handler->display->display_options['row_options']['links'] = FALSE;
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'person' => 'person',
+  );
+  /* Filter criterion: Taxonomy term: Name */
+  $handler->display->display_options['filters']['name']['id'] = 'name';
+  $handler->display->display_options['filters']['name']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['filters']['name']['field'] = 'name';
+  $handler->display->display_options['filters']['name']['relationship'] = 'term_node_tid';
+  $handler->display->display_options['filters']['name']['value'] = 'Alumni';
+  /* Filter criterion: Content: Language */
+  $handler->display->display_options['filters']['language']['id'] = 'language';
+  $handler->display->display_options['filters']['language']['table'] = 'node';
+  $handler->display->display_options['filters']['language']['field'] = 'language';
+  $handler->display->display_options['filters']['language']['value'] = array(
+    '***CURRENT_LANGUAGE***' => '***CURRENT_LANGUAGE***',
+  );
+
+  /* Display: Highschool Alumni Members */
+  $handler = $view->new_display('block', 'Highschool Alumni Members', 'block_6');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Highschool Alumni members';
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'dexp_grid2';
+  $handler->display->display_options['style_options']['grid_bootstrap'] = '1';
+  $handler->display->display_options['style_options']['grid_cols_lg'] = '4';
+  $handler->display->display_options['style_options']['grid_cols_md'] = '4';
+  $handler->display->display_options['style_options']['grid_cols_sm'] = '6';
+  $handler->display->display_options['style_options']['grid_cols_xs'] = '12';
+  $handler->display->display_options['style_options']['grid_margin'] = '10';
+  $handler->display->display_options['style_options']['grid_itemWidth'] = '360';
+  $handler->display->display_options['style_options']['grid_itemHeight'] = '220';
+  $handler->display->display_options['style_options']['grid_phoneWidth'] = '768';
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'node';
+  $handler->display->display_options['row_options']['links'] = FALSE;
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'person' => 'person',
+  );
+  /* Filter criterion: Taxonomy term: Name */
+  $handler->display->display_options['filters']['name']['id'] = 'name';
+  $handler->display->display_options['filters']['name']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['filters']['name']['field'] = 'name';
+  $handler->display->display_options['filters']['name']['relationship'] = 'term_node_tid';
+  $handler->display->display_options['filters']['name']['value'] = 'Highschool Alumni';
+  /* Filter criterion: Content: Language */
+  $handler->display->display_options['filters']['language']['id'] = 'language';
+  $handler->display->display_options['filters']['language']['table'] = 'node';
+  $handler->display->display_options['filters']['language']['field'] = 'language';
+  $handler->display->display_options['filters']['language']['value'] = array(
+    '***CURRENT_LANGUAGE***' => '***CURRENT_LANGUAGE***',
+  );
   $translatables['members'] = array(
     t('Master'),
     t('Members'),
@@ -237,11 +463,18 @@ function gtk_f_members_views_default_views() {
     t('‹ previous'),
     t('next ›'),
     t('last »'),
+    t('Type of Person'),
     t('term'),
+    t('Coordinators'),
+    t('Manager'),
+    t('Strategical, profession supporter and coordinator'),
+    t('Strategic, professional supporter and coordinator'),
+    t('Senior Members'),
+    t('Junior Members'),
     t('Alumni Members'),
-    t('Highschool Alumni'),
-    t('Lecturers'),
-    t('Membership'),
+    t('Alumni members'),
+    t('Highschool Alumni Members'),
+    t('Highschool Alumni members'),
   );
   $export['members'] = $view;
 
