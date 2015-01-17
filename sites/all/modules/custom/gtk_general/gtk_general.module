@@ -1,6 +1,24 @@
 <?php
 
 /**
+ * Implements hook_menu().
+ */
+function gtk_general_menu() {
+  $items['coordinators'] = array(
+    'title' => 'Coordinators',
+    'access callback' => TRUE,
+    'type' => MENU_CALLBACK,
+    'page callback' => 'gtk_general_blank_page'
+  );
+
+  return $items;
+}
+
+function gtk_general_blank_page() {
+  return '';
+}
+
+/**
  * Implements hook_block_info().
  */
 function gtk_general_block_info() {
