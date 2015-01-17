@@ -27,7 +27,7 @@
           <div class="panel-heading">
             <h4 class="panel-title">
               <a href="#dexp-accordion-item-1414657310--1" data-toggle="collapse"
-                 data-parent="#dexp-accordions-wrapper-1414657310" class="">
+                 data-parent="#dexp-accordions-wrapper-1414657310" class="collapsed">
                 <?php print $content['field_otdk_result']['#title']; ?>
               </a>
             </h4>
