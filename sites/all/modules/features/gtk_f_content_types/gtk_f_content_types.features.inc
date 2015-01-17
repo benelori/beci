@@ -8,6 +8,9 @@
  * Implements hook_ctools_plugin_api().
  */
 function gtk_f_content_types_ctools_plugin_api($module = NULL, $api = NULL) {
+  if ($module == "field_group" && $api == "field_group") {
+    return array("version" => "1");
+  }
   if ($module == "strongarm" && $api == "strongarm") {
     return array("version" => "1");
   }
@@ -46,6 +49,14 @@ function gtk_f_content_types_node_info() {
       'name' => t('Person'),
       'base' => 'node_content',
       'description' => t('This content type is for describing different personnel and partners.'),
+      'has_title' => '1',
+      'title_label' => t('Title'),
+      'help' => '',
+    ),
+    'result' => array(
+      'name' => t('Result'),
+      'base' => 'node_content',
+      'description' => '',
       'has_title' => '1',
       'title_label' => t('Title'),
       'help' => '',

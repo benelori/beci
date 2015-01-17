@@ -11,6 +11,27 @@ function gtk_general_menu() {
     'page callback' => 'gtk_general_blank_page'
   );
 
+  $items['members'] = array(
+    'title' => 'Members',
+    'access callback' => TRUE,
+    'type' => MENU_CALLBACK,
+    'page callback' => 'gtk_general_blank_page'
+  );
+
+  $items['alumni'] = array(
+    'title' => 'Alumni Members',
+    'access callback' => TRUE,
+    'type' => MENU_CALLBACK,
+    'page callback' => 'gtk_general_blank_page'
+  );
+
+  $items['highschool-alumni'] = array(
+    'title' => 'Highschool Alumni Members',
+    'access callback' => TRUE,
+    'type' => MENU_CALLBACK,
+    'page callback' => 'gtk_general_blank_page'
+  );
+
   return $items;
 }
 

@@ -44,6 +44,13 @@ function gtk_f_content_types_conditional_fields_default_fields() {
           3 => 0,
           4 => 0,
         ),
+        4 => array(
+          1 => 1,
+          2 => 2,
+          5 => 0,
+          3 => 0,
+          4 => 0,
+        ),
         3 => array(
           1 => 1,
           2 => 2,
@@ -66,6 +73,10 @@ function gtk_f_content_types_conditional_fields_default_fields() {
           1 => 1,
           3 => 0,
         ),
+        4 => array(
+          1 => 1,
+          3 => 0,
+        ),
         3 => array(
           1 => 1,
           3 => 0,
@@ -76,6 +87,7 @@ function gtk_f_content_types_conditional_fields_default_fields() {
       'value_form' => '_none',
       'values' => array(
         0 => 2,
+        1 => 9,
       ),
       'value' => array(),
     ),
@@ -115,6 +127,13 @@ function gtk_f_content_types_conditional_fields_default_fields() {
           3 => 0,
           4 => 0,
         ),
+        4 => array(
+          1 => 1,
+          2 => 2,
+          5 => 0,
+          3 => 0,
+          4 => 0,
+        ),
         3 => array(
           1 => 1,
           2 => 2,
@@ -137,6 +156,10 @@ function gtk_f_content_types_conditional_fields_default_fields() {
           1 => 1,
           3 => 0,
         ),
+        4 => array(
+          1 => 1,
+          3 => 0,
+        ),
         3 => array(
           1 => 1,
           3 => 0,
@@ -149,6 +172,8 @@ function gtk_f_content_types_conditional_fields_default_fields() {
         0 => 1,
         1 => 3,
         2 => 4,
+        3 => 7,
+        4 => 8,
       ),
       'value' => array(),
     ),
@@ -259,6 +284,13 @@ function gtk_f_content_types_conditional_fields_default_fields() {
           3 => 0,
           4 => 0,
         ),
+        4 => array(
+          1 => 1,
+          2 => 2,
+          5 => 0,
+          3 => 0,
+          4 => 0,
+        ),
         3 => array(
           1 => 1,
           2 => 2,
@@ -281,6 +313,10 @@ function gtk_f_content_types_conditional_fields_default_fields() {
           1 => 1,
           3 => 0,
         ),
+        4 => array(
+          1 => 1,
+          3 => 0,
+        ),
         3 => array(
           1 => 1,
           3 => 0,
@@ -293,6 +329,8 @@ function gtk_f_content_types_conditional_fields_default_fields() {
         0 => 1,
         1 => 3,
         2 => 4,
+        3 => 7,
+        4 => 8,
       ),
       'value' => array(),
     ),
@@ -332,6 +370,13 @@ function gtk_f_content_types_conditional_fields_default_fields() {
           3 => 0,
           4 => 0,
         ),
+        4 => array(
+          1 => 1,
+          2 => 2,
+          5 => 0,
+          3 => 0,
+          4 => 0,
+        ),
         3 => array(
           1 => 1,
           2 => 2,
@@ -354,6 +399,10 @@ function gtk_f_content_types_conditional_fields_default_fields() {
           1 => 1,
           3 => 0,
         ),
+        4 => array(
+          1 => 1,
+          3 => 0,
+        ),
         3 => array(
           1 => 1,
           3 => 0,
@@ -366,6 +415,8 @@ function gtk_f_content_types_conditional_fields_default_fields() {
         0 => 1,
         1 => 3,
         2 => 4,
+        3 => 7,
+        4 => 8,
       ),
       'value' => array(),
     ),
@@ -405,6 +456,13 @@ function gtk_f_content_types_conditional_fields_default_fields() {
           3 => 0,
           4 => 0,
         ),
+        4 => array(
+          1 => 1,
+          2 => 2,
+          5 => 0,
+          3 => 0,
+          4 => 0,
+        ),
         3 => array(
           1 => 1,
           2 => 2,
@@ -427,6 +485,10 @@ function gtk_f_content_types_conditional_fields_default_fields() {
           1 => 1,
           3 => 0,
         ),
+        4 => array(
+          1 => 1,
+          3 => 0,
+        ),
         3 => array(
           1 => 1,
           3 => 0,
@@ -437,6 +499,9 @@ function gtk_f_content_types_conditional_fields_default_fields() {
       'value_form' => '_none',
       'values' => array(
         0 => 1,
+        1 => 7,
+        2 => 8,
+        3 => 3,
       ),
       'value' => array(),
     ),
@@ -476,6 +541,13 @@ function gtk_f_content_types_conditional_fields_default_fields() {
           3 => 0,
           4 => 0,
         ),
+        4 => array(
+          1 => 1,
+          2 => 2,
+          5 => 0,
+          3 => 0,
+          4 => 0,
+        ),
         3 => array(
           1 => 1,
           2 => 2,
@@ -498,18 +570,24 @@ function gtk_f_content_types_conditional_fields_default_fields() {
           1 => 1,
           3 => 0,
         ),
+        4 => array(
+          1 => 1,
+          3 => 0,
+        ),
         3 => array(
           1 => 1,
           3 => 0,
         ),
       ),
       'selector' => '',
-      'values_set' => 4,
-      'value_form' => '_none',
+      'values_set' => 3,
+      'value_form' => NULL,
       'values' => array(
         0 => 1,
         1 => 3,
         2 => 4,
+        3 => 7,
+        4 => 8,
       ),
       'value' => array(),
     ),
