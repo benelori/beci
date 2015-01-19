@@ -39,11 +39,28 @@ function gtk_general_menu() {
     'page callback' => 'gtk_general_blank_page'
   );
 
+  $items['contact-success'] = array(
+    'title' => 'Contact Us',
+    'access callback' => TRUE,
+    'type' => MENU_CALLBACK,
+    'page callback' => 'gtk_general_success_page'
+  );
+
   return $items;
 }
 
 function gtk_general_blank_page() {
   return '';
+}
+
+function gtk_general_success_page() {
+  $output = '<div class="alert alert-success alert-dismissable">
+<button class="close" aria-hidden="true" data-dismiss="alert" type="button">×</button>
+<h2 class="element-invisible">Status message</h2>
+Your message has been sent
+</div>';
+
+  return $output;
 }
 
 function gtk_general_contact_form() {
@@ -54,6 +71,7 @@ function gtk_general_contact_form() {
     '#size' => 60,
     '#maxlength' => 128,
     '#required' => TRUE,
+    '#element_validate' => array('gtk_validate_name'),
   );
 
   $form['mail'] = array(
@@ -62,6 +80,7 @@ function gtk_general_contact_form() {
     '#size' => 60,
     '#maxlength' => 128,
     '#required' => TRUE,
+    '#element_validate' => array('gtk_validate_email'),
   );
 
   $form['subject'] = array(
@@ -83,13 +102,54 @@ function gtk_general_contact_form() {
   $form['submit'] = array(
     '#type' => 'submit',
     '#value' => t('Send'),
-    '#submit' => array('gtk_general_send_contact_mail')
   );
+
+  $form['#submit'] = array('gtk_general_send_contact_mail');
+
   return $form;
 }
 
-function gtk_general_send_contact_mail() {
+function gtk_validate_email($element, $form_state) {
+  if (!valid_email_address($form_state['values']['mail'])) {
+    form_error($element, t('Please enter valid email address'));
+  }
+}
 
+
+function gtk_validate_name($element, $form_state) {
+  $validation = preg_match('/\\d/', $form_state['values']['name']);
+  if ($validation > 0) {
+    form_error($element, t('Please enter valid name'));
+  }
+}
+
+function gtk_general_send_contact_mail($form, &$form_state) {
+
+  $module = 'gtk_general';
+  $key = 'send_contact_mail';
+  $language = language_default();
+  $params = array();
+  $from = NULL;
+  $send = FALSE;
+  $email = 'bene.lori89@gmail.com';
+  $message = drupal_mail($module, $key, $email, $language, $params, $form_state['values']['mail'], $send);
+
+  $message['subject'] = t('Somebody has sent you a contact email from the website.');
+  $message['body'] = array();
+  $message['body'][] = 'From: ' . check_plain($form_state['values']['mail']);
+  $message['body'][] = 'Name: ' . check_plain($form_state['values']['name']);
+  $message['body'][] = 'Subject: ' . check_plain($form_state['values']['subject']);
+  $message['body'][] = 'Message: ' . check_plain($form_state['values']['message']);
+
+  // Retrieve the responsible implementation for this message.
+  $system = drupal_mail_system($module, $key);
+
+  // Format the message body.
+  $message = $system->format($message);
+
+  // Send e-mail.
+  $message['result'] = $system->mail($message);
+  $form_state['redirect'] = 'contact-success';
 }
 
 /**
