@@ -32,11 +32,64 @@ function gtk_general_menu() {
     'page callback' => 'gtk_general_blank_page'
   );
 
+  $items['contact'] = array(
+    'title' => 'Contact Us',
+    'access callback' => TRUE,
+    'type' => MENU_CALLBACK,
+    'page callback' => 'gtk_general_blank_page'
+  );
+
   return $items;
 }
 
 function gtk_general_blank_page() {
   return '';
+}
+
+function gtk_general_contact_form() {
+  $form = array();
+  $form['name'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Name'),
+    '#size' => 60,
+    '#maxlength' => 128,
+    '#required' => TRUE,
+  );
+
+  $form['mail'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Email Address'),
+    '#size' => 60,
+    '#maxlength' => 128,
+    '#required' => TRUE,
+  );
+
+  $form['subject'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Subject'),
+    '#size' => 60,
+    '#maxlength' => 128,
+    '#required' => TRUE,
+  );
+
+  $form['message'] = array(
+    '#type' => 'textarea',
+    '#title' => t('Message'),
+    '#required' => TRUE,
+    '#cols' => 60,
+    '#resizable' => FALSE
+  );
+
+  $form['submit'] = array(
+    '#type' => 'submit',
+    '#value' => t('Send'),
+    '#submit' => array('gtk_general_send_contact_mail')
+  );
+  return $form;
+}
+
+function gtk_general_send_contact_mail() {
+
 }
 
 /**
@@ -50,6 +103,14 @@ function gtk_general_block_info() {
     ),
     'support' => array(
       'info' => t('GTK Support Us'),
+      'cache' => DRUPAL_NO_CACHE,
+    ),
+    'contact_info' => array(
+      'info' => t('GTK Contact Info'),
+      'cache' => DRUPAL_NO_CACHE,
+    ),
+    'contact_form' => array(
+      'info' => t('GTK Contact Info'),
       'cache' => DRUPAL_NO_CACHE,
     ),
   );
@@ -86,6 +147,21 @@ function gtk_general_block_view($delta = '') {
     case 'support':
 
       $block['content'] = l('Support Us', 'content/support-us');
+      break;
+
+    case 'contact_info':
+      $block['content'] = '<ul class="tick"><li>12 Cobham Ave, Melrose Park</li>
+<li>Phone: +000 123 456 789</li>
+<li>Fax: +000 123 456 789</li>
+<li>Email: <a href="mailto:office@yamato-marketing.com">office@yamato-marketing.com</a></li>
+</ul>
+<div class="social-icons"><ul class="icons-social icon-button-bg"><li><a class="fa-button" href="https://www.facebook.com/gtk.ro"><i class="fa fa-facebook"></i></a></li></ul></div>
+';
+      break;
+
+
+    case 'contact_form':
+      $block['content'] = drupal_get_form('gtk_general_contact_form');
       break;
   }
   return $block;
