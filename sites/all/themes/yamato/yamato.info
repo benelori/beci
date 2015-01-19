@@ -93,4 +93,6 @@ lessc[] = lessc/slideshow.less
 scripts[] = assets/js/yamato.js
 scripts[] = assets/js/custom.js
 
+stylesheets[all][] = assets/css/custom.css
+
 settings[drupalexp_default_preset] = '0'
