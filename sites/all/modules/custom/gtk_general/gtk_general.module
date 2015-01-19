@@ -32,6 +32,13 @@ function gtk_general_menu() {
     'page callback' => 'gtk_general_blank_page'
   );
 
+  $items['lecturers'] = array(
+    'title' => 'Highschool Alumni Members',
+    'access callback' => TRUE,
+    'type' => MENU_CALLBACK,
+    'page callback' => 'gtk_general_blank_page'
+  );
+
   $items['contact'] = array(
     'title' => 'Contact Us',
     'access callback' => TRUE,
