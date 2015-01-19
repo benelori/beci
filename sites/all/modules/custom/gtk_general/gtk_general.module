@@ -33,7 +33,7 @@ function gtk_general_menu() {
   );
 
   $items['lecturers'] = array(
-    'title' => 'Highschool Alumni Members',
+    'title' => 'Lecturers',
     'access callback' => TRUE,
     'type' => MENU_CALLBACK,
     'page callback' => 'gtk_general_blank_page'
