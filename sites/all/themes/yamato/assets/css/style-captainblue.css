@@ -3,6 +3,7 @@
 @import url(http://fonts.googleapis.com/css?family=Oswald:300,400,700);
 @import url(http://fonts.googleapis.com/css?family=Raleway:400,900);
 @import url(http://fonts.googleapis.com/css?family=Shadows+Into+Light);
+@import url(http://fonts.googleapis.com/css?family=Shadows+Into+Light);
 body {
   color: #666666;
 }
@@ -173,9 +174,9 @@ img {
   color: #fff;
   padding: 8px 0;
   font-size: 24px;
-  font-weight: bold;
-  font-family: 'ralewayregular';
-  float: right;
+  /*font-weight: bold;
+  font-family: 'ralewayregular';*/
+  float: left;
   line-height: 20px;
 }
 .view-blog .sh-blog-teaser .catItemMeta .catDate {
@@ -276,7 +277,9 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'ralewayregular' !important;
+  font-family: 'Comfortaa', cursive !important;
+  /*font-family: 'ralewayregular' !important;*/
+  font-weight: 300;
   -webkit-font-smoothing: subpixel-antialiased;
   margin: 10px 0;
   font-family: inherit;
@@ -312,11 +315,12 @@ h3 {
 h3.block-title {
   font-size: 24px;
   font-weight: 300;
+  font-family: 'Comfortaa', cursive !important;
   margin: 0;
   line-height: normal;
 }
 h2 {
-  font-size: 31.5px;
+  font-size: 18px;
 }
 h5 {
   font-size: 14px;
@@ -464,7 +468,7 @@ iframe {
 }
 .title1 h3.block-title,
 .title1 h1 {
-  padding: 0 0 25px 0;
+  padding: 25px 0 25px 0;
 }
 .title1 h3.block-title:after,
 .title1 h1:after {
@@ -565,13 +569,13 @@ ul.arrow {
 ul.star li:before,
 ul.tick li:before,
 ul.arrow li:before {
-  content: "\f006";
+  /*content: "\f006";
   font-family: FontAwesome;
   padding-right: 5px;
-  font-size: 11px;
+  font-size: 11px;*/
 }
 ul.tick li:before {
-  content: "\f00c" !important;
+  /*content: "\f00c" !important;*/
 }
 ul.tick a {
   color: inherit;
@@ -860,12 +864,12 @@ ul.icon-button-bg li:hover {
   background: #fafafa;
 }
 #section-header {
-  border-bottom: 1px solid #ededed;
+  border-bottom: 7px solid #0c80bd;
   -webkit-box-shadow: 0 1px 1px 1px rgba(0,0,0,0.05);
   -moz-box-shadow: 0 1px 1px 1px rgba(0,0,0,0.05);
   box-shadow: 0 1px 1px 1px rgba(0,0,0,0.05);
   background: #ffffff;
-  padding: 25px 0;
+  padding: 10px 0;
   -webkit-transition: all 500ms ease 0s;
   -moz-transition: all 500ms ease 0s;
   -o-transition: all 500ms ease 0s;
@@ -1252,9 +1256,9 @@ ul.icon-button-bg li:hover {
   padding: 10px 0 20px 0;
 }
 #section-main-content {
-  padding: 40px 0;
+  /*padding: 40px 0;
   border-top: 1px solid #fff;
-  border-bottom: 1px solid #fff;
+  border-bottom: 1px solid #fff;*/
 }
 #section-main-content p {
   margin-top: 15px;
@@ -1707,10 +1711,10 @@ p.sp-blocknumber .rounded {
   color: #fff;
 }
 #section-page-title .breadcrumb a:not(.btn):first-child:before {
-  content: "\f041";
+  content: "\f0d9";
   font-family: FontAwesome;
   padding: 0 5px;
-  color: #fff;
+  color: #b6daf2;
 }
 #section-page-title .page_subtitle {
   display: block;
@@ -1900,7 +1904,7 @@ ul.plan.featured li.plan-price {
   padding: 40px 0;
 }
 #section-latest-news {
-  padding: 40px 0;
+  padding: 40px 0px 0px 0px;
   border-top: 1px solid #ebebeb;
   background: #f2f2f2;
 }
@@ -2991,6 +2995,7 @@ input[type="search"],
 input[type="tel"],
 input[type="color"],
 .uneditable-input {
+  float: right; 
   background-color: #FFFFFF;
   border: 1px solid #CCCCCC;
   -webkit-border-radius: 4px;
@@ -3001,7 +3006,7 @@ input[type="color"],
   font-size: 14px;
   height: 30px;
   line-height: 30px;
-  margin-bottom: 10px;
+  /*margin-bottom: 10px;*/
   padding: 4px 6px;
   vertical-align: middle;
   -webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.075) inset;
@@ -3526,9 +3531,9 @@ input[type="button"] {
 .btn-primary,
 .contact-form .btn-default {
   background: #3498db;
-  -webkit-box-shadow: 0 4px #175783;
+  /*-webkit-box-shadow: 0 4px #175783;
   -moz-box-shadow: 0 4px #175783;
-  box-shadow: 0 4px #175783;
+  box-shadow: 0 4px #175783;*/
 }
 .btn-primary:hover,
 .contact-form .btn-default:hover {
@@ -3754,13 +3759,13 @@ input[type="submit"].btn.btn-mini {
     float: right;
   }
   #section-header .dexp-dropdown a {
-    font-family: 'ralewayregular';
+    font-family: 'Comfortaa', cursive;
     -webkit-font-smoothing: subpixel-antialiased !important;
   }
   #section-header .dexp-dropdown > ul {
     list-style: none;
     margin: 0;
-    padding: 0;
+    padding: 10px 0 0 0;
     text-transform: none;
   }
   #section-header .dexp-dropdown > ul > li {
@@ -3777,7 +3782,7 @@ input[type="submit"].btn.btn-mini {
     -o-transition: all 200ms ease 0 0.5s linear;
     -ms-transition: all 200ms ease 0 0.5s linear;
     transition: all 200ms ease 0 0.5s linear;
-    line-height: 60px;
+    line-height: 50px;
   }
   #section-header .dexp-dropdown > ul > li:after {
     background-color: #e1e1e1;

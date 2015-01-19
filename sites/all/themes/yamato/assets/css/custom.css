@@ -1,0 +1,80 @@
+@import url(http://fonts.googleapis.com/css?family=Comfortaa:400,300);
+@import url(http://fonts.googleapis.com/css?family=Roboto);
+@import url(http://fonts.googleapis.com/css?family=Lato);
+body {
+	font-family: 'Lato','Helvetica Neue',Helvetica,Arial,sans-serif;
+}
+
+label {
+	font-family: 'Lato', sans-serif;
+	  font-weight: 500;
+}
+
+input, button, select, textarea {
+	font-family: 'Lato', sans-serif;
+}
+
+.language-switcher-locale-url > li { 
+	 display: inline-block;
+	 margin: 0 10px 0 0;
+} 
+ul.language-switcher-locale-url {
+	 margin: 0px;
+}
+
+.region-top-right {
+	float: right;
+}
+
+.breadcrumb {
+	float: right;
+}
+
+a.language-link {
+	color: #858585;
+}
+
+.field-item.even > h3 {
+  color: #3498db;
+}
+
+.field-item.even > h2 {
+  color: #3498db;
+  font-size: 22px;
+}
+
+.dexp-grid-items {
+  margin-top: 20px;
+}
+
+.dexp-grid-item {
+    float: left;
+    height: 100%;
+    /*margin-bottom: 5px;*/
+    /*margin-left: 9px;*/
+    position: relative;
+    /*width: 100%;*/
+    /*background-color: rgba(0, 0, 0, 0.5);*/
+    border-radius: 3px;
+    /*line-height:200px;*/
+    text-align:center;
+}
+.dexp-grid-item img {
+    vertical-align: middle;
+}
+
+.node-gtk-simple-page {
+  padding-bottom: 40px;
+}
+
+ul.tick {
+	 padding: 10px;
+}
+
+#section-top-bar .region-top-right .block {
+	float: right;
+}
+
+input#edit-submit {
+	  margin-top: 10px;
+}
