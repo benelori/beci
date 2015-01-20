@@ -177,7 +177,11 @@ function gtk_general_block_info() {
       'cache' => DRUPAL_NO_CACHE,
     ),
     'contact_form' => array(
-      'info' => t('GTK Contact Info'),
+      'info' => t('GTK Contact Form'),
+      'cache' => DRUPAL_NO_CACHE,
+    ),
+    'site_map' => array(
+      'info' => t('Site Map'),
       'cache' => DRUPAL_NO_CACHE,
     ),
   );
@@ -230,6 +234,16 @@ function gtk_general_block_view($delta = '') {
     case 'contact_form':
       $block['content'] = drupal_get_form('gtk_general_contact_form');
       break;
+
+    case 'site_map':
+      $block['content'] = theme('site_map');
+      break;
   }
   return $block;
+}
+
+function gtk_general_site_map_menu_tree_main_menu_alter(&$tree, $menu) {
+  foreach ($tree as $key => $menu_links) {
+    $tree[$key]['below'] = array();
+  }
 }
