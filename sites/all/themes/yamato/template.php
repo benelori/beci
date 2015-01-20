@@ -15,3 +15,141 @@ function yamato_preprocess_image(&$vars) {
     $vars['attributes']['alt'] = '';
   }
 }
+
+
+/**
+ * Preprocesses the variables for site-map.tpl.php.
+ *
+ * @see site-map.tpl.php
+ */
+function yamato_preprocess_site_map(&$variables) {
+  $message = variable_get('site_map_message', array());
+  if (!empty($message)) {
+    $variables['message'] = check_markup($message['value'], $message['format']);
+  }
+
+  if ((variable_get('site_map_show_rss_links', 1) != 0) && module_exists('commentrss') && variable_get('commentrss_site', COMMENTRSS_SITE_FRONT_PAGE)) {
+    $variables['rss_legend'] = theme('site_map_rss_legend');
+  }
+
+  if (variable_get('site_map_show_front', 1)) {
+    $variables['front_page'] = yamato_site_map_front_page();
+  }
+
+  if (variable_get('site_map_show_titles', 1)) {
+    $variables['show_titles'] = TRUE;
+  }
+
+  if (variable_get('site_map_show_blogs', 1)) {
+    $variables['blogs'] = _site_map_blogs();
+  }
+
+  // Compile the books trees.
+  $variables['books'] = _site_map_books();
+
+  // Compile the menu trees.
+  $variables['menus'] = yamato_site_map_menus();
+
+  if (variable_get('site_map_show_faq', 0)) {
+    $variables['faq'] = _site_map_faq();
+  }
+
+  // Compile the vocabulary trees.
+  $variables['taxonomys'] = _site_map_taxonomys();
+
+  // Invoke all custom modules and integrate themed HTML into the site map.
+  $additional = module_invoke_all('site_map');
+  foreach ($additional as $themed_site_map_code) {
+    $variables['additional'] .= $themed_site_map_code;
+  }
+}
+
+/**
+ * Render the latest maps for all the menus.
+ *
+ * @return string
+ *   Returns HTML string of site map for menus.
+ */
+function yamato_site_map_menus() {
+  $output = '';
+  $options = array();
+  $mids = array_filter(variable_get('site_map_show_menus', array()));
+
+  if (!empty($mids)) {
+    foreach ($mids as $mid) {
+      $class = array();
+      $menu = menu_load($mid);
+      // Use menu_tree_all_data to retrieve the expanded tree.
+      $tree = menu_tree_all_data($mid);
+      if (module_exists('i18n_menu')) {
+        $tree = i18n_menu_localize_tree($tree, $GLOBALS['language']->language);
+      }
+
+      // Add an alter hook so other modules can manipulate the menu tree prior to rendering
+      $alter_mid = preg_replace('/[^a-z0-9_]+/', '_', $mid);
+      drupal_alter(array('site_map_menu_tree', 'site_map_menu_tree_' . $alter_mid), $tree, $menu);
+
+      $menu_display = _site_map_menu_tree_output($tree);
+      $menu_html = drupal_render($menu_display);
+      if (!empty($menu_html)) {
+        $title = t($menu['title']);
+        if (module_exists('i18n_string')) {
+          $m_array = array('menu', 'menu', $menu['menu_name'], 'title');
+          $title = i18n_string_plain($m_array, $title);
+        }
+        _site_map_set_option($options, 'site_map_show_titles', 1, 1, 'show_titles', TRUE);
+
+        $class[] = 'site-map-box-menu';
+        $class[] = 'site-map-box-menu-' . $mid;
+        $attributes = array('class' => $class);
+        $output .= theme('site_map_box', array(
+          'title' => '',
+          'content' => $menu_html,
+          'attributes' => $attributes,
+          'options' => $options,
+        ));
+      }
+    }
+  }
+
+  return $output;
+}
+
+/**
+ * Menu callback for the site map front page.
+ *
+ * @return string
+ *   Returns HTML string for front page site map.
+ */
+function yamato_site_map_front_page() {
+  $output = '';
+  $class = array();
+  $options = array();
+  $title = t('Front page');
+  $output = l(t('Front page of %sn', array('%sn' => variable_get('site_name', 'Drupal'))), '<front>', array('html' => TRUE));
+
+  if (variable_get('site_map_show_rss_links', 1) != 0) {
+    $rss_link = theme('site_map_feed_icon', array('url' => variable_get('site_map_rss_front', 'rss.xml')));
+    if (module_exists('commentrss') && variable_get('commentrss_site', COMMENTRSS_SITE_FRONT_PAGE)) {
+      $rss_link .= ' ' . theme('site_map_feed_icon', array('url' => 'crss', 'type' => 'comment'));
+    }
+    if (variable_get('site_map_show_rss_links', 1) == 1) {
+      $output .= ' ' . $rss_link;
+    }
+    else {
+      $class[] = 'site-map-rss-left';
+      $output = $rss_link . ' ' . $output;
+    }
+  }
+  _site_map_set_option($options, 'site_map_show_titles', 1, 1, 'show_titles', TRUE);
+
+  $class[] = 'site-map-box-front';
+  $attributes = array('class' => $class);
+
+  return theme('site_map_box', array(
+    'title' => '',
+    'content' => $output,
+    'attributes' => $attributes,
+    'options' => $options,
+  ));
+}
