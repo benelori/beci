@@ -177,7 +177,7 @@ img {
   /*font-weight: bold;
   font-family: 'ralewayregular';*/
   float: left;
-  line-height: 20px;
+  line-height: 25px;
 }
 .view-blog .sh-blog-teaser .catItemMeta .catDate {
   background: #3498db;
@@ -291,7 +291,7 @@ h6 {
 h1,
 h2,
 h3 {
-  line-height: 40px;
+  line-height: 25px;
   margin: 0 !important;
 }
 h4 {
@@ -2995,6 +2995,7 @@ input[type="search"],
 input[type="tel"],
 input[type="color"],
 .uneditable-input {
+  width: 100%;
   float: right; 
   background-color: #FFFFFF;
   border: 1px solid #CCCCCC;
@@ -5576,7 +5577,7 @@ ul.menu {
   .dexp-grid-items .dexp-grid-item:last-child {
     margin-bottom: 0px;
   }
-#section-top-bar .region-top-right .block {
+  #section-top-bar .region-top-right .block {
 	float: none!important;
   }
   #section-action h3 {
