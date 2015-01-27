@@ -184,6 +184,10 @@ function gtk_general_block_info() {
       'info' => t('Site Map'),
       'cache' => DRUPAL_NO_CACHE,
     ),
+    'social_media_menu_link_block' => array(
+      'info' => t('Social Media Icons'),
+      'cache' => DRUPAL_NO_CACHE,
+    ),
   );
 }
 
@@ -237,6 +241,15 @@ function gtk_general_block_view($delta = '') {
 
     case 'site_map':
       $block['content'] = theme('site_map');
+      break;
+
+    case 'social_media_menu_link_block':
+      $path_to_profile = drupal_get_path('profile', 'gtk');
+      $output = '<ul class="social_media_menu">
+        <li class="social_media_menu_link"><a href="https://www.facebook.com/gtk.ro"><img src="' . $path_to_profile . '/images/fb.jpg"></a> </li>
+        <li class="social_media_menu_link"><a href="https://plus.google.com/u/0/105548417833814696884/posts"><img src="' . $path_to_profile . '/images/google-plus.jpg"></a> </li>
+</ul>';
+      $block['content'] = $output;
       break;
   }
   return $block;
