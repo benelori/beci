@@ -2,6 +2,7 @@ name = GTK Activities View
 description = Contains activities view and block
 core = 7.x
 package = GTK
+dependencies[] = dexp_grid
 dependencies[] = views
 features[ctools][] = views:views_default:3.0
 features[features_api][] = api:2
