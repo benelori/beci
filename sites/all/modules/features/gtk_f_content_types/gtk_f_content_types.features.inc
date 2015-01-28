@@ -21,6 +21,14 @@ function gtk_f_content_types_ctools_plugin_api($module = NULL, $api = NULL) {
  */
 function gtk_f_content_types_node_info() {
   $items = array(
+    'activity' => array(
+      'name' => t('Activity'),
+      'base' => 'node_content',
+      'description' => '',
+      'has_title' => '1',
+      'title_label' => t('Title'),
+      'help' => '',
+    ),
     'gtk_blog_post' => array(
       'name' => t('Blog Post'),
       'base' => 'node_content',

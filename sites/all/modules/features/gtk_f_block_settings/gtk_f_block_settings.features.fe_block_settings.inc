@@ -31,8 +31,8 @@ function gtk_f_block_settings_default_fe_block_settings() {
         'weight' => 0,
       ),
       'yamato' => array(
-        'region' => 'banner',
-        'status' => 1,
+        'region' => '',
+        'status' => 0,
         'theme' => 'yamato',
         'weight' => 0,
       ),
@@ -79,7 +79,7 @@ function gtk_f_block_settings_default_fe_block_settings() {
     'i18n_mode' => 0,
     'module' => 'dexp_page_elements',
     'node_types' => array(),
-    'pages' => '',
+    'pages' => '<front>',
     'roles' => array(),
     'themes' => array(
       'seven' => array(
@@ -108,7 +108,7 @@ function gtk_f_block_settings_default_fe_block_settings() {
     'i18n_mode' => 0,
     'module' => 'dexp_page_elements',
     'node_types' => array(),
-    'pages' => '',
+    'pages' => '<front>',
     'roles' => array(),
     'themes' => array(
       'seven' => array(
@@ -125,6 +125,267 @@ function gtk_f_block_settings_default_fe_block_settings() {
       ),
     ),
     'title' => '',
+    'visibility' => 0,
+  );
+
+  $export['fb_likebox-0'] = array(
+    'cache' => -1,
+    'css_class' => 'title1 title-left',
+    'custom' => 0,
+    'delta' => 0,
+    'i18n_block_language' => array(),
+    'i18n_mode' => 0,
+    'module' => 'fb_likebox',
+    'node_types' => array(),
+    'pages' => '',
+    'roles' => array(),
+    'themes' => array(
+      'seven' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'seven',
+        'weight' => 0,
+      ),
+      'yamato' => array(
+        'region' => 'socials_bottom',
+        'status' => 1,
+        'theme' => 'yamato',
+        'weight' => 0,
+      ),
+    ),
+    'title' => 'Social Network',
+    'visibility' => 0,
+  );
+
+  $export['gtk_general-contact_form'] = array(
+    'cache' => -1,
+    'css_class' => 'title1 title-left',
+    'custom' => 0,
+    'delta' => 'contact_form',
+    'i18n_block_language' => array(),
+    'i18n_mode' => 0,
+    'module' => 'gtk_general',
+    'node_types' => array(),
+    'pages' => 'contact',
+    'roles' => array(),
+    'themes' => array(
+      'seven' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'seven',
+        'weight' => 0,
+      ),
+      'yamato' => array(
+        'region' => 'user1',
+        'status' => 1,
+        'theme' => 'yamato',
+        'weight' => 0,
+      ),
+    ),
+    'title' => 'Contact Us',
+    'visibility' => 1,
+  );
+
+  $export['gtk_general-contact_info'] = array(
+    'cache' => -1,
+    'css_class' => 'title1 title-left',
+    'custom' => 0,
+    'delta' => 'contact_info',
+    'i18n_block_language' => array(),
+    'i18n_mode' => 0,
+    'module' => 'gtk_general',
+    'node_types' => array(),
+    'pages' => 'contact',
+    'roles' => array(),
+    'themes' => array(
+      'seven' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'seven',
+        'weight' => 0,
+      ),
+      'yamato' => array(
+        'region' => 'user2',
+        'status' => 1,
+        'theme' => 'yamato',
+        'weight' => 0,
+      ),
+    ),
+    'title' => 'Find us',
+    'visibility' => 1,
+  );
+
+  $export['gtk_general-membership_application'] = array(
+    'cache' => -1,
+    'css_class' => '',
+    'custom' => 0,
+    'delta' => 'membership_application',
+    'i18n_block_language' => array(),
+    'i18n_mode' => 0,
+    'module' => 'gtk_general',
+    'node_types' => array(),
+    'pages' => '',
+    'roles' => array(),
+    'themes' => array(
+      'seven' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'seven',
+        'weight' => 0,
+      ),
+      'yamato' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'yamato',
+        'weight' => 0,
+      ),
+    ),
+    'title' => '',
+    'visibility' => 0,
+  );
+
+  $export['gtk_general-site_map'] = array(
+    'cache' => -1,
+    'css_class' => 'title1 title-left',
+    'custom' => 0,
+    'delta' => 'site_map',
+    'i18n_block_language' => array(),
+    'i18n_mode' => 0,
+    'module' => 'gtk_general',
+    'node_types' => array(),
+    'pages' => '',
+    'roles' => array(),
+    'themes' => array(
+      'seven' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'seven',
+        'weight' => 0,
+      ),
+      'yamato' => array(
+        'region' => 'copyright',
+        'status' => 1,
+        'theme' => 'yamato',
+        'weight' => 0,
+      ),
+    ),
+    'title' => 'Site Map',
+    'visibility' => 0,
+  );
+
+  $export['gtk_general-support'] = array(
+    'cache' => -1,
+    'css_class' => '',
+    'custom' => 0,
+    'delta' => 'support',
+    'i18n_block_language' => array(),
+    'i18n_mode' => 0,
+    'module' => 'gtk_general',
+    'node_types' => array(),
+    'pages' => '',
+    'roles' => array(),
+    'themes' => array(
+      'seven' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'seven',
+        'weight' => 0,
+      ),
+      'yamato' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'yamato',
+        'weight' => 0,
+      ),
+    ),
+    'title' => '',
+    'visibility' => 0,
+  );
+
+  $export['locale-language'] = array(
+    'cache' => -1,
+    'css_class' => '',
+    'custom' => 0,
+    'delta' => 'language',
+    'i18n_block_language' => array(),
+    'i18n_mode' => 0,
+    'module' => 'locale',
+    'node_types' => array(),
+    'pages' => '',
+    'roles' => array(),
+    'themes' => array(
+      'seven' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'seven',
+        'weight' => 0,
+      ),
+      'yamato' => array(
+        'region' => 'top_right',
+        'status' => 1,
+        'theme' => 'yamato',
+        'weight' => 0,
+      ),
+    ),
+    'title' => '<none>',
+    'visibility' => 0,
+  );
+
+  $export['simplenews-0'] = array(
+    'cache' => 1,
+    'css_class' => '',
+    'custom' => 0,
+    'delta' => 0,
+    'i18n_block_language' => array(),
+    'i18n_mode' => 0,
+    'module' => 'simplenews',
+    'node_types' => array(),
+    'pages' => '',
+    'roles' => array(),
+    'themes' => array(
+      'seven' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'seven',
+        'weight' => 0,
+      ),
+      'yamato' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'yamato',
+        'weight' => 0,
+      ),
+    ),
+    'title' => '',
+    'visibility' => 0,
+  );
+
+  $export['simplenews-10'] = array(
+    'cache' => -1,
+    'css_class' => 'title1 title-left',
+    'custom' => 0,
+    'delta' => 10,
+    'i18n_block_language' => array(),
+    'i18n_mode' => 0,
+    'module' => 'simplenews',
+    'node_types' => array(),
+    'pages' => '',
+    'roles' => array(),
+    'themes' => array(
+      'seven' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'seven',
+        'weight' => 0,
+      ),
+      'yamato' => array(
+        'region' => 'user6',
+        'status' => 1,
+        'theme' => 'yamato',
+        'weight' => 0,
+      ),
+    ),
+    'title' => 'Newsletter',
     'visibility' => 0,
   );
 
@@ -157,6 +418,35 @@ function gtk_f_block_settings_default_fe_block_settings() {
     'visibility' => 0,
   );
 
+  $export['views-activities-block'] = array(
+    'cache' => -1,
+    'css_class' => 'title-center title',
+    'custom' => 0,
+    'delta' => 'activities-block',
+    'i18n_block_language' => array(),
+    'i18n_mode' => 0,
+    'module' => 'views',
+    'node_types' => array(),
+    'pages' => '<front>',
+    'roles' => array(),
+    'themes' => array(
+      'seven' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'seven',
+        'weight' => 0,
+      ),
+      'yamato' => array(
+        'region' => 'position',
+        'status' => 1,
+        'theme' => 'yamato',
+        'weight' => 0,
+      ),
+    ),
+    'title' => '',
+    'visibility' => 1,
+  );
+
   $export['views-blog_posts-block'] = array(
     'cache' => -1,
     'css_class' => 'title-center title',
@@ -176,7 +466,7 @@ function gtk_f_block_settings_default_fe_block_settings() {
         'weight' => 0,
       ),
       'yamato' => array(
-        'region' => 'latestnews',
+        'region' => 'latestworks',
         'status' => 1,
         'theme' => 'yamato',
         'weight' => 0,
@@ -269,7 +559,7 @@ function gtk_f_block_settings_default_fe_block_settings() {
         'weight' => -20,
       ),
     ),
-    'title' => 'Coordinators',
+    'title' => '',
     'visibility' => 1,
   );
 
@@ -298,7 +588,7 @@ function gtk_f_block_settings_default_fe_block_settings() {
         'weight' => -21,
       ),
     ),
-    'title' => 'Strategic, professional supporter and coordinator',
+    'title' => '',
     'visibility' => 1,
   );
 
@@ -386,7 +676,7 @@ function gtk_f_block_settings_default_fe_block_settings() {
       ),
     ),
     'title' => '',
-    'visibility' => 0,
+    'visibility' => 1,
   );
 
   $export['views-members-block_6'] = array(
@@ -415,7 +705,36 @@ function gtk_f_block_settings_default_fe_block_settings() {
       ),
     ),
     'title' => '',
-    'visibility' => 0,
+    'visibility' => 1,
+  );
+
+  $export['views-members-block_7'] = array(
+    'cache' => -1,
+    'css_class' => 'title1 title-left',
+    'custom' => 0,
+    'delta' => 'members-block_7',
+    'i18n_block_language' => array(),
+    'i18n_mode' => 0,
+    'module' => 'views',
+    'node_types' => array(),
+    'pages' => 'lecturers',
+    'roles' => array(),
+    'themes' => array(
+      'seven' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'seven',
+        'weight' => 0,
+      ),
+      'yamato' => array(
+        'region' => 'content',
+        'status' => 1,
+        'theme' => 'yamato',
+        'weight' => 0,
+      ),
+    ),
+    'title' => '',
+    'visibility' => 1,
   );
 
   $export['views-members-manager'] = array(
@@ -443,7 +762,7 @@ function gtk_f_block_settings_default_fe_block_settings() {
         'weight' => -19,
       ),
     ),
-    'title' => 'Manager',
+    'title' => '',
     'visibility' => 1,
   );
 
@@ -466,7 +785,7 @@ function gtk_f_block_settings_default_fe_block_settings() {
         'weight' => 0,
       ),
       'yamato' => array(
-        'region' => 'clients',
+        'region' => 'latestnews',
         'status' => 1,
         'theme' => 'yamato',
         'weight' => 0,
