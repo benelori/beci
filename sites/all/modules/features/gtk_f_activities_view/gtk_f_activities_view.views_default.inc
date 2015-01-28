@@ -22,7 +22,7 @@ function gtk_f_activities_view_views_default_views() {
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'Activities';
+  $handler->display->display_options['title'] = 'Tevékenységek';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
@@ -32,15 +32,16 @@ function gtk_f_activities_view_views_default_views() {
   $handler->display->display_options['pager']['options']['items_per_page'] = '4';
   $handler->display->display_options['style_plugin'] = 'dexp_grid2';
   $handler->display->display_options['style_options']['grid_bootstrap'] = '1';
-  $handler->display->display_options['style_options']['grid_cols_lg'] = '3';
-  $handler->display->display_options['style_options']['grid_cols_md'] = '3';
+  $handler->display->display_options['style_options']['grid_cols_lg'] = '4';
+  $handler->display->display_options['style_options']['grid_cols_md'] = '4';
   $handler->display->display_options['style_options']['grid_cols_sm'] = '6';
   $handler->display->display_options['style_options']['grid_cols_xs'] = '12';
   $handler->display->display_options['style_options']['grid_margin'] = '10';
   $handler->display->display_options['style_options']['grid_itemWidth'] = '360';
   $handler->display->display_options['style_options']['grid_itemHeight'] = '220';
   $handler->display->display_options['style_options']['grid_phoneWidth'] = '768';
-  $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['row_plugin'] = 'node';
+  $handler->display->display_options['row_options']['view_mode'] = 'dexp_portfolio';
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
@@ -99,9 +100,13 @@ function gtk_f_activities_view_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'activity' => 'activity',
   );
+
+  /* Display: Page */
+  $handler = $view->new_display('page', 'Page', 'page_1');
+  $handler->display->display_options['path'] = 'activities';
   $translatables['activities'] = array(
     t('Master'),
-    t('Activities'),
+    t('Tevékenységek'),
     t('more'),
     t('Apply'),
     t('Reset'),
@@ -110,6 +115,7 @@ function gtk_f_activities_view_views_default_views() {
     t('Desc'),
     t('Summary'),
     t('Block'),
+    t('Page'),
   );
   $export['activities'] = $view;
 
