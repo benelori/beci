@@ -122,6 +122,11 @@ input#edit-submit {
   padding-right: 0px;
 }
 
+.activities {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
 @media screen and (max-width: 991px) {
 	.col-xs-1 {
 		width: 100%;

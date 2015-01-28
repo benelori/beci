@@ -1,4 +1,4 @@
-<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 ">
+<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 activities">
   <a href="<?php print $node_url?>">
     <div class="box-yamato">
       <ul class="box box1">
