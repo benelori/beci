@@ -6,7 +6,7 @@
     <?php print render($title_suffix); ?>
   </div>
   <div class="blog-image">
-    <a href="<?php print $node_url; ?>"><?php print render($content['field_image']);?></a>
+    <a href="<?php print $node_url; ?>"><?php print render($content['field_listing_image']);?></a>
   </div>
 
   <div class="blog-content">
