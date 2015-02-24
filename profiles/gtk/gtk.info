@@ -84,6 +84,7 @@ dependencies[] = gtk_f_members
 dependencies[] = gtk_f_support
 dependencies[] = gtk_f_users_and_permissions
 dependencies[] = gtk_f_results_view
+dependencies[] = gtk_f_kontakt_lista
 
 ; List of development modules.
 dependencies[] = module_filter

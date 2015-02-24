@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Kontakt Lista feature feature.
+ */
+
+include_once 'gtk_f_kontakt_lista.features.inc';
