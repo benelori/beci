@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Industry Analysis feature.
+ */
+
+include_once 'gtk_f_industry_analysis.features.inc';
