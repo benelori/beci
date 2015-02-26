@@ -152,8 +152,22 @@ ul.tick {
   padding: 20px 0 0 0;
 }
 
-#search-block-form .form-actions {
-  height: 25px;
+#search-block-form input[type="submit"] {
+    display: inline-block;
+    width: 53px;
+    height: 25px;
+    padding: 0;
+    text-align: center;
+    float: right;
+    border-radius: 0 4px 4px 0;
+    outline: 0;
+    color: #fff;
+    line-height: 30px;
+    background: #3498db;
+    box-shadow: 0 4px #175783;
+    margin-left: -1px;
+    transition: all 300ms ease 0s 0.5s linear;
+    cursor: pointer;
 }
 
 #search-block-form input[type="text"] {

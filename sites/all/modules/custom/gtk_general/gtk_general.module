@@ -254,9 +254,9 @@ function gtk_general_block_view($delta = '') {
     case 'social_media_menu_link_block':
       $path_to_profile = drupal_get_path('profile', 'gtk');
       $output = '<ul class="social_media_menu">
-        <li class="social_media_menu_link"><a href="https://www.facebook.com/gtk.ro"><img src="' . $path_to_profile . '/images/fb.jpg"></a> </li>
-        <li class="social_media_menu_link"><a href="https://plus.google.com/u/0/105548417833814696884/posts"><img src="' . $path_to_profile . '/images/google-plus.jpg"></a> </li>
-        <li class="social_media_menu_link"><a href="https://www.linkedin.com/groups?home=&gid=3736596&trk=anet_ug_hm"><img src="' . $path_to_profile . '/images/linked-in.png"></a> </li>
+        <li class="social_media_menu_link"><a target="_blank" href="https://www.facebook.com/gtk.ro"><img src="/' . $path_to_profile . '/images/fb.jpg"></a> </li>
+        <li class="social_media_menu_link"><a target="_blank" href="https://plus.google.com/u/0/105548417833814696884/posts"><img src="/' . $path_to_profile . '/images/google-plus.jpg"></a> </li>
+        <li class="social_media_menu_link"><a target="_blank" href="https://www.linkedin.com/groups?home=&gid=3736596&trk=anet_ug_hm"><img src="/' . $path_to_profile . '/images/linked-in.png"></a> </li>
 </ul>';
       $block['content'] = $output;
       break;
