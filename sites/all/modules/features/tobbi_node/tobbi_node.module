@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Tobbi Node feature.
+ */
+
+include_once 'tobbi_node.features.inc';

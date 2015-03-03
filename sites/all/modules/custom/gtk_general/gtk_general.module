@@ -164,14 +164,7 @@ function gtk_general_send_contact_mail($form, &$form_state) {
  */
 function gtk_general_block_info() {
   return array(
-    'membership_application' => array(
-      'info' => t('GTK Membership Application'),
-      'cache' => DRUPAL_NO_CACHE,
-    ),
-    'support' => array(
-      'info' => t('GTK Support Us'),
-      'cache' => DRUPAL_NO_CACHE,
-    ),
+
     'contact_info' => array(
       'info' => t('GTK Contact Info'),
       'cache' => DRUPAL_NO_CACHE,
@@ -206,32 +199,6 @@ function gtk_general_block_view($delta = '') {
   $block = array();
 
   switch ($delta) {
-    case 'membership_application':
-
-      $query = db_select('node', 'n');
-
-      $query->join('field_data_field_image', 'i', 'n.nid = i.entity_id');
-      $query->join('field_data_field_simple_pages', 's', 'n.nid = s.entity_id');
-
-      $query ->condition('s.field_simple_pages_value', 'Application', '=');
-
-      $query->fields('i');
-
-      $result = $query->execute()->fetchAll();
-      $url = '';
-      if (!empty($result)) {
-        $image = file_load($result[0]->field_image_fid);
-        $url = file_create_url($image->uri);
-      }
-      $block['content'] = '<img src="' . $url . '"/>';
-
-      break;
-
-    case 'support':
-
-      $block['content'] = l('Support Us', 'content/support-us');
-      break;
-
     case 'contact_info':
       $block['content'] = '<ul class="tick"><li>12 Cobham Ave, Melrose Park</li>
 <li>Phone: +000 123 456 789</li>
@@ -242,7 +209,6 @@ function gtk_general_block_view($delta = '') {
 ';
       break;
 
-
     case 'contact_form':
       $block['content'] = drupal_get_form('gtk_general_contact_form');
       break;
@@ -252,11 +218,11 @@ function gtk_general_block_view($delta = '') {
       break;
 
     case 'social_media_menu_link_block':
-      $path_to_profile = drupal_get_path('profile', 'gtk');
+      $path_to_profile = drupal_get_path('theme', 'yamato');
       $output = '<ul class="social_media_menu">
-        <li class="social_media_menu_link"><a target="_blank" href="https://www.facebook.com/gtk.ro"><img src="/' . $path_to_profile . '/images/fb.jpg"></a> </li>
-        <li class="social_media_menu_link"><a target="_blank" href="https://plus.google.com/u/0/105548417833814696884/posts"><img src="/' . $path_to_profile . '/images/google-plus.jpg"></a> </li>
-        <li class="social_media_menu_link"><a target="_blank" href="https://www.linkedin.com/groups?home=&gid=3736596&trk=anet_ug_hm"><img src="/' . $path_to_profile . '/images/linked-in.png"></a> </li>
+        <li class="social_media_menu_link"><a target="_blank" href="https://www.facebook.com/gtk.ro"><img src="/' . $path_to_profile . '/assets/images/fb.jpg"></a> </li>
+        <li class="social_media_menu_link"><a target="_blank" href="https://plus.google.com/u/0/105548417833814696884/posts"><img src="/' . $path_to_profile . '/assets/images/google-plus.jpg"></a> </li>
+        <li class="social_media_menu_link"><a target="_blank" href="https://www.linkedin.com/groups?home=&gid=3736596&trk=anet_ug_hm"><img src="/' . $path_to_profile . '/assets/images/linked-in.png"></a> </li>
 </ul>';
       $block['content'] = $output;
       break;

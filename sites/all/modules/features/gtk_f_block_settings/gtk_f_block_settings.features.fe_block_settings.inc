@@ -215,6 +215,35 @@ function gtk_f_block_settings_default_fe_block_settings() {
     'visibility' => 1,
   );
 
+  $export['gtk_general-google_map_block'] = array(
+    'cache' => -1,
+    'css_class' => '',
+    'custom' => 0,
+    'delta' => 'google_map_block',
+    'i18n_block_language' => array(),
+    'i18n_mode' => 0,
+    'module' => 'gtk_general',
+    'node_types' => array(),
+    'pages' => 'contact',
+    'roles' => array(),
+    'themes' => array(
+      'seven' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'seven',
+        'weight' => 0,
+      ),
+      'yamato' => array(
+        'region' => 'action',
+        'status' => 1,
+        'theme' => 'yamato',
+        'weight' => -31,
+      ),
+    ),
+    'title' => '',
+    'visibility' => 1,
+  );
+
   $export['gtk_general-membership_application'] = array(
     'cache' => -1,
     'css_class' => '',
@@ -273,6 +302,35 @@ function gtk_f_block_settings_default_fe_block_settings() {
     'visibility' => 0,
   );
 
+  $export['gtk_general-social_media_menu_link_block'] = array(
+    'cache' => -1,
+    'css_class' => '',
+    'custom' => 0,
+    'delta' => 'social_media_menu_link_block',
+    'i18n_block_language' => array(),
+    'i18n_mode' => 0,
+    'module' => 'gtk_general',
+    'node_types' => array(),
+    'pages' => '',
+    'roles' => array(),
+    'themes' => array(
+      'seven' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'seven',
+        'weight' => 0,
+      ),
+      'yamato' => array(
+        'region' => 'top_right',
+        'status' => 1,
+        'theme' => 'yamato',
+        'weight' => -28,
+      ),
+    ),
+    'title' => '',
+    'visibility' => 0,
+  );
+
   $export['gtk_general-support'] = array(
     'cache' => -1,
     'css_class' => '',
@@ -321,13 +379,42 @@ function gtk_f_block_settings_default_fe_block_settings() {
         'weight' => 0,
       ),
       'yamato' => array(
-        'region' => 'top_right',
+        'region' => 'top_left',
         'status' => 1,
         'theme' => 'yamato',
-        'weight' => 0,
+        'weight' => -28,
       ),
     ),
     'title' => '<none>',
+    'visibility' => 0,
+  );
+
+  $export['search-form'] = array(
+    'cache' => -1,
+    'css_class' => '',
+    'custom' => 0,
+    'delta' => 'form',
+    'i18n_block_language' => array(),
+    'i18n_mode' => 0,
+    'module' => 'search',
+    'node_types' => array(),
+    'pages' => '',
+    'roles' => array(),
+    'themes' => array(
+      'seven' => array(
+        'region' => 'dashboard_inactive',
+        'status' => 1,
+        'theme' => 'seven',
+        'weight' => 0,
+      ),
+      'yamato' => array(
+        'region' => 'top_right',
+        'status' => 1,
+        'theme' => 'yamato',
+        'weight' => -29,
+      ),
+    ),
+    'title' => '',
     'visibility' => 0,
   );
 

@@ -14,7 +14,7 @@ function gtk_f_event_calendar_default_fe_block_settings() {
 
   $export['gtk_general-homepage_calendar_link'] = array(
     'cache' => -1,
-    'css_class' => 'gtk-block-calendar-button',
+    'css_class' => '',
     'custom' => 0,
     'delta' => 'homepage_calendar_link',
     'i18n_block_language' => array(),
@@ -34,7 +34,7 @@ function gtk_f_event_calendar_default_fe_block_settings() {
         'region' => 'action',
         'status' => 1,
         'theme' => 'yamato',
-        'weight' => 0,
+        'weight' => -29,
       ),
     ),
     'title' => '',

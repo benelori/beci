@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Blog Post Nodes feature.
+ */
+
+include_once 'blog_post_nodes.features.inc';

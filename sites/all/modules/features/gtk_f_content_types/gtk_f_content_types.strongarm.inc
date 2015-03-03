@@ -365,11 +365,15 @@ function gtk_f_content_types_strongarm() {
       'display' => array(
         'language' => array(
           'default' => array(
-            'weight' => '2',
+            'weight' => '3',
             'visible' => FALSE,
           ),
           'teaser' => array(
             'weight' => '3',
+            'visible' => FALSE,
+          ),
+          'dexp_portfolio' => array(
+            'weight' => '2',
             'visible' => FALSE,
           ),
         ),

@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Simple Page es Organizations Nodes feature.
+ */
+
+include_once 'simple_page_es_organizations_nodes.features.inc';

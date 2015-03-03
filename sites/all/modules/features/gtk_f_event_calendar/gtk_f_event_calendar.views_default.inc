@@ -22,7 +22,7 @@ function gtk_f_event_calendar_views_default_views() {
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'Home Page Calendar';
+  $handler->display->display_options['title'] = 'Események';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
@@ -87,7 +87,7 @@ function gtk_f_event_calendar_views_default_views() {
   $handler = $view->new_display('block', 'Block', 'block');
   $translatables['home_page_calendar'] = array(
     t('Master'),
-    t('Home Page Calendar'),
+    t('Események'),
     t('more'),
     t('Apply'),
     t('Reset'),
