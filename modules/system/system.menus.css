@@ -34,7 +34,7 @@ li.leaf {
   margin: 0;
 }
 li a.active {
-  color: #3498db;
+  color: #000;
 }
 td.menu-disabled {
   background: #ccc;
