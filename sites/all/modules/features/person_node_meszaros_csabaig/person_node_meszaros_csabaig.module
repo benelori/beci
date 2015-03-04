@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Person Node Meszaros Csabaig feature.
+ */
+
+include_once 'person_node_meszaros_csabaig.features.inc';

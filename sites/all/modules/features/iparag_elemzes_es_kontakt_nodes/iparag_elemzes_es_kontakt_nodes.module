@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Iparag Elemzes es Kontakt Nodes feature.
+ */
+
+include_once 'iparag_elemzes_es_kontakt_nodes.features.inc';

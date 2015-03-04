@@ -3,6 +3,7 @@ core = 7.x
 package = GTK
 dependencies[] = features
 dependencies[] = filter
+dependencies[] = shortcode
 features[ckeditor_profile][] = Advanced
 features[ckeditor_profile][] = CKEditor Global Profile
 features[ckeditor_profile][] = Full

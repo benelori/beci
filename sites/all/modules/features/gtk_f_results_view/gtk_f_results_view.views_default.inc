@@ -22,7 +22,7 @@ function gtk_f_results_view_views_default_views() {
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'Results';
+  $handler->display->display_options['title'] = 'Eredmények';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
@@ -75,13 +75,20 @@ function gtk_f_results_view_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'result' => 'result',
   );
+  /* Filter criterion: Content: Language */
+  $handler->display->display_options['filters']['language']['id'] = 'language';
+  $handler->display->display_options['filters']['language']['table'] = 'node';
+  $handler->display->display_options['filters']['language']['field'] = 'language';
+  $handler->display->display_options['filters']['language']['value'] = array(
+    '***CURRENT_LANGUAGE***' => '***CURRENT_LANGUAGE***',
+  );
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
   $handler->display->display_options['path'] = 'results';
   $translatables['results'] = array(
     t('Master'),
-    t('Results'),
+    t('Eredmények'),
     t('more'),
     t('Apply'),
     t('Reset'),
