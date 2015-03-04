@@ -200,13 +200,22 @@ function gtk_general_block_view($delta = '') {
 
   switch ($delta) {
     case 'contact_info':
-      $block['content'] = '<ul class="tick"><li>12 Cobham Ave, Melrose Park</li>
-<li>Phone: +000 123 456 789</li>
-<li>Fax: +000 123 456 789</li>
-<li>Email: <a href="mailto:office@yamato-marketing.com">office@yamato-marketing.com</a></li>
-</ul>
-<div class="social-icons"><ul class="icons-social icon-button-bg"><li><a class="fa-button" href="https://www.facebook.com/gtk.ro"><i class="fa fa-facebook"></i></a></li></ul></div>
-';
+      $address_default = array(
+        'en' => '60, 21 Decembrie 1989 Street, Cluj Napoca 400124',
+        'ro' => 'Str. 21 Decembrie 1989 nr.60, Cluj Napoca 400124',
+        'hu' => '21 Decembrie 1989 utca 60, Kolozsvár 400124',
+      );
+
+      $data = array(
+        'address' => variable_get('gtk_address', $address_default),
+        'phone' => variable_get('gtk_telephone', '+40 726 377 090'),
+        'email' => variable_get('gtk_email', 'office@gtk.ro'),
+      );
+
+      $block['content'] = array(
+        '#theme' => 'contact_info',
+        '#data' => $data,
+      );
       break;
 
     case 'contact_form':
@@ -218,17 +227,20 @@ function gtk_general_block_view($delta = '') {
       break;
 
     case 'social_media_menu_link_block':
-      $path_to_profile = drupal_get_path('theme', 'yamato');
-      $output = '<ul class="social_media_menu">
-        <li class="social_media_menu_link"><a target="_blank" href="https://www.facebook.com/gtk.ro"><img src="/' . $path_to_profile . '/assets/images/fb.jpg"></a> </li>
-        <li class="social_media_menu_link"><a target="_blank" href="https://plus.google.com/u/0/105548417833814696884/posts"><img src="/' . $path_to_profile . '/assets/images/google-plus.jpg"></a> </li>
-        <li class="social_media_menu_link"><a target="_blank" href="https://www.linkedin.com/groups?home=&gid=3736596&trk=anet_ug_hm"><img src="/' . $path_to_profile . '/assets/images/linked-in.png"></a> </li>
-</ul>';
-      $block['content'] = $output;
+      $social_media_links = array(
+        'facebook' => variable_get('gtk_facebook_link', 'https://www.facebook.com/gtk.ro'),
+        'google_plus' => variable_get('gtk_google_plus_link', 'https://plus.google.com/u/0/105548417833814696884/posts'),
+        'linked_in' => variable_get('gtk_linked_in_link', 'https://www.linkedin.com/groups?home=&gid=3736596&trk=anet_ug_hm'),
+      );
+
+      $block['content'] = array(
+        '#theme' => 'social_media_menu_link_block',
+        '#data' => $social_media_links
+      );
       break;
 
     case 'google_map_block':
-      $address = 'Clujana, Piața 1 Mai, Cluj-Napoca, Cluj County';
+      $address = 'GTK - Business Consulting Club, Bulevardul 21 Decembrie 1989, Cluj-Napoca, Cluj County';
       $block['content'] = '<div class="google-maps">
 <iframe width="1170" height="480" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.ro/maps?q=' . $address . '&output=embed"></iframe>
 </div>';
@@ -249,4 +261,82 @@ function gtk_general_site_map_menu_tree_main_menu_alter(&$tree, $menu) {
   foreach ($tree as $key => $menu_links) {
     $tree[$key]['below'] = array();
   }
+}
+
+/**
+ * Implements hook_theme.
+ */
+function gtk_general_theme() {
+  return array(
+    'contact_info' => array(
+      'variables' => array('data' => NULL),
+    ),
+    'social_media_menu_link_block' => array(
+      'variables' => array('data' => NULL),
+    ),
+  );
+}
+
+function theme_contact_info($variables) {
+  global $language;
+
+  $output = gtk_general_contact_block_contact_info($variables, $language);
+  $output .= gtk_general_contact_block_social_icons();
+
+  return $output;
+}
+
+function gtk_general_contact_block_social_icons() {
+  $output = '<ul class="icons-social icon-button-bg"><li><a href="https://www.facebook.com/gtk.ro" class="fa-button"><i class="fa fa-facebook"></i></a></li>
+<li><a href="https://www.linkedin.com/groups?home=&gid=3736596&trk=anet_ug_hm" class="fa-button"><i class="fa fa-linkedin"></i></a></li>
+<li><a href="https://plus.google.com/u/0/105548417833814696884/posts" class="fa-button"><i class="fa fa-google-plus"></i></a></li>
+</ul>';
+
+  return $output;
+}
+
+function gtk_general_contact_block_contact_info($variables, $language) {
+  $output = '<ul class="tick">';
+
+  $output .= "<li>" . $variables['data']['address'][$language->language] . "</li>";
+  $output .= "<li>" . $variables['data']['phone'] . "</li>";
+  $output .= "<li>" . $variables['data']['email'] . "</li>";
+  $output .= "</ul>";
+
+  return $output;
+}
+
+function theme_social_media_menu_link_block($variables) {
+  // Gets the path to the images in the current theme.
+  $path_to_theme = drupal_get_path('theme', 'yamato');
+  $path_to_images = $path_to_theme . '/assets/images/';
+
+  // Options for the l function used to build the links.
+  $options =  array(
+    'html' => TRUE,
+    'attributes' => array('target' => '_blank')
+  );
+
+  // Associative array for each social network image.
+  $settings = array(
+    'facebook' => 'fb.jpg',
+    'google_plus' => 'google-plus.jpg',
+    'linked_in' => 'linked-in.png',
+  );
+
+  // Builds the unordered list with the images.
+  $output = '<ul class="social_media_menu">';
+
+  foreach ($settings as $network => $image) {
+    $link = l(
+      '<img src="/' . $path_to_images . $image . '">',
+      $variables['data'][$network],
+      $options
+    );
+    $output .= '<li class="social_media_menu_link">' . $link . '</li>';
+  }
+
+  $output .= "</ul>";
+
+  return $output;
 }
