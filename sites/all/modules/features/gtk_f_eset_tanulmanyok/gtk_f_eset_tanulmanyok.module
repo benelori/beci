@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the GTK Eset Tanulmanyok feature.
+ */
+
+include_once 'gtk_f_eset_tanulmanyok.features.inc';
