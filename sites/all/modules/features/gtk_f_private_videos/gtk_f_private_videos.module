@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the GTK Private Videos feature.
+ */
+
+include_once 'gtk_f_private_videos.features.inc';
