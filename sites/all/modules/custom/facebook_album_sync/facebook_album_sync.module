@@ -1,0 +1,40 @@
+<?php
+
+function facebook_album_sync_menu() {
+  $items['gallery'] = array(
+    'title' => 'Gallery',
+    'page callback' => 'facebook_album_sync_gallery_page',
+    'access arguments' => array('access content'),
+    'type' => MENU_NORMAL_ITEM,
+  );
+
+  return $items;
+}
+
+function facebook_album_sync_libraries_info() {
+
+  $libraries['facebook_sdk'] = array(
+    'name' => 'Facebook SDK',
+    'vendor url' => 'https://facebook.com',
+    'download url' => 'https://developers.facebook.com/docs/php/gettingstarted/4.0.0',
+    'library path' => 'sites/all/libraries/facebook_sdk/src/Facebook',
+    'version' => '1',
+    'files' => array(
+      'php' => array('FacebookSession.php', 'FacebookRequest.php'),
+    ),
+  );
+
+  return $libraries;
+}
+
+function facebook_album_sync_gallery_page() {
+  libraries_load('facebook_sdk');
+
+  $session = \Facebook\FacebookSession::setDefaultApplication('352501168284631', '4d0c2ce10dbaeb2abf7c208eee0b9dee');
+
+  $request = new \Facebook\FacebookRequest($session, 'GET', '/me');
+  $response = $request->execute();
+  $graphObject = $response->getGraphObject();
+  kpr(array($graphObject));
+  return 'lol';
+}

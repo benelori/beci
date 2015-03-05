@@ -1,0 +1,4 @@
+name = GTK Facebook Album Sync
+description = This module implements Facebook Album sync for GTK.
+core = 7.x
+package = GTK
