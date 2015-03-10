@@ -9,7 +9,12 @@ body {
 
 label {
 	font-family: 'Lato', sans-serif;
-	  font-weight: 500;
+	font-weight: 500;
+	margin-right: 5px;
+}
+
+form {
+
 }
 
 input, button, select, textarea {
@@ -53,7 +58,11 @@ h6 {
 
 .title1 h3.block-title:after,
 .title1 h1:after {
-  width: 91%;
+  /*width: 50%;*/
+}
+
+div#block-gtk-general-contact-form {
+  width:90%;
 }
 
 ul.language-switcher-locale-url {
@@ -133,7 +142,7 @@ a.language-link {
 }
 
 ul.tick {
-  padding: 10px;
+  padding: 20px 0px 0px 0px;
 }
 
 .team-image img {
@@ -146,6 +155,74 @@ ul.tick {
 
 .view-blog .blog-teaser {
   margin-left: 30px;
+}
+
+.gtk-calendar-link-wrapper {
+  text-align: center;
+}
+
+/* Event page Prev Next button */
+
+.item-list .pager li {
+  margin: 0px -25px 0px 0px;
+}
+
+.pager li>a, .pager li>span {
+  display: block !important;
+  height: 31px;
+  width: 31px;
+  display: block;
+  background: transparent url('../images/news_buttons.png') no-repeat 0 0;
+  text-indent: -999em;
+  margin-top: 6px;
+  cursor: pointer;
+  top: auto;
+  bottom: 0;
+  z-index: 99;
+  border:none; 
+  border-radius:0px;
+  margin-top: 0px;
+}
+
+.view .date-nav-wrapper .date-prev {
+  background:none; 
+  text-align: center;
+  padding: 0px 0px 0px 0px;
+}
+
+
+.view .date-nav-wrapper .date-next {
+  background:none; 
+  text-align: center;
+  padding: 0px 25px 0px 0px;
+}
+
+.view .date-nav-wrapper .date-prev a {
+  background-position: 0 0;
+  left: auto;
+  right: 45px;
+}
+.view .date-nav-wrapper .date-prev a:hover {
+  background-position: 0 -31px;
+}
+.view .date-nav-wrapper .date-next a {
+  background-position: -31px 0;
+  margin-right: 1px;
+}
+.view .date-nav-wrapper .date-next a:hover {
+  background-position: -31px -31px;
+}
+
+.site-map-front-page {
+  display:none;
+}
+
+.bx-controls.bx-has-pager.bx-has-controls-direction  {
+  padding-top: 30px;
+}
+
+.region ul.pagination {
+  margin: 0px 0px 20px 0px;
 }
 
 #section-top-bar .region-top-left .block {
@@ -184,11 +261,10 @@ ul.tick {
 }
 
 input#edit-submit {
-	margin-top: 10px;
+/*	margin-top: 10px;*/
 }
 
 input#edit-mail {
-  width: 90%;
   float: left;
 }
 
@@ -231,17 +307,44 @@ ul.tick li:before {
 div#block-gtk-general-site-map > h3 {
   font-family: 'Lato', sans-serif!important;
 }
+div#block-gtk-general-site-map > h3:after {
+  width:92%;
+}
 
 div#block-fb-likebox-0 > h3 {
   font-family: 'Lato', sans-serif!important;
+}
+
+div#block-fb-likebox-0 > h3:after {
+  width: 92%;
 }
 
 div#block-simplenews-10 > h3 {
   font-family: 'Lato', sans-serif!important;
 }
 
+div#block-simplenews-10 > h3:after {
+  width:92%
+}
+
+
 ul.pagination li [title~="Current"] {
   color: #14486b;
+}
+
+table.views-table.cols-16 {
+  font-size: 9px;
+  text-align: center;
+}
+
+table.views-table.cols-16 td {
+  padding: 0px 0px 0px 8px;
+}
+
+table.views-table.cols-16 th {
+  padding: 0px 0px 0px 8px;
+  text-align: center;	
+  font-size: 9.5px;
 }
 
 #section-header {
@@ -268,6 +371,10 @@ ul.pagination li [title~="Current"] {
   border-bottom: 1px solid #fff;*/
 }
 
+#section-main-content p {
+  margin: 15px 30px 15px 0px;
+}
+
 #section-page-title .breadcrumb a:not(.btn):first-child:before {
   content: "\f0d9";
   font-family: FontAwesome;
@@ -278,7 +385,7 @@ ul.pagination li [title~="Current"] {
 #section-latest-news {
   padding: 40px 0px 0px 0px;
   border-top: 1px solid #ebebeb;
-  background: #f2f2f2;
+  background: #fff;
 }
 
 div#site-map {
@@ -305,6 +412,33 @@ ul.site-map-menu {
 textarea,
 select,
 input[type="text"],
+.uneditable-input {
+  width: 100%;
+  background-color: #FFFFFF;
+  border: 1px solid #CCCCCC;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  color: #555555;
+  display: inline-block;
+  font-size: 14px;
+  height: 30px;
+  line-height: 30px;
+  /*margin-bottom: 10px;*/
+  padding: 4px 6px;
+  vertical-align: middle;
+  -webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.075) inset;
+  -moz-box-shadow: 0 1px 1px rgba(0,0,0,0.075) inset;
+  box-shadow: 0 1px 1px rgba(0,0,0,0.075) inset;
+  -webkit-transition: border 0.2s linear 0s box-shadow 0.2s linear 0s linear;
+  -moz-transition: border 0.2s linear 0s box-shadow 0.2s linear 0s linear;
+  -o-transition: border 0.2s linear 0s box-shadow 0.2s linear 0s linear;
+  -ms-transition: border 0.2s linear 0s box-shadow 0.2s linear 0s linear;
+  transition: border 0.2s linear 0s box-shadow 0.2s linear 0s linear;
+}
+
+textarea,
+select,
 input[type="file"],
 input[type="password"],
 input[type="datetime"],
@@ -343,6 +477,18 @@ input[type="color"],
   -o-transition: border 0.2s linear 0s box-shadow 0.2s linear 0s linear;
   -ms-transition: border 0.2s linear 0s box-shadow 0.2s linear 0s linear;
   transition: border 0.2s linear 0s box-shadow 0.2s linear 0s linear;
+}
+
+#search-block-form .form-actions:before {
+  content: "";
+}
+
+#search-block-form {
+  margin: 10px 0px 0px 0px;
+}
+
+input#edit-submit--2 {
+  margin-top: 10px;
 }
 
 .btn-primary,
