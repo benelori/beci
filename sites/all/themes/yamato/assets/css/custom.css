@@ -1,3 +1,5 @@
+/*derp*/
+
 @import url(http://fonts.googleapis.com/css?family=Comfortaa:400,300);
 @import url(http://fonts.googleapis.com/css?family=Roboto);
 @import url(http://fonts.googleapis.com/css?family=Lato);
@@ -11,10 +13,6 @@ label {
 	font-family: 'Lato', sans-serif;
 	font-weight: 500;
 	margin-right: 5px;
-}
-
-form {
-
 }
 
 input, button, select, textarea {
@@ -120,7 +118,11 @@ div#block-views-blog-posts-block div.bx-controls-direction {
 }
 
 div#block-views-support-block-1 div.bx-controls-direction {
-  padding-top: 15px;
+  /*padding-top: 15px;*/
+}
+
+.activity-block-row .activities {
+   width: 16.5%;
 }
 
 .title3 h3.block-title:after {
@@ -316,6 +318,7 @@ input#edit-submit {
 
 input#edit-mail {
   float: left;
+  width: 90%;
 }
 
 .col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
@@ -326,6 +329,12 @@ input#edit-mail {
 @media screen and (max-width: 991px) {
 	.col-xs-1 {
 		width: 100%;
+	}
+	.activity-block-row .activities {
+		width: 50%;
+	}
+	.activity-block-row .activities .field-items {
+	  min-height: 250px;
 	}
 }
 
@@ -432,6 +441,15 @@ table.views-table.cols-16 th {
   /*padding: 40px 0;
   border-top: 1px solid #fff;
   border-bottom: 1px solid #fff;*/
+  display: none;
+}
+
+#section-latest-works {
+  padding: 20px 0;
+}
+
+#section-position {
+  padding: 20px 0;
 }
 
 #section-main-content p {
@@ -569,7 +587,7 @@ input#edit-submit--2 {
    }
 
   #section-header .dexp-dropdown a {
-    font-family: 'Comfortaa', cursive;
+    font-family: 'Roboto','Helvetica Neue',Helvetica,Arial,sans-serif;
     -webkit-font-smoothing: subpixel-antialiased !important;
   }
   #section-header .dexp-dropdown > ul {
