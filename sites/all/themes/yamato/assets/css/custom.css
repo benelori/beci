@@ -7,6 +7,7 @@
 @import url(http://fonts.googleapis.com/css?family=Roboto:300);
 body {
 	font-family: 'Roboto','Helvetica Neue',Helvetica,Arial,sans-serif;
+	font-size: 12.5px;
 }
 
 label {
@@ -24,11 +25,11 @@ a:not(.btn) {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Comfortaa', cursive,'Helvetica Neue',Helvetica,Arial,sans-serif!important;
+  font-family: 'Roboto','Helvetica Neue',Helvetica,Arial,sans-serif !important;
 }
 
 h2 {
-  font-size: 18px;
+  font-size: 16px;
   line-height: 30px;
 }
 
@@ -37,16 +38,20 @@ h3 {
   margin: 0 !important;
 }
 
+h4 {
+  font-size: 16px;
+}
+
 h3.block-title {
-  font-size: 24px;
+  font-size: 21px;
   font-weight: 300;
-  font-family: 'Comfortaa', cursive !important;
+  font-family: 'Roboto','Helvetica Neue',Helvetica,Arial,sans-serif !important;
   margin: 0;
   line-height: normal;
 }
 
 h6 {
-  font-family: 'Comfortaa', cursive !important;
+  font-family: 'Roboto','Helvetica Neue',Helvetica,Arial,sans-serif;
   /*font-family: 'ralewayregular' !important;*/
   font-weight: 300;
   -webkit-font-smoothing: subpixel-antialiased;
@@ -58,6 +63,10 @@ h6 {
   text-rendering: optimizelegibility;
 }
 
+ul.menu {
+  font-size: 14.3px;
+}
+
 .page_title {
   font-weight: normal;
 }
@@ -65,6 +74,11 @@ h6 {
 .title1 h3.block-title:after,
 .title1 h1:after {
   /*width: 50%;*/
+}
+
+.language-icon {
+  vertical-align: initial;
+  width: 20px;
 }
 
 div#block-gtk-general-contact-form {
@@ -105,12 +119,16 @@ li.social_media_menu_link:hover {
 
 .language-switcher-locale-url > li { 
   display: inline-block;
-  margin: 0 10px 0 0;
+  margin: 0 5px 0 0;
 } 
 
 .view-blog ul.pagination {
   padding-top: 15px;
   padding-left: 12px;
+}
+
+div#block-block-1 .content p {
+  font-size: 12px;
 }
 
 div#block-views-blog-posts-block div.bx-controls-direction {
@@ -152,7 +170,7 @@ ul.language-switcher-locale-url {
 
 a.language-link {
 	color: #858585;
-	font-size:13.5px;
+	font-size:12px;
 }
 .field-item.even > h3 {
   color: #3498db;
@@ -172,7 +190,11 @@ a.language-link {
 }
 
 .box-yamato .box li.box-icon {
-  min-height: 338px;
+/*  min-height: 338px;*/
+}
+
+div#block-gtk-general-contact-form input#edit-mail {
+  width: 100%;
 }
 
 .node-gtk-simple-page {
@@ -269,6 +291,10 @@ ul.tick {
   margin: 0px 0px 20px 0px;
 }
 
+.box-text .field-item.even {
+  text-align: justify;
+}
+
 ul.pagination li a {
   background:#0097CA;
 }
@@ -277,13 +303,38 @@ ul.pagination li a:hover {
   background:#1D6FA5;
 }
 
+#block-views-blog-posts-block .bxslide {
+  margin-right: 15px!important;
+}
+
+#section-action {
+  height: 120px;
+}
+
+#section-action h3.block-title {
+  padding: 0 0 15px 0;
+}
+
+#block-views-home-page-calendar-block .field-content h3 {
+  font-size: 19px;
+  color: #666;
+}
+
+div#block-gtk-general-homepage-calendar-link {
+ display:none;
+}
+
+#section-footer input#edit-mail {
+  width: 79%;
+}
+
 #section-top-bar .region-top-left .block {
   padding: 20px 0 0 0;
 }
 
 #search-block-form input[type="submit"] {
     display: inline-block;
-    width: 53px;
+    width: 60px;
     height: 25px;
     padding: 0;
     text-align: center;
@@ -316,7 +367,7 @@ input#edit-submit {
 /*	margin-top: 10px;*/
 }
 
-input#edit-mail {
+input#edit-mail--2 {
   float: left;
   width: 90%;
 }
@@ -441,7 +492,6 @@ table.views-table.cols-16 th {
   /*padding: 40px 0;
   border-top: 1px solid #fff;
   border-bottom: 1px solid #fff;*/
-  display: none;
 }
 
 #section-latest-works {
@@ -569,7 +619,7 @@ input[type="color"],
 }
 
 input#edit-submit--2 {
-  margin-top: 10px;
+  /*margin-top: 10px;*/
 }
 
 .btn-primary,
