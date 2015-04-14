@@ -699,3 +699,21 @@ input#edit-submit--2 {
 .field-name-field-type-of-person {
     display: none;
 }
+
+.field-content.album-title {
+    text-align: center;
+}
+
+.views-field.views-field-field-thumbnail-image {
+    margin: 10px;
+}
+
+.field-name-field-album-image .field-items .field-item.even {
+    display: inline-block;
+    margin: 5px;
+}
+
+.field-name-field-album-image .field-items .field-item.odd {
+    display: inline-block;
+    margin: 5px;
+}

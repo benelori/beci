@@ -1720,7 +1720,7 @@ p.sp-blocknumber .rounded {
 }
 #section-latest-works {
   padding: 40px 0;
-  background: #f2f2f2;
+  /*background: #f2f2f2;*/
   border-bottom: 1px solid #ebebeb;
 }
 .field-name-field-team-image img {

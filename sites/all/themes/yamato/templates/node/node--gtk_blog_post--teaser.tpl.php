@@ -12,5 +12,5 @@
   <div class="blog-content">
     <?php print render($content['field_summary']);?>
   </div>
-  <p><a href="<?php print $node_url; ?>" class="readmore">Read more</a></p>
+  <p><a href="<?php print $node_url; ?>" class="readmore"><?php print t('Read more'); ?></a></p>
 </div>
