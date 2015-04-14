@@ -308,7 +308,11 @@ ul.pagination li a:hover {
 }
 
 #section-action {
-  height: 120px;
+    height: auto;
+}
+
+#section-action.section-homepage {
+  height: 200px;
 }
 
 #section-action h3.block-title {

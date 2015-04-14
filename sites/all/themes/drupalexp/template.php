@@ -37,6 +37,11 @@ function drupalexp_theme($existing, $type, $theme, $path) {
 function template_preprocess_section(&$vars) {
   $theme = drupalexp_get_theme();
   $section = $vars['section'];
+
+  if (drupal_is_front_page()) {
+    $vars['classes_array'][] = 'section-homepage';
+  }
+
   $vars['theme_hook_suggestions'][] = 'section__' . $theme->theme;
   $vars['theme_hook_suggestions'][] = 'section__' . $section->key;
   if (isset($section->sticky) && $section->sticky) {
