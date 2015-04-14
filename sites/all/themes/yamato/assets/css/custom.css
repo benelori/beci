@@ -1,10 +1,10 @@
 /*derp*/
 
 @import url(http://fonts.googleapis.com/css?family=Comfortaa:400,300);
-@import url(http://fonts.googleapis.com/css?family=Roboto);
+@import url(http://fonts.googleapis.com/css?subset=latin,latin-ext&family=Roboto);
 @import url(http://fonts.googleapis.com/css?family=Lato);
 @import url(http://fonts.googleapis.com/css?family=Shadows+Into+Light);
-@import url(http://fonts.googleapis.com/css?family=Roboto:300);
+@import url(http://fonts.googleapis.com/css?subset=latin,latin-ext&family=Roboto:300);
 body {
 	font-family: 'Roboto','Helvetica Neue',Helvetica,Arial,sans-serif;
 	font-size: 12.5px;
