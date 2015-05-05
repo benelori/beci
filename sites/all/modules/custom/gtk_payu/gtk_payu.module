@@ -1,0 +1,221 @@
+<?php
+
+/**
+ * @file
+ *  GTK PayU module.
+ *  Contains hook implementations necessary for integration of the PayU service.
+ */
+
+/**
+ * Implements hook_menu().
+ */
+function gtk_payu_menu() {
+  $items = array();
+
+  $items['send_order'] = array(
+    'page callback' => 'gtk_payu_complete_form',
+    'access callback' => TRUE,
+    'type' => MENU_NORMAL_ITEM,
+  );
+
+  $items['admin/config/gtk'] = array(
+    'title' => 'GTK',
+    'description' => 'GTK settings',
+    'position' => 'right',
+    'weight' => 100,
+    'page callback' => 'system_admin_menu_block_page',
+    'access arguments' => array('administer site configuration'),
+    'file' => 'system.admin.inc',
+    'file path' => drupal_get_path('module', 'system'),
+  );
+
+  $items['donate'] = array(
+    'title' => 'Donate',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('gtk_payu_donation_form'),
+    'access arguments' => array('access content'),
+  );
+
+
+  return $items;
+}
+
+/**
+ * Form builder of the donation form.
+ */
+function gtk_payu_donation_form() {
+  global $language;
+  $form = array();
+
+  $sums = array(
+    15 => t('15 RON'),
+    50 => t('50 RON'),
+    100 => t('100 RON'),
+    300 => t('300 RON'),
+    0 => t('Enter a custom amount.'),
+  );
+  $form['sum'] = array(
+    '#type' => 'radios',
+    '#title' => t('Choose the preferred amount, or please enter the amount manually.'),
+    '#options' => $sums,
+    '#required' => TRUE,
+  );
+
+  $form['custom_sum'] = array(
+    '#type' => 'textfield',
+  );
+
+  $query = db_select('node', 'n');
+  $query->join('field_data_body', 'b', 'n.nid = b.entity_id');
+  $query->join('field_data_field_terms_and_services_file', 'f', 'n.nid = f.entity_id');
+  $query->join('field_data_field_add_to_donation_page', 'd', 'n.nid = d.entity_id');
+
+  $query->fields('f', array('field_terms_and_services_file_fid'))
+    ->fields('b', array('body_value'))
+    ->fields('d', array('field_add_to_donation_page_value'))
+    ->condition('field_add_to_donation_page_value', 1, '=')
+    ->condition('b.language', $language->language, '=')
+    ->condition('f.language', $language->language, '=');
+  $result = $query->execute()->fetchAssoc();
+  $terms_and_services = '';
+  if (!empty($result)) {
+    $terms_and_services_description = $result['body_value'];
+    $terms_and_services_file = file_load($result['field_terms_and_services_file_fid']);
+    $terms_and_services = $terms_and_services_description . l($terms_and_services_file->filename, file_create_url($terms_and_services_file->uri));
+  }
+
+  $form['terms_and_services'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Agree to the terms and services.'),
+    '#description' => $terms_and_services,
+  );
+
+  $form['#validate'][] = 'gtk_payu_donation_form_validate';
+
+  $form['#submit'] = array('gtk_payu_donation_form_submit');
+  $form['submit'] = array(
+    '#type' => 'submit',
+    '#value' => t('Donate')
+  );
+
+  return $form;
+}
+
+/**
+ * Custom validation for gtk_payu_donation_form.
+ */
+function gtk_payu_donation_form_validate($form, &$form_state) {
+  if ($form_state['values']['sum'] == 0) {
+    if (empty($form_state['values']['custom_sum'])) {
+      form_set_error('custom_sum', t('Please fill in the field with a custom sum.'));
+    }
+    else {
+      if (!is_numeric($form_state['values']['custom_sum'])) {
+        form_set_error('custom_sum', t('Please enter a valid sum.'));
+      }
+    }
+  }
+  if ($form_state['values']['terms_and_services'] == 0) {
+    form_set_error('terms_and_services', t('Please read and agree to the terms and services of our site.'));
+  }
+}
+
+/**
+ * Submit handler of gtk_payu_donation_form.
+ */
+function gtk_payu_donation_form_submit($form, &$form_state) {
+  $sum = ($form_state['values']['sum'] == 0 && $form_state['values']['custom_sum'] != 0) ? $form_state['values']['custom_sum'] : $form_state['values']['sum'];
+  $form_state['redirect'] = array('send_order',array('query' => array('sum' => $sum)));
+}
+
+/**
+ * Builds the final form that needs to be submitted to the PayU service.
+ *
+ * Builds the object of the order needed by the PayU service and returns the
+ * form that will be submitted.
+ */
+function gtk_payu_complete_form() {
+  // Loads payment settings.
+  $payment_method = commerce_payment_method_instance_load('gtk_payu|commerce_payment_gtk_payu');
+  $settings = $payment_method['settings'];
+
+  // Sets secret key.
+  $test_mode = ($settings['account'] == 'prod') ? FALSE : TRUE;
+  $myLiveUpdate = new LiveUpdate($settings['key'], $settings['live_update_url'], FALSE, $test_mode, $settings['language']);
+
+  // Sets PayU merchant id.
+  $merchant_id = $settings['merchant_id'];
+  $myLiveUpdate->setMerchant($merchant_id);
+
+  // Sets the date of the order.
+  $order_date = date('Y-m-d h:i:s');
+  $myLiveUpdate->setOrderDate($order_date);
+
+  $sum = drupal_get_query_parameters();
+  $value = (!empty($sum) && isset($sum['sum']) && is_numeric($sum['sum'])) ? $sum['sum'] : NULL;
+  // Builds the products array, with the name of the products in the order.
+  $products	= array();
+  $products[]	= t('Donatie de %sum RON.', array('%sum' => $value));
+  $myLiveUpdate->setOrderPName($products);
+
+  $product_codes	= array();
+  $product_codes[] = 'donatie_' . $sum['sum'];
+  $myLiveUpdate->setOrderPCode($product_codes);
+
+  // Builds the product prices array, which contains the prices corresponding
+  // to each ordered product.
+  $product_price = array();
+  $product_price[] = $sum['sum'];
+  $myLiveUpdate->setOrderPrice($product_price);
+
+  // Sets the product price type. Price types can be GROSS or NET, GROSS meaning
+  // that the VAT is included, and NET meaning that the VAT will be added by the
+  // PayU service. If unset, it defaults to NET.
+  $product_price_type	= array();
+  $product_price_type[]	= 'GROSS';
+  $myLiveUpdate->setOrderPType($product_price_type);
+
+  // Sets the quantity of the ordered product.
+  $product_quantity		= array();
+  $product_quantity[]		= 1;
+  $myLiveUpdate->setOrderQTY($product_quantity);
+
+  // Sets VAT value for the ordered product.
+  $product_vat = array();
+  $product_vat[] = 0;
+  $myLiveUpdate->setOrderVAT($product_vat);
+  drupal_add_js('document.getElementById("payuForm").submit();', array('scope' => 'footer', 'type' => 'inline'));
+
+  $myLiveUpdate->setPricesCurrency($settings['currency']);
+  $output = array(
+    '#theme' => 'payu_send_order',
+    '#data' => $myLiveUpdate,
+  );
+
+  return $output;
+}
+
+/**
+ * Implements hook_theme().
+ */
+function gtk_payu_theme() {
+  return array(
+    'payu_send_order' => array(
+      'variables' => array('data' => NULL),
+    ),
+  );
+}
+
+/**
+ * Creates the HTML output of the form that is submitted to the PayU service.
+ */
+function theme_payu_send_order($variables) {
+  $output = array(
+    '#prefix' => '<form name="frmForm" action="' . $variables['data']->liveUpdateURL . '" method="post" id="payuForm">',
+    '#markup' => $variables['data']->getLiveUpdateHTML(),
+    '#suffix' => '</form>',
+  );
+
+  return render($output);
+}
+
