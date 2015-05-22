@@ -131,7 +131,6 @@ function gtk_validate_name($element, $form_state) {
 }
 
 function gtk_general_send_contact_mail($form, &$form_state) {
-
   $module = 'gtk_general';
   $key = 'send_contact_mail';
   $language = language_default();
