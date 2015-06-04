@@ -1,6 +1,7 @@
 name = Industry Analysis
 core = 7.x
 package = GTK
+dependencies[] = dexp_grid
 dependencies[] = features
 dependencies[] = media
 dependencies[] = pdf

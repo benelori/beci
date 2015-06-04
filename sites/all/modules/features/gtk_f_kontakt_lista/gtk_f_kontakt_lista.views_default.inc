@@ -24,12 +24,21 @@ function gtk_f_kontakt_lista_views_default_views() {
   $handler = $view->new_display('default', 'Master', 'default');
   $handler->display->display_options['title'] = 'Kontakt Lista';
   $handler->display->display_options['use_more_always'] = FALSE;
-  $handler->display->display_options['access']['type'] = 'perm';
+  $handler->display->display_options['access']['type'] = 'role';
+  $handler->display->display_options['access']['role'] = array(
+    4 => '4',
+    2 => '2',
+    3 => '3',
+  );
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '10';
+  $handler->display->display_options['pager']['options']['tags']['first'] = '« első';
+  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ előző';
+  $handler->display->display_options['pager']['options']['tags']['next'] = 'következő ›';
+  $handler->display->display_options['pager']['options']['tags']['last'] = 'utolsó »';
   $handler->display->display_options['style_plugin'] = 'table';
   $handler->display->display_options['style_options']['columns'] = array(
     'title' => 'title',
@@ -164,7 +173,7 @@ function gtk_f_kontakt_lista_views_default_views() {
       'empty_column' => 0,
     ),
   );
-  /* Field: Content: Title */
+  /* Field: Tartalom: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
@@ -172,27 +181,27 @@ function gtk_f_kontakt_lista_views_default_views() {
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
-  /* Field: Content: Email */
+  /* Field: Tartalom: Email */
   $handler->display->display_options['fields']['field_email']['id'] = 'field_email';
   $handler->display->display_options['fields']['field_email']['table'] = 'field_data_field_email';
   $handler->display->display_options['fields']['field_email']['field'] = 'field_email';
-  /* Field: Content: Telefonszam */
+  /* Field: Tartalom: Telefonszam */
   $handler->display->display_options['fields']['field_telefonszam']['id'] = 'field_telefonszam';
   $handler->display->display_options['fields']['field_telefonszam']['table'] = 'field_data_field_telefonszam';
   $handler->display->display_options['fields']['field_telefonszam']['field'] = 'field_telefonszam';
-  /* Field: Content: Lakhely */
+  /* Field: Tartalom: Lakhely */
   $handler->display->display_options['fields']['field_lakhely']['id'] = 'field_lakhely';
   $handler->display->display_options['fields']['field_lakhely']['table'] = 'field_data_field_lakhely';
   $handler->display->display_options['fields']['field_lakhely']['field'] = 'field_lakhely';
-  /* Field: Content: Statusz */
+  /* Field: Tartalom: Statusz */
   $handler->display->display_options['fields']['field_statusz']['id'] = 'field_statusz';
   $handler->display->display_options['fields']['field_statusz']['table'] = 'field_data_field_statusz';
   $handler->display->display_options['fields']['field_statusz']['field'] = 'field_statusz';
-  /* Field: Content: Tagsag Kezdete */
+  /* Field: Tartalom: Tagsag Kezdete */
   $handler->display->display_options['fields']['field_tagsag_kezdete']['id'] = 'field_tagsag_kezdete';
   $handler->display->display_options['fields']['field_tagsag_kezdete']['table'] = 'field_data_field_tagsag_kezdete';
   $handler->display->display_options['fields']['field_tagsag_kezdete']['field'] = 'field_tagsag_kezdete';
-  /* Field: Content: Szenior Tagsag Kezdete */
+  /* Field: Tartalom: Szenior Tagsag Kezdete */
   $handler->display->display_options['fields']['field_szenior_tagsag_kezdete']['id'] = 'field_szenior_tagsag_kezdete';
   $handler->display->display_options['fields']['field_szenior_tagsag_kezdete']['table'] = 'field_data_field_szenior_tagsag_kezdete';
   $handler->display->display_options['fields']['field_szenior_tagsag_kezdete']['field'] = 'field_szenior_tagsag_kezdete';
@@ -200,7 +209,7 @@ function gtk_f_kontakt_lista_views_default_views() {
     'thousand_separator' => ' ',
     'prefix_suffix' => 1,
   );
-  /* Field: Content: Alumni Tagsag Kezdete */
+  /* Field: Tartalom: Alumni Tagsag Kezdete */
   $handler->display->display_options['fields']['field_alumni_tagsag_kezdete']['id'] = 'field_alumni_tagsag_kezdete';
   $handler->display->display_options['fields']['field_alumni_tagsag_kezdete']['table'] = 'field_data_field_alumni_tagsag_kezdete';
   $handler->display->display_options['fields']['field_alumni_tagsag_kezdete']['field'] = 'field_alumni_tagsag_kezdete';
@@ -208,51 +217,51 @@ function gtk_f_kontakt_lista_views_default_views() {
     'thousand_separator' => ' ',
     'prefix_suffix' => 1,
   );
-  /* Field: Content: Munkahely */
+  /* Field: Tartalom: Munkahely */
   $handler->display->display_options['fields']['field_munkahely']['id'] = 'field_munkahely';
   $handler->display->display_options['fields']['field_munkahely']['table'] = 'field_data_field_munkahely';
   $handler->display->display_options['fields']['field_munkahely']['field'] = 'field_munkahely';
-  /* Field: Content: Betoltott Pozicio */
+  /* Field: Tartalom: Betoltott Pozicio */
   $handler->display->display_options['fields']['field_betoltott_pozicio']['id'] = 'field_betoltott_pozicio';
   $handler->display->display_options['fields']['field_betoltott_pozicio']['table'] = 'field_data_field_betoltott_pozicio';
   $handler->display->display_options['fields']['field_betoltott_pozicio']['field'] = 'field_betoltott_pozicio';
-  /* Field: Content: Iparag */
+  /* Field: Tartalom: Iparag */
   $handler->display->display_options['fields']['field_iparag']['id'] = 'field_iparag';
   $handler->display->display_options['fields']['field_iparag']['table'] = 'field_data_field_iparag';
   $handler->display->display_options['fields']['field_iparag']['field'] = 'field_iparag';
-  /* Field: Content: BSc Szakirany */
+  /* Field: Tartalom: BSc Szakirany */
   $handler->display->display_options['fields']['field_bsc_szakirany']['id'] = 'field_bsc_szakirany';
   $handler->display->display_options['fields']['field_bsc_szakirany']['table'] = 'field_data_field_bsc_szakirany';
   $handler->display->display_options['fields']['field_bsc_szakirany']['field'] = 'field_bsc_szakirany';
-  /* Field: Content: MSc Szakirany */
+  /* Field: Tartalom: MSc Szakirany */
   $handler->display->display_options['fields']['field_msc_szakirany']['id'] = 'field_msc_szakirany';
   $handler->display->display_options['fields']['field_msc_szakirany']['table'] = 'field_data_field_msc_szakirany';
   $handler->display->display_options['fields']['field_msc_szakirany']['field'] = 'field_msc_szakirany';
-  /* Field: Content: Korabbi Munkahelyek */
+  /* Field: Tartalom: Korabbi Munkahelyek */
   $handler->display->display_options['fields']['field_korabbi_munkahelyek']['id'] = 'field_korabbi_munkahelyek';
   $handler->display->display_options['fields']['field_korabbi_munkahelyek']['table'] = 'field_data_field_korabbi_munkahelyek';
   $handler->display->display_options['fields']['field_korabbi_munkahelyek']['field'] = 'field_korabbi_munkahelyek';
-  /* Field: Content: Megjegyzes */
+  /* Field: Tartalom: Megjegyzes */
   $handler->display->display_options['fields']['field_megjegyzes']['id'] = 'field_megjegyzes';
   $handler->display->display_options['fields']['field_megjegyzes']['table'] = 'field_data_field_megjegyzes';
   $handler->display->display_options['fields']['field_megjegyzes']['field'] = 'field_megjegyzes';
-  /* Field: Content: Tovabbi Informacio */
+  /* Field: Tartalom: Tovabbi Informacio */
   $handler->display->display_options['fields']['field_tovabbi_informacio']['id'] = 'field_tovabbi_informacio';
   $handler->display->display_options['fields']['field_tovabbi_informacio']['table'] = 'field_data_field_tovabbi_informacio';
   $handler->display->display_options['fields']['field_tovabbi_informacio']['field'] = 'field_tovabbi_informacio';
-  /* Sort criterion: Content: Title */
+  /* Sort criterion: Tartalom: Title */
   $handler->display->display_options['sorts']['title']['id'] = 'title';
   $handler->display->display_options['sorts']['title']['table'] = 'node';
   $handler->display->display_options['sorts']['title']['field'] = 'title';
   $handler->display->display_options['sorts']['title']['order'] = 'DESC';
-  /* Filter criterion: Content: Published */
+  /* Filter criterion: Tartalom: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filter criterion: Content: Type */
+  /* Filter criterion: Tartalom: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
@@ -278,10 +287,10 @@ function gtk_f_kontakt_lista_views_default_views() {
     t('Items per page'),
     t('- All -'),
     t('Offset'),
-    t('« first'),
-    t('‹ previous'),
-    t('next ›'),
-    t('last »'),
+    t('« első'),
+    t('‹ előző'),
+    t('következő ›'),
+    t('utolsó »'),
     t('Email'),
     t('Telefonszam'),
     t('Lakhely'),

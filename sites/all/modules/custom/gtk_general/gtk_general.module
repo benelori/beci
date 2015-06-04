@@ -53,6 +53,13 @@ function gtk_general_menu() {
     'page callback' => 'gtk_general_success_page'
   );
 
+  $items['partners'] = array(
+    'title' => 'Partners',
+    'access callback' => TRUE,
+    'type' => MENU_CALLBACK,
+    'page callback' => 'gtk_general_blank_page'
+  );
+
   return $items;
 }
 
@@ -163,7 +170,6 @@ function gtk_general_send_contact_mail($form, &$form_state) {
  */
 function gtk_general_block_info() {
   return array(
-
     'contact_info' => array(
       'info' => t('GTK Contact Info'),
       'cache' => DRUPAL_NO_CACHE,
@@ -186,6 +192,10 @@ function gtk_general_block_info() {
     ),
     'homepage_calendar_link' => array(
       'info' => t('Home Page Calendar Link'),
+      'cache' => DRUPAL_NO_CACHE,
+    ),
+    'latest_news_block' => array(
+      'info' => t('Latest News Block'),
       'cache' => DRUPAL_NO_CACHE,
     ),
   );
@@ -251,6 +261,37 @@ function gtk_general_block_view($delta = '') {
 <a class="gtk-calendar-link btn btn-primary btn-large" href="' . $base_url . '/event-created" target=" ">' . t('All Events'). '</a></div>';
 
       $block['content'] = $output;
+      break;
+
+    case 'latest_news_block':
+      $node = menu_get_object();
+
+      global $language;
+      $wrapper = entity_metadata_wrapper('node', $node);
+
+      $query = new EntityFieldQuery();
+
+      $query->entityCondition('entity_type', 'node')
+        ->entityCondition('bundle', 'gtk_blog_post')
+        ->propertyCondition('status', NODE_PUBLISHED)
+        ->propertyCondition('language', $language->language)
+        ->fieldCondition('field_category', 'value', $wrapper->field_category->value(), '=')
+        ->range(0, 5);
+
+      $result = $query->execute();
+      if (!empty($result)) {
+
+        $output = '<ul class="latest-news-block">';
+
+        foreach ($result['node'] as $node) {
+          $full_node = node_load($node->nid);
+          $output .= '<li><a href="/node/' . $node->nid . '">' . $full_node->title . '</a>' . '</li>';
+        }
+        $output .= '</ul>';
+
+        $block['content'] = '<div class="latest-news-block-wrapper">'. $output. '</div>';
+      }
+
       break;
   }
   return $block;

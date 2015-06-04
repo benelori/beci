@@ -76,7 +76,13 @@ function gtk_payu_donation_form() {
 
   $form['terms_and_services'] = array(
     '#type' => 'checkbox',
-    '#title' => t('Agree to the terms and services.'),
+    '#title' => t('Please read the !terms and the !return, before agreeing.',
+      array(
+        '!terms' => l(t('terms and services'), '/sites/default/files/termeni_si_conditii.pdf',
+          array('attributes' => array('target' => '_blank'))),
+        '!return' => l(t('return policy'), '/sites/default/files/politica_de_returnare.pdf',
+          array('attributes' => array('target' => '_blank'))),
+      )),
     '#required' => TRUE,
   );
 

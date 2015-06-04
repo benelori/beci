@@ -93,13 +93,13 @@ function gtk_f_eset_tanulmanyok_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_elemzes',
-    'label' => 'Elemzes',
+    'label' => 'Eset Tanulmany',
     'required' => 1,
     'settings' => array(
       'description_field' => 0,
       'file_directory' => '',
       'file_extensions' => 'pdf',
-      'max_filesize' => '',
+      'max_filesize' => '10 MB',
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -115,7 +115,7 @@ function gtk_f_eset_tanulmanyok_field_default_field_instances() {
 
   // Translatables
   // Included for use with string extractors like potx.
-  t('Elemzes');
+  t('Eset Tanulmany');
   t('Lehet irni egy rovid leirast az esettanulmanyrol, ha szukseg van ra.');
   t('Rovid Leiras');
 
