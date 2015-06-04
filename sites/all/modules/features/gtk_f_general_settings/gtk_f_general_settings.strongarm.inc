@@ -57,6 +57,61 @@ function gtk_f_general_settings_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'facebookshare_location';
+  $strongarm->value = array(
+    'content' => 'content',
+    'teasers' => 0,
+  );
+  $export['facebookshare_location'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'facebookshare_size';
+  $strongarm->value = 'button';
+  $export['facebookshare_size'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'facebookshare_text';
+  $strongarm->value = '';
+  $export['facebookshare_text'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'facebookshare_types';
+  $strongarm->value = array(
+    'activity' => 'activity',
+    'gtk_blog_post' => 'gtk_blog_post',
+    'event_calendar' => 0,
+    'eset_tanulmanyok' => 0,
+    'home_page_slideshow' => 0,
+    'iparag_elemzes' => 0,
+    'kontakt' => 0,
+    'main_partner' => 0,
+    'organizations' => 0,
+    'person' => 0,
+    'photo_album' => 0,
+    'private_videos' => 0,
+    'result' => 0,
+    'gtk_simple_page' => 0,
+    'simplenews' => 0,
+    'video' => 0,
+  );
+  $export['facebookshare_types'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'facebookshare_weight';
+  $strongarm->value = '10';
+  $export['facebookshare_weight'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'pathauto_node_pattern';
   $strongarm->value = '[node:title]';
   $export['pathauto_node_pattern'] = $strongarm;

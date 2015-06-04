@@ -89,23 +89,6 @@ ul.language-switcher-locale-url {
   padding: 0px;
 }
 
-img.language-icon {
-  display: none;
-}
-
-a.language-link  {
-  background-color: #000;
-  text-decoration: blink;
-  padding: 3px;
-  color: #fff;
-  font-size:11px;
-}
-
-a:not(.btn):hover.language-link, li a.active.language-link {
-  background-color: #0097CA;
-  color:#fff;
-}
-
 li.social_media_menu_link {
   display: inline-block;
   margin: 13px 5px 0 0;
@@ -185,6 +168,10 @@ ul.language-switcher-locale-url {
 	float: right;
 }
 
+a.language-link {
+	color: #858585;
+	font-size:12px;
+}
 .field-item.even > h3 {
   color: #3498db;
 }
@@ -691,23 +678,8 @@ input#edit-submit--2 {
   #section-top-bar .region-top-right .block {
 	float: none!important;
   }
-  ul.social_media_menu {
-    display: none;
-  }
-  [id*="section-"]:not(#section-header) .container {
-    max-width: 275px;
-  }
-  a.language-link {
-  padding: 10px;
-  }
-  #search-block-form input[type="submit"] {
-    width: 80px;
-  }
-  #search-block-form input[type="text"] {
-    width:200px;
-  }
   #section-top-bar {
-    display: block;
+    /*display: none;*/	
   }
   ul.language-switcher-locale-url  {
 	text-align: center;
@@ -726,27 +698,4 @@ input#edit-submit--2 {
 
 .field-name-field-type-of-person {
     display: none;
-}
-
-.field-content.album-title {
-    text-align: center;
-}
-
-.views-field.views-field-field-thumbnail-image {
-    margin: 10px;
-}
-
-.field-name-field-album-image .field-items .field-item.even {
-    display: inline-block;
-    margin: 5px;
-}
-
-.field-name-field-album-image .field-items .field-item.odd {
-    display: inline-block;
-    margin: 5px;
-}
-
-.facebookshare-box {
-  clear: left;
-  float: left;
 }

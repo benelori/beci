@@ -29,6 +29,10 @@ function gtk_f_blog_posts_view_views_default_views() {
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '10';
+  $handler->display->display_options['pager']['options']['tags']['first'] = '« első';
+  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ előző';
+  $handler->display->display_options['pager']['options']['tags']['next'] = 'következő ›';
+  $handler->display->display_options['pager']['options']['tags']['last'] = 'utolsó »';
   $handler->display->display_options['style_plugin'] = 'slideshow';
   $handler->display->display_options['style_options']['slideshow_type'] = 'views_slideshow_cycle';
   $handler->display->display_options['style_options']['slideshow_skin'] = 'default';
@@ -57,7 +61,7 @@ function gtk_f_blog_posts_view_views_default_views() {
   $handler->display->display_options['style_options']['views_slideshow_cycle']['cleartype'] = 0;
   $handler->display->display_options['style_options']['views_slideshow_cycle']['cleartypenobg'] = 0;
   $handler->display->display_options['row_plugin'] = 'fields';
-  /* Field: Content: Title */
+  /* Field: Tartalom: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
@@ -66,7 +70,7 @@ function gtk_f_blog_posts_view_views_default_views() {
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['title']['element_type'] = 'h2';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
-  /* Field: Content: Image */
+  /* Field: Tartalom: Image */
   $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
   $handler->display->display_options['fields']['field_image']['table'] = 'field_data_field_image';
   $handler->display->display_options['fields']['field_image']['field'] = 'field_image';
@@ -77,26 +81,26 @@ function gtk_f_blog_posts_view_views_default_views() {
     'image_style' => 'large',
     'image_link' => 'content',
   );
-  /* Sort criterion: Content: Post date */
+  /* Sort criterion: Tartalom: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
-  /* Filter criterion: Content: Published */
+  /* Filter criterion: Tartalom: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filter criterion: Content: Type */
+  /* Filter criterion: Tartalom: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
     'gtk_blog_post' => 'gtk_blog_post',
   );
-  /* Filter criterion: Content: Language */
+  /* Filter criterion: Tartalom: Language */
   $handler->display->display_options['filters']['language']['id'] = 'language';
   $handler->display->display_options['filters']['language']['table'] = 'node';
   $handler->display->display_options['filters']['language']['field'] = 'language';
@@ -107,7 +111,7 @@ function gtk_f_blog_posts_view_views_default_views() {
   /* Display: News */
   $handler = $view->new_display('page', 'News', 'page');
   $handler->display->display_options['defaults']['title'] = FALSE;
-  $handler->display->display_options['title'] = 'News';
+  $handler->display->display_options['title'] = 'Hírek';
   $handler->display->display_options['defaults']['use_more'] = FALSE;
   $handler->display->display_options['defaults']['use_more_always'] = FALSE;
   $handler->display->display_options['defaults']['use_more_always'] = FALSE;
@@ -119,6 +123,10 @@ function gtk_f_blog_posts_view_views_default_views() {
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['pager']['options']['id'] = '0';
   $handler->display->display_options['pager']['options']['quantity'] = '9';
+  $handler->display->display_options['pager']['options']['tags']['first'] = '« első';
+  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ előző';
+  $handler->display->display_options['pager']['options']['tags']['next'] = 'következő ›';
+  $handler->display->display_options['pager']['options']['tags']['last'] = 'utolsó »';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'dexp_grid2';
   $handler->display->display_options['style_options']['grid_bootstrap'] = '1';
@@ -135,7 +143,7 @@ function gtk_f_blog_posts_view_views_default_views() {
   $handler->display->display_options['row_plugin'] = 'node';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Field: Content: Title */
+  /* Field: Tartalom: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
@@ -144,7 +152,7 @@ function gtk_f_blog_posts_view_views_default_views() {
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['title']['element_type'] = 'h2';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
-  /* Field: Content: Post date */
+  /* Field: Tartalom: Post date */
   $handler->display->display_options['fields']['created']['id'] = 'created';
   $handler->display->display_options['fields']['created']['table'] = 'node';
   $handler->display->display_options['fields']['created']['field'] = 'created';
@@ -153,7 +161,7 @@ function gtk_f_blog_posts_view_views_default_views() {
   $handler->display->display_options['fields']['created']['date_format'] = 'custom';
   $handler->display->display_options['fields']['created']['custom_date_format'] = 'Y.F.d';
   $handler->display->display_options['fields']['created']['second_date_format'] = 'long';
-  /* Field: Content: Image */
+  /* Field: Tartalom: Image */
   $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
   $handler->display->display_options['fields']['field_image']['table'] = 'field_data_field_image';
   $handler->display->display_options['fields']['field_image']['field'] = 'field_image';
@@ -164,43 +172,42 @@ function gtk_f_blog_posts_view_views_default_views() {
     'image_style' => 'blog_column_2_image',
     'image_link' => 'content',
   );
-  /* Field: Content: Summary */
+  /* Field: Tartalom: Summary */
   $handler->display->display_options['fields']['field_summary']['id'] = 'field_summary';
   $handler->display->display_options['fields']['field_summary']['table'] = 'field_data_field_summary';
   $handler->display->display_options['fields']['field_summary']['field'] = 'field_summary';
   $handler->display->display_options['fields']['field_summary']['label'] = '';
   $handler->display->display_options['fields']['field_summary']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['field_summary']['alter']['text'] = '[field_summary]
-<a href="#" class="readmore">Read more</a>';
+  $handler->display->display_options['fields']['field_summary']['alter']['text'] = '[field_summary] <a href="#" class="readmore">Bővebben</a>';
   $handler->display->display_options['fields']['field_summary']['alter']['max_length'] = '200';
   $handler->display->display_options['fields']['field_summary']['alter']['ellipsis'] = FALSE;
-  $handler->display->display_options['fields']['field_summary']['alter']['more_link_text'] = 'Read more';
+  $handler->display->display_options['fields']['field_summary']['alter']['more_link_text'] = 'Bővebben';
   $handler->display->display_options['fields']['field_summary']['element_label_colon'] = FALSE;
   $handler->display->display_options['path'] = 'news';
 
   /* Display: Block */
   $handler = $view->new_display('block', 'Block', 'block');
   $handler->display->display_options['defaults']['title'] = FALSE;
-  $handler->display->display_options['title'] = 'Aktuális';
+  $handler->display->display_options['title'] = 'Hírek';
   $handler->display->display_options['defaults']['pager'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['pager']['options']['items_per_page'] = '12';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'dexp_bxslider';
-  $handler->display->display_options['style_options']['speed'] = '500';
+  $handler->display->display_options['style_options']['speed'] = '2000';
   $handler->display->display_options['style_options']['touchEnabled'] = '1';
-  $handler->display->display_options['style_options']['auto'] = '0';
-  $handler->display->display_options['style_options']['pause'] = '4000';
+  $handler->display->display_options['style_options']['auto'] = '1';
+  $handler->display->display_options['style_options']['pause'] = '9000';
   $handler->display->display_options['style_options']['infiniteloop'] = '1';
   $handler->display->display_options['style_options']['slidemargin'] = '10';
   $handler->display->display_options['style_options']['startslide'] = '0';
   $handler->display->display_options['style_options']['randomstart'] = '0';
   $handler->display->display_options['style_options']['pager'] = '1';
   $handler->display->display_options['style_options']['controls'] = '1';
-  $handler->display->display_options['style_options']['minslides'] = '4';
+  $handler->display->display_options['style_options']['minslides'] = '2';
   $handler->display->display_options['style_options']['maxslides'] = '4';
-  $handler->display->display_options['style_options']['moveslides'] = '4';
+  $handler->display->display_options['style_options']['moveslides'] = '2';
   $handler->display->display_options['style_options']['slidewidth'] = '273';
   $handler->display->display_options['style_options']['rows'] = '1';
   $handler->display->display_options['defaults']['style_options'] = FALSE;
@@ -208,7 +215,7 @@ function gtk_f_blog_posts_view_views_default_views() {
   $handler->display->display_options['row_plugin'] = 'fields';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Field: Content: Home Page Image */
+  /* Field: Tartalom: Home Page Image */
   $handler->display->display_options['fields']['field_home_page_image']['id'] = 'field_home_page_image';
   $handler->display->display_options['fields']['field_home_page_image']['table'] = 'field_data_field_home_page_image';
   $handler->display->display_options['fields']['field_home_page_image']['field'] = 'field_home_page_image';
@@ -219,7 +226,7 @@ function gtk_f_blog_posts_view_views_default_views() {
     'image_style' => '',
     'image_link' => 'content',
   );
-  /* Field: Content: Title */
+  /* Field: Tartalom: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
@@ -228,7 +235,7 @@ function gtk_f_blog_posts_view_views_default_views() {
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['title']['element_type'] = 'h2';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
-  /* Field: Content: Summary */
+  /* Field: Tartalom: Summary */
   $handler->display->display_options['fields']['field_summary']['id'] = 'field_summary';
   $handler->display->display_options['fields']['field_summary']['table'] = 'field_data_field_summary';
   $handler->display->display_options['fields']['field_summary']['field'] = 'field_summary';
@@ -237,7 +244,7 @@ function gtk_f_blog_posts_view_views_default_views() {
   $handler->display->display_options['fields']['field_summary']['alter']['trim'] = TRUE;
   $handler->display->display_options['fields']['field_summary']['element_label_colon'] = FALSE;
   $handler->display->display_options['defaults']['sorts'] = FALSE;
-  /* Sort criterion: Content: Post date */
+  /* Sort criterion: Tartalom: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
@@ -256,16 +263,15 @@ function gtk_f_blog_posts_view_views_default_views() {
     t('Items per page'),
     t('- All -'),
     t('Offset'),
-    t('« first'),
-    t('‹ previous'),
-    t('next ›'),
-    t('last »'),
+    t('« első'),
+    t('‹ előző'),
+    t('következő ›'),
+    t('utolsó »'),
     t('News'),
-    t('[field_summary]
-<a href="#" class="readmore">Read more</a>'),
-    t('Read more'),
+    t('Hírek'),
+    t('[field_summary] <a href="#" class="readmore">Bővebben</a>'),
+    t('Bővebben'),
     t('Block'),
-    t('Aktuális'),
     t('Homepage Block'),
   );
   $export['blog_posts'] = $view;
