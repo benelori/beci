@@ -179,7 +179,7 @@ function gtk_f_members_views_default_views() {
   /* Display: Strategical, profession supporter and coordinator */
   $handler = $view->new_display('block', 'Strategical, profession supporter and coordinator', 'block_2');
   $handler->display->display_options['defaults']['title'] = FALSE;
-  $handler->display->display_options['title'] = 'Stratégiai szakmai támogató és koordinátor';
+  $handler->display->display_options['title'] = 'Strategical, profession supporter and coordinator';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'dexp_grid2';
   $handler->display->display_options['style_options']['grid_bootstrap'] = '1';
@@ -612,7 +612,6 @@ function gtk_f_members_views_default_views() {
     t('Manager'),
     t('Ügyvezető'),
     t('Strategical, profession supporter and coordinator'),
-    t('Stratégiai szakmai támogató és koordinátor'),
     t('Senior Members'),
     t('Szenior Tagok'),
     t('Junior Members'),

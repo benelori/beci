@@ -331,6 +331,8 @@ function gtk_f_content_types_conditional_fields_default_fields() {
         2 => 4,
         3 => 7,
         4 => 8,
+        5 => 2,
+        6 => 9,
       ),
       'value' => array(),
     ),

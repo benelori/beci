@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Additional Views feature.
+ */
+
+include_once 'additional_views.features.inc';

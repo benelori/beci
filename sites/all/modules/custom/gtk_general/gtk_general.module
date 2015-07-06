@@ -380,3 +380,188 @@ function theme_social_media_menu_link_block($variables) {
 
   return $output;
 }
+
+/**
+ * Adds url aliases.
+ */
+function gtk_general_add_url_alias() {
+  // Get all aliases.
+  $url_alias = module_invoke_all('gtk_alias');
+
+  // Create the listed aliases for the corresponding language.
+  foreach ($url_alias as $alias) {
+    gtk_general_alias_save($alias);
+  }
+}
+
+/**
+ * Implements hook_gtk_alias().
+ */
+function gtk_general_gtk_alias() {
+  $url_alias = array(
+    array(
+      'source' => 'news',
+      'alias' => 'hirek',
+      'language' => 'hu'
+    ),
+    array(
+      'source' => 'news',
+      'alias' => 'stiri',
+      'language' => 'ro'
+    ),
+    array(
+      'source' => 'results',
+      'alias' => 'eredmenyek',
+      'language' => 'hu'
+    ),
+    array(
+      'source' => 'results',
+      'alias' => 'rezultate',
+      'language' => 'ro'
+    ),
+    array(
+      'source' => 'activities',
+      'alias' => 'tevekenysegek',
+      'language' => 'hu'
+    ),
+    array(
+      'source' => 'activities',
+      'alias' => 'activitati',
+      'language' => 'ro'
+    ),
+    array(
+      'source' => 'members',
+      'alias' => 'tagok',
+      'language' => 'hu'
+    ),
+    array(
+      'source' => 'members',
+      'alias' => 'membri',
+      'language' => 'ro'
+    ),
+    array(
+      'source' => 'coordinators',
+      'alias' => 'koordinatorok',
+      'language' => 'hu'
+    ),
+    array(
+      'source' => 'coordinators',
+      'alias' => 'coordinatori',
+      'language' => 'ro'
+    ),
+    array(
+      'source' => 'highschool-alumni',
+      'alias' => 'kozepiskolas-alumni',
+      'language' => 'hu'
+    ),
+    array(
+      'source' => 'highschool-alumni',
+      'alias' => 'alumni-liceeni',
+      'language' => 'ro'
+    ),
+    array(
+      'source' => 'partners',
+      'alias' => 'partnerek',
+      'language' => 'hu'
+    ),
+    array(
+      'source' => 'partners',
+      'alias' => 'parteneri',
+      'language' => 'ro'
+    ),
+    array(
+      'source' => 'support',
+      'alias' => 'szervezetek',
+      'language' => 'hu'
+    ),
+    array(
+      'source' => 'support',
+      'alias' => 'organizatii',
+      'language' => 'ro'
+    ),
+    array(
+      'source' => 'lecturers',
+      'alias' => 'eloadok',
+      'language' => 'hu'
+    ),
+    array(
+      'source' => 'lecturers',
+      'alias' => 'invitati',
+      'language' => 'ro'
+    ),
+    array(
+      'source' => 'contact',
+      'alias' => 'kontakt',
+      'language' => 'hu'
+    ),
+    array(
+      'source' => 'image-gallery',
+      'alias' => 'kep-galeria',
+      'language' => 'hu'
+    ),
+    array(
+      'source' => 'image-gallery',
+      'alias' => 'galerie-imagini',
+      'language' => 'ro'
+    ),
+  );
+
+  return $url_alias;
+}
+
+/**
+ * Saves url aliases.
+ */
+function gtk_general_alias_save($alias) {
+  // Checks if alias already exists.
+  $query = db_select('url_alias', 'ua')
+    ->fields('ua', array('pid'))
+    ->condition('source', $alias['source'])
+    ->condition('language', $alias['language']);
+  $alias['pid'] = $query->execute()->fetchField();
+
+  // Insert the new alias in the url_alias table.
+  path_save($alias);
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter() for pathauto_bulk_update_form.
+ */
+function gtk_general_form_pathauto_bulk_update_form_alter(&$form, &$form_state) {
+  // Add ifp alias update to options.
+  $callback = 'gtk_general_aliases_bulk_update_batch_process';
+  $form['update']['#options'][$callback] = t('GTK paths');
+  $form['#update_callbacks'][$callback] = new stdClass();
+  $form['#update_callbacks'][$callback]->batch_file = drupal_get_path('module', 'gtk_general') . '/gtk_general.module';
+}
+
+/**
+ * Batch operation to update GTK URL aliases.
+ */
+function gtk_general_aliases_bulk_update_batch_process(&$context) {
+  $url_aliases = module_invoke_all('gtk_alias');
+  if (empty($context['sandbox'])) {
+    // Initiate multistep processing.
+    $context['sandbox']['progress'] = 0;
+    $context['sandbox']['current_alias'] = 0;
+    $context['sandbox']['max'] = count($url_aliases);
+    $context['sandbox']['total'] = $context['sandbox']['max'];
+  }
+  $batch = array_slice($url_aliases, $context['sandbox']['current_alias'], variable_get('gtk_general_alias_batch_update_number', 20));
+  foreach ($url_aliases as $url_alias) {
+    // Save url alias.
+    gtk_general_alias_save($url_alias);
+    $context['sandbox']['progress']++;
+  }
+  // Check number of alias we have to process.
+  $processing_no = $context['sandbox']['current_alias'] + variable_get('gtk_general_alias_batch_update_number', 20);
+  $context['sandbox']['current_alias'] = ($processing_no < count($url_aliases)) ? $processing_no : count($url_aliases) ;
+  $context['message'] = t('Processed @current out of @total aliases.', array(
+      '@current' => $context['sandbox']['current_alias'],
+      '@total' => $context['sandbox']['total']
+    ));
+  // Multi-step processing : report progress.
+  if ($context['sandbox']['progress'] != $context['sandbox']['max']) {
+    $context['finished'] = $context['sandbox']['progress'] / $context['sandbox']['max'];
+  }
+}
