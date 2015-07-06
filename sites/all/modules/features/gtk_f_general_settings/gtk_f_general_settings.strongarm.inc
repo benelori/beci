@@ -94,6 +94,7 @@ function gtk_f_general_settings_strongarm() {
     'organizations' => 0,
     'person' => 0,
     'photo_album' => 0,
+    'dexp_portfolio' => 0,
     'private_videos' => 0,
     'result' => 0,
     'gtk_simple_page' => 0,

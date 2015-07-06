@@ -37,7 +37,7 @@ function gtk_f_private_videos_field_default_field_instances() {
           'trim_length' => 600,
         ),
         'type' => 'text_summary_or_trimmed',
-        'weight' => 0,
+        'weight' => 1,
       ),
     ),
     'entity_type' => 'node',
@@ -69,7 +69,7 @@ function gtk_f_private_videos_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'hidden',
         'module' => 'youtube',
         'settings' => array(
           'youtube_autohide' => 0,
@@ -91,9 +91,13 @@ function gtk_f_private_videos_field_default_field_instances() {
         'weight' => 0,
       ),
       'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
+        'label' => 'hidden',
+        'module' => 'youtube',
+        'settings' => array(
+          'image_link' => 'content',
+          'image_style' => 'medium',
+        ),
+        'type' => 'youtube_thumbnail',
         'weight' => 0,
       ),
     ),

@@ -12,6 +12,35 @@ function gtk_f_block_settings_default_fe_block_settings() {
 
   $export['version'] = '2.0';
 
+  $export['block-copyright'] = array(
+    'cache' => -1,
+    'css_class' => '',
+    'custom' => 0,
+    'i18n_block_language' => array(),
+    'i18n_mode' => 0,
+    'machine_name' => 'copyright',
+    'module' => 'block',
+    'node_types' => array(),
+    'pages' => '',
+    'roles' => array(),
+    'themes' => array(
+      'seven' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'seven',
+        'weight' => 0,
+      ),
+      'yamato' => array(
+        'region' => 'user9',
+        'status' => 1,
+        'theme' => 'yamato',
+        'weight' => 0,
+      ),
+    ),
+    'title' => '',
+    'visibility' => 0,
+  );
+
   $export['dexp_layerslider-dexp_layerslider_block_1'] = array(
     'cache' => -1,
     'css_class' => '',
@@ -134,7 +163,7 @@ function gtk_f_block_settings_default_fe_block_settings() {
     'custom' => 0,
     'delta' => 0,
     'i18n_block_language' => array(),
-    'i18n_mode' => 0,
+    'i18n_mode' => 1,
     'module' => 'fb_likebox',
     'node_types' => array(),
     'pages' => '',
@@ -153,7 +182,7 @@ function gtk_f_block_settings_default_fe_block_settings() {
         'weight' => 0,
       ),
     ),
-    'title' => 'Social Network',
+    'title' => 'Közösségi Háló',
     'visibility' => 0,
   );
 
@@ -163,7 +192,7 @@ function gtk_f_block_settings_default_fe_block_settings() {
     'custom' => 0,
     'delta' => 'contact_form',
     'i18n_block_language' => array(),
-    'i18n_mode' => 0,
+    'i18n_mode' => 1,
     'module' => 'gtk_general',
     'node_types' => array(),
     'pages' => 'contact',
@@ -182,7 +211,7 @@ function gtk_f_block_settings_default_fe_block_settings() {
         'weight' => 0,
       ),
     ),
-    'title' => 'Contact Us',
+    'title' => 'Lépjen kapcsolatba velünk',
     'visibility' => 1,
   );
 
@@ -192,7 +221,7 @@ function gtk_f_block_settings_default_fe_block_settings() {
     'custom' => 0,
     'delta' => 'contact_info',
     'i18n_block_language' => array(),
-    'i18n_mode' => 0,
+    'i18n_mode' => 1,
     'module' => 'gtk_general',
     'node_types' => array(),
     'pages' => 'contact',
@@ -211,7 +240,7 @@ function gtk_f_block_settings_default_fe_block_settings() {
         'weight' => 0,
       ),
     ),
-    'title' => 'Find us',
+    'title' => 'Elérhetőség',
     'visibility' => 1,
   );
 
@@ -237,22 +266,25 @@ function gtk_f_block_settings_default_fe_block_settings() {
         'region' => 'action',
         'status' => 1,
         'theme' => 'yamato',
-        'weight' => -31,
+        'weight' => -30,
       ),
     ),
     'title' => '',
     'visibility' => 1,
   );
 
-  $export['gtk_general-membership_application'] = array(
+  $export['gtk_general-latest_news_block'] = array(
     'cache' => -1,
-    'css_class' => '',
+    'css_class' => 'title1 title-left',
     'custom' => 0,
-    'delta' => 'membership_application',
+    'delta' => 'latest_news_block',
     'i18n_block_language' => array(),
-    'i18n_mode' => 0,
+    'i18n_mode' => 1,
     'module' => 'gtk_general',
-    'node_types' => array(),
+    'node_types' => array(
+      0 => 'activity',
+      1 => 'gtk_simple_page',
+    ),
     'pages' => '',
     'roles' => array(),
     'themes' => array(
@@ -263,13 +295,13 @@ function gtk_f_block_settings_default_fe_block_settings() {
         'weight' => 0,
       ),
       'yamato' => array(
-        'region' => '',
-        'status' => 0,
+        'region' => 'right_sidebar',
+        'status' => 1,
         'theme' => 'yamato',
         'weight' => 0,
       ),
     ),
-    'title' => '',
+    'title' => 'Kapcsolódó cikkek',
     'visibility' => 0,
   );
 
@@ -279,7 +311,7 @@ function gtk_f_block_settings_default_fe_block_settings() {
     'custom' => 0,
     'delta' => 'site_map',
     'i18n_block_language' => array(),
-    'i18n_mode' => 0,
+    'i18n_mode' => 1,
     'module' => 'gtk_general',
     'node_types' => array(),
     'pages' => '',
@@ -298,7 +330,7 @@ function gtk_f_block_settings_default_fe_block_settings() {
         'weight' => 0,
       ),
     ),
-    'title' => 'Site Map',
+    'title' => 'Oldaltérkép',
     'visibility' => 0,
   );
 
@@ -325,35 +357,6 @@ function gtk_f_block_settings_default_fe_block_settings() {
         'status' => 1,
         'theme' => 'yamato',
         'weight' => -28,
-      ),
-    ),
-    'title' => '',
-    'visibility' => 0,
-  );
-
-  $export['gtk_general-support'] = array(
-    'cache' => -1,
-    'css_class' => '',
-    'custom' => 0,
-    'delta' => 'support',
-    'i18n_block_language' => array(),
-    'i18n_mode' => 0,
-    'module' => 'gtk_general',
-    'node_types' => array(),
-    'pages' => '',
-    'roles' => array(),
-    'themes' => array(
-      'seven' => array(
-        'region' => '',
-        'status' => 0,
-        'theme' => 'seven',
-        'weight' => 0,
-      ),
-      'yamato' => array(
-        'region' => '',
-        'status' => 0,
-        'theme' => 'yamato',
-        'weight' => 0,
       ),
     ),
     'title' => '',
@@ -453,7 +456,7 @@ function gtk_f_block_settings_default_fe_block_settings() {
     'custom' => 0,
     'delta' => 10,
     'i18n_block_language' => array(),
-    'i18n_mode' => 0,
+    'i18n_mode' => 1,
     'module' => 'simplenews',
     'node_types' => array(),
     'pages' => '',
@@ -472,7 +475,7 @@ function gtk_f_block_settings_default_fe_block_settings() {
         'weight' => 0,
       ),
     ),
-    'title' => 'Newsletter',
+    'title' => 'Hírlevél',
     'visibility' => 0,
   );
 
@@ -511,7 +514,7 @@ function gtk_f_block_settings_default_fe_block_settings() {
     'custom' => 0,
     'delta' => 'activities-block',
     'i18n_block_language' => array(),
-    'i18n_mode' => 0,
+    'i18n_mode' => 1,
     'module' => 'views',
     'node_types' => array(),
     'pages' => '<front>',
@@ -530,7 +533,7 @@ function gtk_f_block_settings_default_fe_block_settings() {
         'weight' => 0,
       ),
     ),
-    'title' => '',
+    'title' => 'Tevékenységek',
     'visibility' => 1,
   );
 
@@ -540,7 +543,7 @@ function gtk_f_block_settings_default_fe_block_settings() {
     'custom' => 0,
     'delta' => 'blog_posts-block',
     'i18n_block_language' => array(),
-    'i18n_mode' => 0,
+    'i18n_mode' => 1,
     'module' => 'views',
     'node_types' => array(),
     'pages' => '<front>',
@@ -559,7 +562,7 @@ function gtk_f_block_settings_default_fe_block_settings() {
         'weight' => 0,
       ),
     ),
-    'title' => '',
+    'title' => 'Aktuális',
     'visibility' => 1,
   );
 
@@ -568,6 +571,64 @@ function gtk_f_block_settings_default_fe_block_settings() {
     'css_class' => '',
     'custom' => 0,
     'delta' => 'blog_posts-block_homepage',
+    'i18n_block_language' => array(),
+    'i18n_mode' => 0,
+    'module' => 'views',
+    'node_types' => array(),
+    'pages' => '',
+    'roles' => array(),
+    'themes' => array(
+      'seven' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'seven',
+        'weight' => 0,
+      ),
+      'yamato' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'yamato',
+        'weight' => 0,
+      ),
+    ),
+    'title' => '',
+    'visibility' => 0,
+  );
+
+  $export['views-calendar-block_1'] = array(
+    'cache' => -1,
+    'css_class' => '',
+    'custom' => 0,
+    'delta' => 'calendar-block_1',
+    'i18n_block_language' => array(),
+    'i18n_mode' => 0,
+    'module' => 'views',
+    'node_types' => array(),
+    'pages' => '',
+    'roles' => array(),
+    'themes' => array(
+      'seven' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'seven',
+        'weight' => 0,
+      ),
+      'yamato' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'yamato',
+        'weight' => 0,
+      ),
+    ),
+    'title' => '',
+    'visibility' => 0,
+  );
+
+  $export['views-calendar-block_2'] = array(
+    'cache' => -1,
+    'css_class' => '',
+    'custom' => 0,
+    'delta' => 'calendar-block_2',
     'i18n_block_language' => array(),
     'i18n_mode' => 0,
     'module' => 'views',
@@ -621,6 +682,37 @@ function gtk_f_block_settings_default_fe_block_settings() {
     'visibility' => 1,
   );
 
+  $export['views-industry_analysis-block_1'] = array(
+    'cache' => -1,
+    'css_class' => '',
+    'custom' => 0,
+    'delta' => 'industry_analysis-block_1',
+    'i18n_block_language' => array(),
+    'i18n_mode' => 0,
+    'module' => 'views',
+    'node_types' => array(),
+    'pages' => 'iparág-elemzés
+analiză-de-piaţă
+market-based-projects',
+    'roles' => array(),
+    'themes' => array(
+      'seven' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'seven',
+        'weight' => 0,
+      ),
+      'yamato' => array(
+        'region' => 'content',
+        'status' => 1,
+        'theme' => 'yamato',
+        'weight' => -24,
+      ),
+    ),
+    'title' => '<none>',
+    'visibility' => 1,
+  );
+
   $export['views-members-block_1'] = array(
     'cache' => -1,
     'css_class' => 'title1 title-left',
@@ -643,7 +735,7 @@ function gtk_f_block_settings_default_fe_block_settings() {
         'region' => 'content',
         'status' => 1,
         'theme' => 'yamato',
-        'weight' => -20,
+        'weight' => -28,
       ),
     ),
     'title' => '',
@@ -659,7 +751,9 @@ function gtk_f_block_settings_default_fe_block_settings() {
     'i18n_mode' => 0,
     'module' => 'views',
     'node_types' => array(),
-    'pages' => 'coordinators',
+    'pages' => 'antal-zsolt-alapítvány
+fundaţia-antal-zsolt
+antal-zsolt-foundation',
     'roles' => array(),
     'themes' => array(
       'seven' => array(
@@ -672,10 +766,10 @@ function gtk_f_block_settings_default_fe_block_settings() {
         'region' => 'content',
         'status' => 1,
         'theme' => 'yamato',
-        'weight' => -21,
+        'weight' => -29,
       ),
     ),
-    'title' => '',
+    'title' => '<none>',
     'visibility' => 1,
   );
 
@@ -701,7 +795,7 @@ function gtk_f_block_settings_default_fe_block_settings() {
         'region' => 'content',
         'status' => 1,
         'theme' => 'yamato',
-        'weight' => -18,
+        'weight' => -26,
       ),
     ),
     'title' => '',
@@ -730,7 +824,7 @@ function gtk_f_block_settings_default_fe_block_settings() {
         'region' => 'content',
         'status' => 1,
         'theme' => 'yamato',
-        'weight' => -17,
+        'weight' => -25,
       ),
     ),
     'title' => '',
@@ -759,7 +853,7 @@ function gtk_f_block_settings_default_fe_block_settings() {
         'region' => 'content',
         'status' => 1,
         'theme' => 'yamato',
-        'weight' => 0,
+        'weight' => -23,
       ),
     ),
     'title' => '',
@@ -788,7 +882,7 @@ function gtk_f_block_settings_default_fe_block_settings() {
         'region' => 'content',
         'status' => 1,
         'theme' => 'yamato',
-        'weight' => 0,
+        'weight' => -22,
       ),
     ),
     'title' => '',
@@ -817,7 +911,7 @@ function gtk_f_block_settings_default_fe_block_settings() {
         'region' => 'content',
         'status' => 1,
         'theme' => 'yamato',
-        'weight' => 0,
+        'weight' => -21,
       ),
     ),
     'title' => '',
@@ -846,7 +940,7 @@ function gtk_f_block_settings_default_fe_block_settings() {
         'region' => 'content',
         'status' => 1,
         'theme' => 'yamato',
-        'weight' => -19,
+        'weight' => -27,
       ),
     ),
     'title' => '',
@@ -859,7 +953,7 @@ function gtk_f_block_settings_default_fe_block_settings() {
     'custom' => 0,
     'delta' => 'support-block_1',
     'i18n_block_language' => array(),
-    'i18n_mode' => 0,
+    'i18n_mode' => 1,
     'module' => 'views',
     'node_types' => array(),
     'pages' => '<front>',
@@ -873,6 +967,64 @@ function gtk_f_block_settings_default_fe_block_settings() {
       ),
       'yamato' => array(
         'region' => 'latestnews',
+        'status' => 1,
+        'theme' => 'yamato',
+        'weight' => 0,
+      ),
+    ),
+    'title' => 'Partnereink',
+    'visibility' => 1,
+  );
+
+  $export['views-support-block_main_partner'] = array(
+    'cache' => -1,
+    'css_class' => 'title1 title-left',
+    'custom' => 0,
+    'delta' => 'support-block_main_partner',
+    'i18n_block_language' => array(),
+    'i18n_mode' => 0,
+    'module' => 'views',
+    'node_types' => array(),
+    'pages' => 'partners',
+    'roles' => array(),
+    'themes' => array(
+      'seven' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'seven',
+        'weight' => 0,
+      ),
+      'yamato' => array(
+        'region' => 'content',
+        'status' => 1,
+        'theme' => 'yamato',
+        'weight' => -31,
+      ),
+    ),
+    'title' => '',
+    'visibility' => 0,
+  );
+
+  $export['views-support-block_partners'] = array(
+    'cache' => -1,
+    'css_class' => 'title1 title-left',
+    'custom' => 0,
+    'delta' => 'support-block_partners',
+    'i18n_block_language' => array(),
+    'i18n_mode' => 0,
+    'module' => 'views',
+    'node_types' => array(),
+    'pages' => 'partners',
+    'roles' => array(),
+    'themes' => array(
+      'seven' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'seven',
+        'weight' => 0,
+      ),
+      'yamato' => array(
+        'region' => 'content',
         'status' => 1,
         'theme' => 'yamato',
         'weight' => 0,

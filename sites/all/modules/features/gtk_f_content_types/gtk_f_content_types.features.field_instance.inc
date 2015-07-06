@@ -57,6 +57,51 @@ function gtk_f_content_types_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-activity-field_category'
+  $field_instances['node-activity-field_category'] = array(
+    'bundle' => 'activity',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => 'Hasznalhato kategoriak: kepzes shadowing eset rendezveny iparag eloadas kozepiskola',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 3,
+      ),
+      'dexp_portfolio' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_category',
+    'label' => 'Category',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 10,
+    ),
+  );
+
   // Exported field_instance: 'node-activity-field_image'
   $field_instances['node-activity-field_image'] = array(
     'bundle' => 'activity',
@@ -89,7 +134,7 @@ function gtk_f_content_types_field_default_field_instances() {
     'entity_type' => 'node',
     'field_name' => 'field_image',
     'label' => 'Image',
-    'required' => 1,
+    'required' => 0,
     'settings' => array(
       'alt_field' => 0,
       'default_image' => 0,
@@ -184,7 +229,7 @@ function gtk_f_content_types_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 4,
+        'weight' => 5,
       ),
       'dexp_portfolio' => array(
         'label' => 'hidden',
@@ -266,6 +311,51 @@ function gtk_f_content_types_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-gtk_blog_post-field_category'
+  $field_instances['node-gtk_blog_post-field_category'] = array(
+    'bundle' => 'gtk_blog_post',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => 'Hasznalhato kategoriak: kepzes shadowing eset rendezveny iparag eloadas kozepiskola',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 2,
+      ),
+      'dexp_portfolio' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_category',
+    'label' => 'Category',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 11,
+    ),
+  );
+
   // Exported field_instance: 'node-gtk_blog_post-field_home_page_image'
   $field_instances['node-gtk_blog_post-field_home_page_image'] = array(
     'bundle' => 'gtk_blog_post',
@@ -276,7 +366,7 @@ function gtk_f_content_types_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 4,
+        'weight' => 5,
       ),
       'dexp_portfolio' => array(
         'label' => 'above',
@@ -333,7 +423,7 @@ function gtk_f_content_types_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 3,
+        'weight' => 4,
       ),
       'dexp_portfolio' => array(
         'label' => 'above',
@@ -432,7 +522,7 @@ function gtk_f_content_types_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 5,
+        'weight' => 6,
       ),
       'dexp_portfolio' => array(
         'label' => 'above',
@@ -489,7 +579,7 @@ function gtk_f_content_types_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 2,
+        'weight' => 3,
       ),
       'dexp_portfolio' => array(
         'label' => 'above',
@@ -569,6 +659,52 @@ function gtk_f_content_types_field_default_field_instances() {
       ),
       'type' => 'text_textarea',
       'weight' => 2,
+    ),
+  );
+
+  // Exported field_instance: 'node-gtk_simple_page-field_category'
+  $field_instances['node-gtk_simple_page-field_category'] = array(
+    'bundle' => 'gtk_simple_page',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => 'Hasznalhato kategoriak: kozepiskola',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 3,
+      ),
+      'dexp_portfolio' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_category',
+    'label' => 'Category',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 9,
     ),
   );
 
@@ -891,7 +1027,7 @@ function gtk_f_content_types_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 1,
+        'weight' => 2,
       ),
       'dexp_portfolio' => array(
         'label' => 'above',
@@ -937,7 +1073,7 @@ function gtk_f_content_types_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 5,
+        'weight' => 6,
       ),
       'dexp_portfolio' => array(
         'label' => 'above',
@@ -954,7 +1090,7 @@ function gtk_f_content_types_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_job',
-    'label' => 'Job',
+    'label' => 'Munkahely',
     'required' => 1,
     'settings' => array(
       'text_processing' => 1,
@@ -971,6 +1107,69 @@ function gtk_f_content_types_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-person-field_linkedin'
+  $field_instances['node-person-field_linkedin'] = array(
+    'bundle' => 'person',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'link',
+        'settings' => array(),
+        'type' => 'link_default',
+        'weight' => 1,
+      ),
+      'dexp_portfolio' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_linkedin',
+    'label' => 'LinkedIn',
+    'required' => 0,
+    'settings' => array(
+      'absolute_url' => 1,
+      'attributes' => array(
+        'class' => '',
+        'configurable_class' => 0,
+        'configurable_title' => 0,
+        'rel' => '',
+        'target' => '_blank',
+        'title' => '',
+      ),
+      'display' => array(
+        'url_cutoff' => 80,
+      ),
+      'enable_tokens' => 1,
+      'rel_remove' => 'default',
+      'title' => 'none',
+      'title_label_use_field_label' => 0,
+      'title_maxlength' => 128,
+      'title_value' => '',
+      'url' => 0,
+      'user_register_form' => FALSE,
+      'validate_url' => 1,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'link',
+      'settings' => array(),
+      'type' => 'link_field',
+      'weight' => 14,
+    ),
+  );
+
   // Exported field_instance: 'node-person-field_membership'
   $field_instances['node-person-field_membership'] = array(
     'bundle' => 'person',
@@ -982,7 +1181,7 @@ function gtk_f_content_types_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 9,
+        'weight' => 10,
       ),
       'dexp_portfolio' => array(
         'label' => 'above',
@@ -1029,7 +1228,7 @@ function gtk_f_content_types_field_default_field_instances() {
           'title_style' => '',
         ),
         'type' => 'title_linked',
-        'weight' => 3,
+        'weight' => 4,
       ),
       'dexp_portfolio' => array(
         'label' => 'above',
@@ -1051,7 +1250,7 @@ function gtk_f_content_types_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_membership_status',
-    'label' => 'Membership Status',
+    'label' => 'Tagsági Státusz',
     'required' => 1,
     'settings' => array(
       'text_processing' => 0,
@@ -1080,7 +1279,7 @@ function gtk_f_content_types_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 6,
+        'weight' => 7,
       ),
       'dexp_portfolio' => array(
         'label' => 'above',
@@ -1097,7 +1296,7 @@ function gtk_f_content_types_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_other_thoughts',
-    'label' => 'Other Thoughts',
+    'label' => 'Egyéb Gondolatok',
     'required' => 1,
     'settings' => array(
       'text_processing' => 1,
@@ -1186,7 +1385,7 @@ function gtk_f_content_types_field_default_field_instances() {
         'module' => 'taxonomy',
         'settings' => array(),
         'type' => 'taxonomy_term_reference_plain',
-        'weight' => 2,
+        'weight' => 3,
       ),
       'dexp_portfolio' => array(
         'label' => 'above',
@@ -1229,7 +1428,7 @@ function gtk_f_content_types_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 4,
+        'weight' => 5,
       ),
       'dexp_portfolio' => array(
         'label' => 'above',
@@ -1246,7 +1445,7 @@ function gtk_f_content_types_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_university_studies',
-    'label' => 'University Studies',
+    'label' => 'Egyetemi Tanulmányok',
     'required' => 1,
     'settings' => array(
       'text_processing' => 1,
@@ -1275,12 +1474,12 @@ function gtk_f_content_types_field_default_field_instances() {
         'module' => 'number',
         'settings' => array(
           'decimal_separator' => '.',
-          'prefix_suffix' => TRUE,
+          'prefix_suffix' => 1,
           'scale' => 0,
-          'thousand_separator' => ' ',
+          'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 7,
+        'weight' => 8,
       ),
       'dexp_portfolio' => array(
         'label' => 'above',
@@ -1297,7 +1496,7 @@ function gtk_f_content_types_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_year_of_application',
-    'label' => 'Year of Application',
+    'label' => 'Felvételi éve',
     'required' => 0,
     'settings' => array(
       'max' => '',
@@ -1326,7 +1525,7 @@ function gtk_f_content_types_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 8,
+        'weight' => 9,
       ),
       'dexp_portfolio' => array(
         'label' => 'above',
@@ -1457,6 +1656,54 @@ function gtk_f_content_types_field_default_field_instances() {
       ),
       'type' => 'text_textarea',
       'weight' => 6,
+    ),
+  );
+
+  // Exported field_instance: 'node-result-field_downloadable'
+  $field_instances['node-result-field_downloadable'] = array(
+    'bundle' => 'result',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'file',
+        'settings' => array(),
+        'type' => 'file_default',
+        'weight' => 8,
+      ),
+      'dexp_portfolio' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_downloadable',
+    'label' => 'Letölthető változat itt',
+    'required' => 0,
+    'settings' => array(
+      'description_field' => 0,
+      'file_directory' => '',
+      'file_extensions' => 'pdf',
+      'max_filesize' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'file',
+      'settings' => array(
+        'progress_indicator' => 'throbber',
+      ),
+      'type' => 'file_generic',
+      'weight' => 14,
     ),
   );
 
@@ -1736,40 +1983,151 @@ function gtk_f_content_types_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-video-body'
+  $field_instances['node-video-body'] = array(
+    'bundle' => 'video',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 1,
+      ),
+      'dexp_portfolio' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'hidden',
+        'module' => 'text',
+        'settings' => array(
+          'trim_length' => 600,
+        ),
+        'type' => 'text_summary_or_trimmed',
+        'weight' => 1,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'body',
+    'label' => 'Body',
+    'required' => FALSE,
+    'settings' => array(
+      'display_summary' => TRUE,
+      'text_processing' => 1,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'module' => 'text',
+      'settings' => array(
+        'rows' => 20,
+        'summary_rows' => 5,
+      ),
+      'type' => 'text_textarea_with_summary',
+      'weight' => 5,
+    ),
+  );
+
+  // Exported field_instance: 'node-video-field_private_video'
+  $field_instances['node-video-field_private_video'] = array(
+    'bundle' => 'video',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'module' => 'youtube',
+        'settings' => array(
+          'youtube_autohide' => 0,
+          'youtube_autoplay' => 0,
+          'youtube_controls' => 0,
+          'youtube_height' => '',
+          'youtube_iv_load_policy' => 0,
+          'youtube_showinfo' => 0,
+          'youtube_size' => 'responsive',
+          'youtube_width' => '',
+        ),
+        'type' => 'youtube_video',
+        'weight' => 0,
+      ),
+      'dexp_portfolio' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'hidden',
+        'module' => 'youtube',
+        'settings' => array(
+          'image_link' => 'content',
+          'image_style' => 'large',
+        ),
+        'type' => 'youtube_thumbnail',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_private_video',
+    'label' => 'Video',
+    'required' => 1,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'youtube',
+      'settings' => array(),
+      'type' => 'youtube',
+      'weight' => 2,
+    ),
+  );
+
   // Translatables
   // Included for use with string extractors like potx.
   t('Body');
+  t('Category');
   t('Competitions result');
   t('Content');
   t('Description');
   t('ETDK result');
+  t('Egyetemi Tanulmányok');
+  t('Egyéb Gondolatok');
   t('Enable this to put this blog post into the homepage slideshow.');
+  t('Felvételi éve');
+  t('Hasznalhato kategoriak: kepzes shadowing eset rendezveny iparag eloadas kozepiskola');
+  t('Hasznalhato kategoriak: kozepiskola');
   t('Highschool program');
   t('Home Page Image');
   t('Homepage');
   t('Image');
   t('Is Partner');
-  t('Job');
   t('Kerlek 560 x 400 meretu kepet toltsel ide.');
   t('Kerlek 860 x 450 meretu kepeket toltsel fel');
   t('Lecturers list');
+  t('Letölthető változat itt');
+  t('LinkedIn');
   t('Listing Image');
   t('Logo');
   t('Management conference');
   t('Management shadowing');
   t('Membership');
-  t('Membership Status');
+  t('Munkahely');
   t('Name');
   t('OTDK result');
   t('Organization Link');
   t('Organization Logo');
-  t('Other Thoughts');
   t('Person Image');
   t('Simple Pages');
   t('Summary');
+  t('Tagsági Státusz');
   t('Type of Person');
-  t('University Studies');
-  t('Year of Application');
+  t('Video');
 
   return $field_instances;
 }
