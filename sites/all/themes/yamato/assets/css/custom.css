@@ -399,10 +399,19 @@ input#edit-mail--2 {
 		width: 100%;
 	}
 	.activity-block-row .activities {
-		width: 50%;
+		width: 100%;
 	}
 	.activity-block-row .activities .field-items {
 	  min-height: 250px;
+	}
+	.pluginSkinDark.pluginFontHelvetica {
+	  width: 76%!important;
+	}
+	.google-maps {
+	   padding-bottom: 100%!important; 
+	}
+	div#block-block-1 .content p {
+	padding-top: 25px;
 	}
 }
 
@@ -745,8 +754,40 @@ input#edit-submit--2 {
     display: inline-block;
     margin: 5px;
 }
+#section-main-content {
+    padding: 0px; 
+}
+
+.pluginSkinDark.pluginFontHelvetica {
+    width: 76%!important;
+}
+
+.google-maps {
+	position: relative;
+	padding-bottom: 42%; // This is the aspect ratio
+	height: 0;
+	overflow: hidden;
+}
+.google-maps iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100% !important;
+}
+
+#gtk-general-contact-form input#edit-submit--2 {
+   margin-top: 10px;
+}
+
+.field.field-name-field-linkedin.field-type-link-field.field-label-above .field-label {
+    background: url('../images/linked-in-color.png') no-repeat;
+    background-position-y: 5px;
+    background-size: 30px;
+    height: 40px;
+    text-indent: -9999px;
+}
 
 .facebookshare-box {
-  clear: left;
-  float: left;
+    clear: left;
+    float: left;
 }
