@@ -14,12 +14,6 @@
               </a>
             </h4>
           </div>
-          <div id="dexp-accordion-item-1414657310"
-               class="panel-collapse collapse in">
-            <div class="panel-body">
-              <?php print render($content['field_etdk_result']); ?>
-            </div>
-          </div>
         </div>
       <?php endif; ?>
       <?php if (isset($content['field_otdk_result'])): ?>
@@ -145,6 +139,9 @@
   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 ">
     <?php if(isset($content['body'])): ?>
       <?php print render($content['body']); ?>
+    <?php endif; ?>
+    <?php if(isset($content['field_downloadable'])): ?>
+      <?php print render($content['field_downloadable']); ?>
     <?php endif; ?>
   </div>
 </div>
