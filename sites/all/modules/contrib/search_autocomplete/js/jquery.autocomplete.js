@@ -1,7 +1,7 @@
 /**
  * @file
  * SEARCH AUTOCOMPLETE javascript mechanism.
- * 
+ *
  * Sponsored by:
  * www.axiomcafe.fr
  */
@@ -32,7 +32,6 @@
         } else {
           innerHTML += ('<div class="ui-autocomplete-field-' + key + '">' + value + '</div>');
         }
-        
       });
     } else {
       innerHTML += ('<div class="ui-autocomplete-field">' + item.label + '</div>');
@@ -47,7 +46,7 @@
       $(group).appendTo(ul);
     }
     var elem =  $("<li class=ui-menu-item-" + first + "></li>" )
-    .append("<a>" + innerHTML + "</a>");   
+    .append("<a>" + innerHTML + "</a>");
     if (item.value == '') {
     	elem = $("<li class='ui-state-disabled ui-menu-item-" + first + " ui-menu-item'>" + item.label + "</li>" );
     }
@@ -114,8 +113,10 @@
 		              }
 		            },
 		            focus: function (event, ui) {
-		              if (ui.item.group.group_id == 'no_results' || ui.item.group.group_id == 'all_results') {
-		                  event.preventDefault();
+		              if (typeof ui.item.group != 'undefined') {
+  		              if (ui.item.group.group_id == 'no_results' || ui.item.group.group_id == 'all_results') {
+  		                  event.preventDefault();
+  		              }
 		              }
 		            },
 		            appendTo: $(Drupal.settings.search_autocomplete[key].selector).parent()
