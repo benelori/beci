@@ -1061,7 +1061,7 @@ antal-zsolt-foundation',
       ),
     ),
     'title' => '',
-    'visibility' => 0,
+    'visibility' => 1,
   );
 
   $export['views-support-block_partners'] = array(
