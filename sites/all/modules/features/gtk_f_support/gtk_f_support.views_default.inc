@@ -152,6 +152,20 @@ function gtk_f_support_views_default_views() {
   $handler = $view->new_display('block', 'Main Partner', 'block_main_partner');
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['title'] = 'A GTK - Gazdasági Tanácsadó Klub fő finanszírozója és támogatója';
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Tartalom: Organization Logo */
+  $handler->display->display_options['fields']['field_organization_logo']['id'] = 'field_organization_logo';
+  $handler->display->display_options['fields']['field_organization_logo']['table'] = 'field_data_field_organization_logo';
+  $handler->display->display_options['fields']['field_organization_logo']['field'] = 'field_organization_logo';
+  $handler->display->display_options['fields']['field_organization_logo']['label'] = '';
+  $handler->display->display_options['fields']['field_organization_logo']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['field_organization_logo']['alter']['path'] = 'node/1752';
+  $handler->display->display_options['fields']['field_organization_logo']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_organization_logo']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_organization_logo']['settings'] = array(
+    'image_style' => '',
+    'image_link' => '',
+  );
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filter criterion: Tartalom: Published */

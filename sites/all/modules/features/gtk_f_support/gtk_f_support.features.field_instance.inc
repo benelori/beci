@@ -10,7 +10,7 @@
 function gtk_f_support_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'node-main_partner-body'
+  // Exported field_instance: 'node-main_partner-body'.
   $field_instances['node-main_partner-body'] = array(
     'bundle' => 'main_partner',
     'default_value' => NULL,
@@ -60,7 +60,7 @@ function gtk_f_support_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-main_partner-field_organization_link'
+  // Exported field_instance: 'node-main_partner-field_organization_link'.
   $field_instances['node-main_partner-field_organization_link'] = array(
     'bundle' => 'main_partner',
     'default_value' => NULL,
@@ -123,7 +123,7 @@ function gtk_f_support_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-main_partner-field_organization_logo'
+  // Exported field_instance: 'node-main_partner-field_organization_logo'.
   $field_instances['node-main_partner-field_organization_logo'] = array(
     'bundle' => 'main_partner',
     'deleted' => 0,

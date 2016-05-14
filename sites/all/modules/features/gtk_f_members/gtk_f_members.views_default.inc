@@ -73,7 +73,7 @@ function gtk_f_members_views_default_views() {
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['title']['element_type'] = 'h3';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
-  /* Sort criterion: Tartalom: Nev (title_field) */
+  /* Sort criterion: Tartalom: Name (title_field) */
   $handler->display->display_options['sorts']['title_field_value']['id'] = 'title_field_value';
   $handler->display->display_options['sorts']['title_field_value']['table'] = 'field_data_title_field';
   $handler->display->display_options['sorts']['title_field_value']['field'] = 'title_field_value';
@@ -352,7 +352,11 @@ function gtk_f_members_views_default_views() {
   /* Display: Alumni Members */
   $handler = $view->new_display('block', 'Alumni Members', 'block_5');
   $handler->display->display_options['defaults']['title'] = FALSE;
-  $handler->display->display_options['title'] = 'Alumni tagok';
+  $handler->display->display_options['title'] = 'Alumni';
+  $handler->display->display_options['defaults']['group_by'] = FALSE;
+  $handler->display->display_options['defaults']['query'] = FALSE;
+  $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['query']['options']['distinct'] = TRUE;
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'dexp_grid2';
   $handler->display->display_options['style_options']['grid_bootstrap'] = '1';
@@ -480,7 +484,7 @@ function gtk_f_members_views_default_views() {
   $handler->display->display_options['row_options']['links'] = FALSE;
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['sorts'] = FALSE;
-  /* Sort criterion: Tartalom: Nev (title_field) */
+  /* Sort criterion: Tartalom: Name (title_field) */
   $handler->display->display_options['sorts']['title_field_value']['id'] = 'title_field_value';
   $handler->display->display_options['sorts']['title_field_value']['table'] = 'field_data_title_field';
   $handler->display->display_options['sorts']['title_field_value']['field'] = 'title_field_value';
@@ -617,7 +621,7 @@ function gtk_f_members_views_default_views() {
     t('Junior Members'),
     t('Junior Tagok'),
     t('Alumni Members'),
-    t('Alumni tagok'),
+    t('Alumni'),
     t('Highschool Alumni Members'),
     t('Középiskolás alumni'),
     t('Lecturers'),

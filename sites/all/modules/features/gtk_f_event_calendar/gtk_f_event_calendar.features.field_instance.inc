@@ -10,7 +10,7 @@
 function gtk_f_event_calendar_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'node-event_calendar-body'
+  // Exported field_instance: 'node-event_calendar-body'.
   $field_instances['node-event_calendar-body'] = array(
     'bundle' => 'event_calendar',
     'default_value' => NULL,
@@ -60,25 +60,25 @@ function gtk_f_event_calendar_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-event_calendar-event_calendar_date'
+  // Exported field_instance: 'node-event_calendar-event_calendar_date'.
   $field_instances['node-event_calendar-event_calendar_date'] = array(
     'bundle' => 'event_calendar',
     'deleted' => 0,
     'description' => 'Select the start and end dates for this event.',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'hidden',
         'module' => 'date',
         'settings' => array(
-          'format_type' => 'long',
+          'format_type' => 'short',
           'fromto' => 'both',
           'multiple_from' => '',
           'multiple_number' => '',
           'multiple_to' => '',
-          'show_repeat_rule' => 'show',
+          'show_remaining_days' => 0,
         ),
         'type' => 'date_default',
-        'weight' => 1,
+        'weight' => 0,
       ),
       'dexp_portfolio' => array(
         'label' => 'above',
@@ -121,7 +121,7 @@ function gtk_f_event_calendar_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-event_calendar-event_calendar_status'
+  // Exported field_instance: 'node-event_calendar-event_calendar_status'.
   $field_instances['node-event_calendar-event_calendar_status'] = array(
     'bundle' => 'event_calendar',
     'default_value' => array(
@@ -136,7 +136,7 @@ function gtk_f_event_calendar_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 2,
+        'weight' => 3,
       ),
       'dexp_portfolio' => array(
         'label' => 'above',

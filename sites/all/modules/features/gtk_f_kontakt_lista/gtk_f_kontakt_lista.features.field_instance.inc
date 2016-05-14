@@ -10,7 +10,7 @@
 function gtk_f_kontakt_lista_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'node-kontakt-field_alumni_tagsag_kezdete'
+  // Exported field_instance: 'node-kontakt-field_alumni_tagsag_kezdete'.
   $field_instances['node-kontakt-field_alumni_tagsag_kezdete'] = array(
     'bundle' => 'kontakt',
     'default_value' => NULL,
@@ -62,7 +62,7 @@ function gtk_f_kontakt_lista_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-kontakt-field_betoltott_pozicio'
+  // Exported field_instance: 'node-kontakt-field_betoltott_pozicio'.
   $field_instances['node-kontakt-field_betoltott_pozicio'] = array(
     'bundle' => 'kontakt',
     'default_value' => NULL,
@@ -108,7 +108,7 @@ function gtk_f_kontakt_lista_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-kontakt-field_bsc_szakirany'
+  // Exported field_instance: 'node-kontakt-field_bsc_szakirany'.
   $field_instances['node-kontakt-field_bsc_szakirany'] = array(
     'bundle' => 'kontakt',
     'default_value' => NULL,
@@ -154,7 +154,7 @@ function gtk_f_kontakt_lista_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-kontakt-field_email'
+  // Exported field_instance: 'node-kontakt-field_email'.
   $field_instances['node-kontakt-field_email'] = array(
     'bundle' => 'kontakt',
     'default_value' => NULL,
@@ -200,7 +200,7 @@ function gtk_f_kontakt_lista_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-kontakt-field_iparag'
+  // Exported field_instance: 'node-kontakt-field_iparag'.
   $field_instances['node-kontakt-field_iparag'] = array(
     'bundle' => 'kontakt',
     'default_value' => NULL,
@@ -246,7 +246,7 @@ function gtk_f_kontakt_lista_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-kontakt-field_korabbi_munkahelyek'
+  // Exported field_instance: 'node-kontakt-field_korabbi_munkahelyek'.
   $field_instances['node-kontakt-field_korabbi_munkahelyek'] = array(
     'bundle' => 'kontakt',
     'default_value' => NULL,
@@ -292,7 +292,7 @@ function gtk_f_kontakt_lista_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-kontakt-field_lakhely'
+  // Exported field_instance: 'node-kontakt-field_lakhely'.
   $field_instances['node-kontakt-field_lakhely'] = array(
     'bundle' => 'kontakt',
     'default_value' => NULL,
@@ -338,7 +338,7 @@ function gtk_f_kontakt_lista_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-kontakt-field_megjegyzes'
+  // Exported field_instance: 'node-kontakt-field_megjegyzes'.
   $field_instances['node-kontakt-field_megjegyzes'] = array(
     'bundle' => 'kontakt',
     'default_value' => NULL,
@@ -384,7 +384,7 @@ function gtk_f_kontakt_lista_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-kontakt-field_msc_szakirany'
+  // Exported field_instance: 'node-kontakt-field_msc_szakirany'.
   $field_instances['node-kontakt-field_msc_szakirany'] = array(
     'bundle' => 'kontakt',
     'default_value' => NULL,
@@ -430,7 +430,7 @@ function gtk_f_kontakt_lista_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-kontakt-field_munkahely'
+  // Exported field_instance: 'node-kontakt-field_munkahely'.
   $field_instances['node-kontakt-field_munkahely'] = array(
     'bundle' => 'kontakt',
     'default_value' => NULL,
@@ -476,7 +476,7 @@ function gtk_f_kontakt_lista_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-kontakt-field_statusz'
+  // Exported field_instance: 'node-kontakt-field_statusz'.
   $field_instances['node-kontakt-field_statusz'] = array(
     'bundle' => 'kontakt',
     'default_value' => NULL,
@@ -522,7 +522,7 @@ function gtk_f_kontakt_lista_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-kontakt-field_szenior_tagsag_kezdete'
+  // Exported field_instance: 'node-kontakt-field_szenior_tagsag_kezdete'.
   $field_instances['node-kontakt-field_szenior_tagsag_kezdete'] = array(
     'bundle' => 'kontakt',
     'default_value' => NULL,
@@ -574,7 +574,7 @@ function gtk_f_kontakt_lista_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-kontakt-field_tagsag_kezdete'
+  // Exported field_instance: 'node-kontakt-field_tagsag_kezdete'.
   $field_instances['node-kontakt-field_tagsag_kezdete'] = array(
     'bundle' => 'kontakt',
     'default_value' => NULL,
@@ -620,7 +620,7 @@ function gtk_f_kontakt_lista_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-kontakt-field_telefonszam'
+  // Exported field_instance: 'node-kontakt-field_telefonszam'.
   $field_instances['node-kontakt-field_telefonszam'] = array(
     'bundle' => 'kontakt',
     'default_value' => NULL,
@@ -666,7 +666,7 @@ function gtk_f_kontakt_lista_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-kontakt-field_tovabbi_informacio'
+  // Exported field_instance: 'node-kontakt-field_tovabbi_informacio'.
   $field_instances['node-kontakt-field_tovabbi_informacio'] = array(
     'bundle' => 'kontakt',
     'default_value' => NULL,
@@ -712,7 +712,7 @@ function gtk_f_kontakt_lista_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-kontakt-title_field'
+  // Exported field_instance: 'node-kontakt-title_field'.
   $field_instances['node-kontakt-title_field'] = array(
     'bundle' => 'kontakt',
     'default_value' => NULL,

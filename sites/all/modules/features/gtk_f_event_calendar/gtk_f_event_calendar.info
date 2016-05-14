@@ -30,6 +30,7 @@ features[variable][] = comment_event_calendar
 features[variable][] = comment_form_location_event_calendar
 features[variable][] = comment_preview_event_calendar
 features[variable][] = comment_subject_field_event_calendar
+features[variable][] = field_bundle_settings_node__event_calendar
 features[variable][] = i18n_node_options_event_calendar
 features[variable][] = language_content_type_event_calendar
 features[variable][] = menu_options_event_calendar

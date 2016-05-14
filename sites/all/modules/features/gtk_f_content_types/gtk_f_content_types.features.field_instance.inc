@@ -10,7 +10,7 @@
 function gtk_f_content_types_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'node-activity-body'
+  // Exported field_instance: 'node-activity-body'.
   $field_instances['node-activity-body'] = array(
     'bundle' => 'activity',
     'default_value' => NULL,
@@ -57,7 +57,7 @@ function gtk_f_content_types_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-activity-field_category'
+  // Exported field_instance: 'node-activity-field_category'.
   $field_instances['node-activity-field_category'] = array(
     'bundle' => 'activity',
     'default_value' => NULL,
@@ -102,7 +102,7 @@ function gtk_f_content_types_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-activity-field_image'
+  // Exported field_instance: 'node-activity-field_image'.
   $field_instances['node-activity-field_image'] = array(
     'bundle' => 'activity',
     'deleted' => 0,
@@ -158,7 +158,7 @@ function gtk_f_content_types_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-activity-field_logo'
+  // Exported field_instance: 'node-activity-field_logo'.
   $field_instances['node-activity-field_logo'] = array(
     'bundle' => 'activity',
     'deleted' => 0,
@@ -218,7 +218,7 @@ function gtk_f_content_types_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-activity-field_summary'
+  // Exported field_instance: 'node-activity-field_summary'.
   $field_instances['node-activity-field_summary'] = array(
     'bundle' => 'activity',
     'default_value' => NULL,
@@ -265,7 +265,7 @@ function gtk_f_content_types_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-gtk_blog_post-field_body'
+  // Exported field_instance: 'node-gtk_blog_post-field_body'.
   $field_instances['node-gtk_blog_post-field_body'] = array(
     'bundle' => 'gtk_blog_post',
     'default_value' => NULL,
@@ -311,7 +311,7 @@ function gtk_f_content_types_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-gtk_blog_post-field_category'
+  // Exported field_instance: 'node-gtk_blog_post-field_category'.
   $field_instances['node-gtk_blog_post-field_category'] = array(
     'bundle' => 'gtk_blog_post',
     'default_value' => NULL,
@@ -356,7 +356,7 @@ function gtk_f_content_types_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-gtk_blog_post-field_home_page_image'
+  // Exported field_instance: 'node-gtk_blog_post-field_home_page_image'.
   $field_instances['node-gtk_blog_post-field_home_page_image'] = array(
     'bundle' => 'gtk_blog_post',
     'deleted' => 0,
@@ -408,7 +408,7 @@ function gtk_f_content_types_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-gtk_blog_post-field_homepage'
+  // Exported field_instance: 'node-gtk_blog_post-field_homepage'.
   $field_instances['node-gtk_blog_post-field_homepage'] = array(
     'bundle' => 'gtk_blog_post',
     'default_value' => array(
@@ -456,7 +456,7 @@ function gtk_f_content_types_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-gtk_blog_post-field_image'
+  // Exported field_instance: 'node-gtk_blog_post-field_image'.
   $field_instances['node-gtk_blog_post-field_image'] = array(
     'bundle' => 'gtk_blog_post',
     'deleted' => 0,
@@ -512,7 +512,7 @@ function gtk_f_content_types_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-gtk_blog_post-field_listing_image'
+  // Exported field_instance: 'node-gtk_blog_post-field_listing_image'.
   $field_instances['node-gtk_blog_post-field_listing_image'] = array(
     'bundle' => 'gtk_blog_post',
     'deleted' => 0,
@@ -568,7 +568,7 @@ function gtk_f_content_types_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-gtk_blog_post-field_summary'
+  // Exported field_instance: 'node-gtk_blog_post-field_summary'.
   $field_instances['node-gtk_blog_post-field_summary'] = array(
     'bundle' => 'gtk_blog_post',
     'default_value' => NULL,
@@ -616,7 +616,7 @@ function gtk_f_content_types_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-gtk_simple_page-field_body'
+  // Exported field_instance: 'node-gtk_simple_page-field_body'.
   $field_instances['node-gtk_simple_page-field_body'] = array(
     'bundle' => 'gtk_simple_page',
     'default_value' => NULL,
@@ -662,7 +662,7 @@ function gtk_f_content_types_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-gtk_simple_page-field_category'
+  // Exported field_instance: 'node-gtk_simple_page-field_category'.
   $field_instances['node-gtk_simple_page-field_category'] = array(
     'bundle' => 'gtk_simple_page',
     'default_value' => NULL,
@@ -708,7 +708,7 @@ function gtk_f_content_types_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-gtk_simple_page-field_image'
+  // Exported field_instance: 'node-gtk_simple_page-field_image'.
   $field_instances['node-gtk_simple_page-field_image'] = array(
     'bundle' => 'gtk_simple_page',
     'deleted' => 0,
@@ -760,7 +760,7 @@ function gtk_f_content_types_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-gtk_simple_page-field_simple_pages'
+  // Exported field_instance: 'node-gtk_simple_page-field_simple_pages'.
   $field_instances['node-gtk_simple_page-field_simple_pages'] = array(
     'bundle' => 'gtk_simple_page',
     'default_value' => NULL,
@@ -802,7 +802,7 @@ function gtk_f_content_types_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-organizations-field_body'
+  // Exported field_instance: 'node-organizations-field_body'.
   $field_instances['node-organizations-field_body'] = array(
     'bundle' => 'organizations',
     'default_value' => NULL,
@@ -810,7 +810,7 @@ function gtk_f_content_types_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'hidden',
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
@@ -848,7 +848,7 @@ function gtk_f_content_types_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-organizations-field_is_partner'
+  // Exported field_instance: 'node-organizations-field_is_partner'.
   $field_instances['node-organizations-field_is_partner'] = array(
     'bundle' => 'organizations',
     'default_value' => array(
@@ -896,7 +896,7 @@ function gtk_f_content_types_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-organizations-field_organization_link'
+  // Exported field_instance: 'node-organizations-field_organization_link'.
   $field_instances['node-organizations-field_organization_link'] = array(
     'bundle' => 'organizations',
     'default_value' => NULL,
@@ -904,7 +904,7 @@ function gtk_f_content_types_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'hidden',
         'module' => 'link',
         'settings' => array(),
         'type' => 'link_default',
@@ -959,14 +959,14 @@ function gtk_f_content_types_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-organizations-field_organization_logo'
+  // Exported field_instance: 'node-organizations-field_organization_logo'.
   $field_instances['node-organizations-field_organization_logo'] = array(
     'bundle' => 'organizations',
     'deleted' => 0,
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'hidden',
         'module' => 'image',
         'settings' => array(
           'image_link' => '',
@@ -1015,7 +1015,7 @@ function gtk_f_content_types_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-person-field_body'
+  // Exported field_instance: 'node-person-field_body'.
   $field_instances['node-person-field_body'] = array(
     'bundle' => 'person',
     'default_value' => NULL,
@@ -1061,7 +1061,7 @@ function gtk_f_content_types_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-person-field_job'
+  // Exported field_instance: 'node-person-field_job'.
   $field_instances['node-person-field_job'] = array(
     'bundle' => 'person',
     'default_value' => NULL,
@@ -1091,7 +1091,7 @@ function gtk_f_content_types_field_default_field_instances() {
     'entity_type' => 'node',
     'field_name' => 'field_job',
     'label' => 'Munkahely',
-    'required' => 1,
+    'required' => 0,
     'settings' => array(
       'text_processing' => 1,
       'user_register_form' => FALSE,
@@ -1107,7 +1107,7 @@ function gtk_f_content_types_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-person-field_linkedin'
+  // Exported field_instance: 'node-person-field_linkedin'.
   $field_instances['node-person-field_linkedin'] = array(
     'bundle' => 'person',
     'default_value' => NULL,
@@ -1170,7 +1170,7 @@ function gtk_f_content_types_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-person-field_membership'
+  // Exported field_instance: 'node-person-field_membership'.
   $field_instances['node-person-field_membership'] = array(
     'bundle' => 'person',
     'default_value' => NULL,
@@ -1212,7 +1212,7 @@ function gtk_f_content_types_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-person-field_membership_status'
+  // Exported field_instance: 'node-person-field_membership_status'.
   $field_instances['node-person-field_membership_status'] = array(
     'bundle' => 'person',
     'default_value' => NULL,
@@ -1250,8 +1250,8 @@ function gtk_f_content_types_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_membership_status',
-    'label' => 'Tagsági Státusz',
-    'required' => 1,
+    'label' => 'Betöltött Pozíció',
+    'required' => 0,
     'settings' => array(
       'text_processing' => 0,
       'user_register_form' => FALSE,
@@ -1267,7 +1267,7 @@ function gtk_f_content_types_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-person-field_other_thoughts'
+  // Exported field_instance: 'node-person-field_other_thoughts'.
   $field_instances['node-person-field_other_thoughts'] = array(
     'bundle' => 'person',
     'default_value' => NULL,
@@ -1297,7 +1297,7 @@ function gtk_f_content_types_field_default_field_instances() {
     'entity_type' => 'node',
     'field_name' => 'field_other_thoughts',
     'label' => 'Egyéb Gondolatok',
-    'required' => 1,
+    'required' => 0,
     'settings' => array(
       'text_processing' => 1,
       'user_register_form' => FALSE,
@@ -1313,7 +1313,7 @@ function gtk_f_content_types_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-person-field_person_image'
+  // Exported field_instance: 'node-person-field_person_image'.
   $field_instances['node-person-field_person_image'] = array(
     'bundle' => 'person',
     'deleted' => 0,
@@ -1373,7 +1373,7 @@ function gtk_f_content_types_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-person-field_type_of_person'
+  // Exported field_instance: 'node-person-field_type_of_person'.
   $field_instances['node-person-field_type_of_person'] = array(
     'bundle' => 'person',
     'default_value' => NULL,
@@ -1416,7 +1416,7 @@ function gtk_f_content_types_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-person-field_university_studies'
+  // Exported field_instance: 'node-person-field_university_studies'.
   $field_instances['node-person-field_university_studies'] = array(
     'bundle' => 'person',
     'default_value' => NULL,
@@ -1446,7 +1446,7 @@ function gtk_f_content_types_field_default_field_instances() {
     'entity_type' => 'node',
     'field_name' => 'field_university_studies',
     'label' => 'Egyetemi Tanulmányok',
-    'required' => 1,
+    'required' => 0,
     'settings' => array(
       'text_processing' => 1,
       'user_register_form' => FALSE,
@@ -1462,7 +1462,7 @@ function gtk_f_content_types_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-person-field_year_of_application'
+  // Exported field_instance: 'node-person-field_year_of_application'.
   $field_instances['node-person-field_year_of_application'] = array(
     'bundle' => 'person',
     'default_value' => NULL,
@@ -1514,7 +1514,7 @@ function gtk_f_content_types_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-person-title_field'
+  // Exported field_instance: 'node-person-title_field'.
   $field_instances['node-person-title_field'] = array(
     'bundle' => 'person',
     'default_value' => NULL,
@@ -1563,7 +1563,7 @@ function gtk_f_content_types_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-result-body'
+  // Exported field_instance: 'node-result-body'.
   $field_instances['node-result-body'] = array(
     'bundle' => 'result',
     'default_value' => NULL,
@@ -1613,7 +1613,7 @@ function gtk_f_content_types_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-result-field_competitions_result'
+  // Exported field_instance: 'node-result-field_competitions_result'.
   $field_instances['node-result-field_competitions_result'] = array(
     'bundle' => 'result',
     'default_value' => NULL,
@@ -1642,7 +1642,7 @@ function gtk_f_content_types_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_competitions_result',
-    'label' => 'Competitions result',
+    'label' => 'Verseny eredmény',
     'required' => 0,
     'settings' => array(
       'text_processing' => 1,
@@ -1659,7 +1659,7 @@ function gtk_f_content_types_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-result-field_downloadable'
+  // Exported field_instance: 'node-result-field_downloadable'.
   $field_instances['node-result-field_downloadable'] = array(
     'bundle' => 'result',
     'deleted' => 0,
@@ -1707,7 +1707,7 @@ function gtk_f_content_types_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-result-field_etdk_result'
+  // Exported field_instance: 'node-result-field_etdk_result'.
   $field_instances['node-result-field_etdk_result'] = array(
     'bundle' => 'result',
     'default_value' => NULL,
@@ -1736,7 +1736,7 @@ function gtk_f_content_types_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_etdk_result',
-    'label' => 'ETDK result',
+    'label' => 'ETDK eredmény',
     'required' => 0,
     'settings' => array(
       'text_processing' => 1,
@@ -1753,7 +1753,7 @@ function gtk_f_content_types_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-result-field_highschool_program'
+  // Exported field_instance: 'node-result-field_highschool_program'.
   $field_instances['node-result-field_highschool_program'] = array(
     'bundle' => 'result',
     'default_value' => NULL,
@@ -1782,7 +1782,7 @@ function gtk_f_content_types_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_highschool_program',
-    'label' => 'Highschool program',
+    'label' => 'Középsikolás Program',
     'required' => 0,
     'settings' => array(
       'text_processing' => 1,
@@ -1799,7 +1799,7 @@ function gtk_f_content_types_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-result-field_lecturers_list'
+  // Exported field_instance: 'node-result-field_lecturers_list'.
   $field_instances['node-result-field_lecturers_list'] = array(
     'bundle' => 'result',
     'default_value' => NULL,
@@ -1828,7 +1828,7 @@ function gtk_f_content_types_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_lecturers_list',
-    'label' => 'Lecturers list',
+    'label' => 'Előadók',
     'required' => 0,
     'settings' => array(
       'text_processing' => 1,
@@ -1845,7 +1845,7 @@ function gtk_f_content_types_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-result-field_management_conference'
+  // Exported field_instance: 'node-result-field_management_conference'.
   $field_instances['node-result-field_management_conference'] = array(
     'bundle' => 'result',
     'default_value' => NULL,
@@ -1874,7 +1874,7 @@ function gtk_f_content_types_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_management_conference',
-    'label' => 'Management conference',
+    'label' => 'Menedzsment konferencia',
     'required' => 0,
     'settings' => array(
       'text_processing' => 1,
@@ -1891,7 +1891,7 @@ function gtk_f_content_types_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-result-field_management_shadowing'
+  // Exported field_instance: 'node-result-field_management_shadowing'.
   $field_instances['node-result-field_management_shadowing'] = array(
     'bundle' => 'result',
     'default_value' => NULL,
@@ -1920,7 +1920,7 @@ function gtk_f_content_types_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_management_shadowing',
-    'label' => 'Management shadowing',
+    'label' => 'Menedzsment shadowing',
     'required' => 0,
     'settings' => array(
       'text_processing' => 1,
@@ -1937,7 +1937,7 @@ function gtk_f_content_types_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-result-field_otdk_result'
+  // Exported field_instance: 'node-result-field_otdk_result'.
   $field_instances['node-result-field_otdk_result'] = array(
     'bundle' => 'result',
     'default_value' => NULL,
@@ -1966,7 +1966,7 @@ function gtk_f_content_types_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_otdk_result',
-    'label' => 'OTDK result',
+    'label' => 'OTDK eredmény',
     'required' => 0,
     'settings' => array(
       'text_processing' => 1,
@@ -1983,7 +1983,7 @@ function gtk_f_content_types_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-video-body'
+  // Exported field_instance: 'node-video-body'.
   $field_instances['node-video-body'] = array(
     'bundle' => 'video',
     'default_value' => NULL,
@@ -2032,7 +2032,7 @@ function gtk_f_content_types_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-video-field_private_video'
+  // Exported field_instance: 'node-video-field_private_video'.
   $field_instances['node-video-field_private_video'] = array(
     'bundle' => 'video',
     'default_value' => NULL,
@@ -2048,6 +2048,7 @@ function gtk_f_content_types_field_default_field_instances() {
           'youtube_controls' => 0,
           'youtube_height' => '',
           'youtube_iv_load_policy' => 0,
+          'youtube_loop' => FALSE,
           'youtube_showinfo' => 0,
           'youtube_size' => 'responsive',
           'youtube_width' => '',
@@ -2090,43 +2091,43 @@ function gtk_f_content_types_field_default_field_instances() {
 
   // Translatables
   // Included for use with string extractors like potx.
+  t('Betöltött Pozíció');
   t('Body');
   t('Category');
-  t('Competitions result');
   t('Content');
   t('Description');
-  t('ETDK result');
+  t('ETDK eredmény');
   t('Egyetemi Tanulmányok');
   t('Egyéb Gondolatok');
+  t('Előadók');
   t('Enable this to put this blog post into the homepage slideshow.');
   t('Felvételi éve');
   t('Hasznalhato kategoriak: kepzes shadowing eset rendezveny iparag eloadas kozepiskola');
   t('Hasznalhato kategoriak: kozepiskola');
-  t('Highschool program');
   t('Home Page Image');
   t('Homepage');
   t('Image');
   t('Is Partner');
   t('Kerlek 560 x 400 meretu kepet toltsel ide.');
   t('Kerlek 860 x 450 meretu kepeket toltsel fel');
-  t('Lecturers list');
+  t('Középsikolás Program');
   t('Letölthető változat itt');
   t('LinkedIn');
   t('Listing Image');
   t('Logo');
-  t('Management conference');
-  t('Management shadowing');
   t('Membership');
+  t('Menedzsment konferencia');
+  t('Menedzsment shadowing');
   t('Munkahely');
   t('Name');
-  t('OTDK result');
+  t('OTDK eredmény');
   t('Organization Link');
   t('Organization Logo');
   t('Person Image');
   t('Simple Pages');
   t('Summary');
-  t('Tagsági Státusz');
   t('Type of Person');
+  t('Verseny eredmény');
   t('Video');
 
   return $field_instances;

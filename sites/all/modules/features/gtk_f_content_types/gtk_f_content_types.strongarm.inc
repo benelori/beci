@@ -593,6 +593,15 @@ function gtk_f_content_types_strongarm() {
       'token' => array(
         'custom_settings' => FALSE,
       ),
+      'email_plain' => array(
+        'custom_settings' => FALSE,
+      ),
+      'email_html' => array(
+        'custom_settings' => FALSE,
+      ),
+      'email_textalt' => array(
+        'custom_settings' => FALSE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(
@@ -923,7 +932,11 @@ function gtk_f_content_types_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'i18n_sync_node_type_organizations';
-  $strongarm->value = array();
+  $strongarm->value = array(
+    0 => 'field_is_partner',
+    1 => 'field_organization_link',
+    2 => 'field_organization_logo',
+  );
   $export['i18n_sync_node_type_organizations'] = $strongarm;
 
   $strongarm = new stdClass();

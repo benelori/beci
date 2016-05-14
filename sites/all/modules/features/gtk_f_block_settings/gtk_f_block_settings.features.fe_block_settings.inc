@@ -34,7 +34,7 @@ function gtk_f_block_settings_default_fe_block_settings() {
         'region' => 'user9',
         'status' => 1,
         'theme' => 'yamato',
-        'weight' => 0,
+        'weight' => -30,
       ),
     ),
     'title' => '',
@@ -363,6 +363,35 @@ function gtk_f_block_settings_default_fe_block_settings() {
     'visibility' => 0,
   );
 
+  $export['gtk_payu-payu_logos'] = array(
+    'cache' => -1,
+    'css_class' => '',
+    'custom' => 0,
+    'delta' => 'payu_logos',
+    'i18n_block_language' => array(),
+    'i18n_mode' => 0,
+    'module' => 'gtk_payu',
+    'node_types' => array(),
+    'pages' => '',
+    'roles' => array(),
+    'themes' => array(
+      'seven' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'seven',
+        'weight' => 0,
+      ),
+      'yamato' => array(
+        'region' => 'user9',
+        'status' => 1,
+        'theme' => 'yamato',
+        'weight' => -31,
+      ),
+    ),
+    'title' => '',
+    'visibility' => 1,
+  );
+
   $export['locale-language'] = array(
     'cache' => -1,
     'css_class' => '',
@@ -405,8 +434,8 @@ function gtk_f_block_settings_default_fe_block_settings() {
     'roles' => array(),
     'themes' => array(
       'seven' => array(
-        'region' => 'dashboard_inactive',
-        'status' => 1,
+        'region' => '',
+        'status' => 0,
         'theme' => 'seven',
         'weight' => 0,
       ),
@@ -505,6 +534,36 @@ function gtk_f_block_settings_default_fe_block_settings() {
       ),
     ),
     'title' => '<none>',
+    'visibility' => 0,
+  );
+
+  $export['system-main'] = array(
+    'cache' => -1,
+    'css_class' => '',
+    'custom' => 0,
+    'delta' => 'main',
+    'i18n_block_language' => array(),
+    'i18n_mode' => 0,
+    'module' => 'system',
+    'node_types' => array(),
+    'pages' => '<front>
+node',
+    'roles' => array(),
+    'themes' => array(
+      'seven' => array(
+        'region' => 'content',
+        'status' => 1,
+        'theme' => 'seven',
+        'weight' => 0,
+      ),
+      'yamato' => array(
+        'region' => 'content',
+        'status' => 1,
+        'theme' => 'yamato',
+        'weight' => -30,
+      ),
+    ),
+    'title' => '',
     'visibility' => 0,
   );
 
@@ -691,7 +750,7 @@ function gtk_f_block_settings_default_fe_block_settings() {
     'i18n_mode' => 0,
     'module' => 'views',
     'node_types' => array(),
-    'pages' => 'iparág-elemzés
+    'pages' => 'iparágelemzés
 analiză-de-piaţă
 market-based-projects',
     'roles' => array(),

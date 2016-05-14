@@ -10,7 +10,7 @@
 function gtk_f_industry_analysis_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'node-iparag_elemzes-field_elemzes'
+  // Exported field_instance: 'node-iparag_elemzes-field_elemzes'.
   $field_instances['node-iparag_elemzes-field_elemzes'] = array(
     'bundle' => 'iparag_elemzes',
     'deleted' => 0,
@@ -36,7 +36,9 @@ function gtk_f_industry_analysis_field_default_field_instances() {
       'teaser' => array(
         'label' => 'hidden',
         'module' => 'media',
-        'settings' => array(),
+        'settings' => array(
+          'image_style' => '',
+        ),
         'type' => 'media_large_icon',
         'weight' => 0,
       ),

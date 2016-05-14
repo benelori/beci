@@ -66,3 +66,11 @@ function gtk_updates_update_7004() {
   $modules = array('event_calendar', 'gtk_f_event_calendar');
   module_enable($modules);
 }
+
+function gtk_updates_update_7005() {
+  drush_features_revert_all();
+}
+
+function gtk_updates_update_7006() {
+  drush_features_revert_all();
+}

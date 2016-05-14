@@ -10,7 +10,7 @@
 function gtk_f_photo_album_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'node-photo_album-field_album_image'
+  // Exported field_instance: 'node-photo_album-field_album_image'.
   $field_instances['node-photo_album-field_album_image'] = array(
     'bundle' => 'photo_album',
     'deleted' => 0,
@@ -72,7 +72,7 @@ function gtk_f_photo_album_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-photo_album-field_thumbnail_image'
+  // Exported field_instance: 'node-photo_album-field_thumbnail_image'.
   $field_instances['node-photo_album-field_thumbnail_image'] = array(
     'bundle' => 'photo_album',
     'deleted' => 0,

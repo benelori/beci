@@ -10,7 +10,7 @@
 function gtk_f_content_types_conditional_fields_default_fields() {
   $items = array();
 
-  $items[] = array(
+  $items["node:person:0"] = array(
     'entity' => 'node',
     'bundle' => 'person',
     'dependent' => 'field_body',
@@ -93,7 +93,7 @@ function gtk_f_content_types_conditional_fields_default_fields() {
     ),
   );
 
-  $items[] = array(
+  $items["node:person:1"] = array(
     'entity' => 'node',
     'bundle' => 'person',
     'dependent' => 'field_job',
@@ -179,7 +179,7 @@ function gtk_f_content_types_conditional_fields_default_fields() {
     ),
   );
 
-  $items[] = array(
+  $items["node:person:2"] = array(
     'entity' => 'node',
     'bundle' => 'person',
     'dependent' => 'field_membership',
@@ -250,7 +250,7 @@ function gtk_f_content_types_conditional_fields_default_fields() {
     ),
   );
 
-  $items[] = array(
+  $items["node:person:3"] = array(
     'entity' => 'node',
     'bundle' => 'person',
     'dependent' => 'field_membership_status',
@@ -338,7 +338,7 @@ function gtk_f_content_types_conditional_fields_default_fields() {
     ),
   );
 
-  $items[] = array(
+  $items["node:person:4"] = array(
     'entity' => 'node',
     'bundle' => 'person',
     'dependent' => 'field_other_thoughts',
@@ -424,7 +424,7 @@ function gtk_f_content_types_conditional_fields_default_fields() {
     ),
   );
 
-  $items[] = array(
+  $items["node:person:5"] = array(
     'entity' => 'node',
     'bundle' => 'person',
     'dependent' => 'field_university_studies',
@@ -509,7 +509,7 @@ function gtk_f_content_types_conditional_fields_default_fields() {
     ),
   );
 
-  $items[] = array(
+  $items["node:person:6"] = array(
     'entity' => 'node',
     'bundle' => 'person',
     'dependent' => 'field_year_of_application',

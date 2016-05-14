@@ -8,7 +8,7 @@
  * Implements hook_field_group_info().
  */
 function gtk_f_content_types_field_group_info() {
-  $export = array();
+  $field_groups = array();
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -36,7 +36,7 @@ function gtk_f_content_types_field_group_info() {
       'formatter' => 'collapsed',
     ),
   );
-  $export['group_competitions|node|result|form'] = $field_group;
+  $field_groups[''] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -64,7 +64,7 @@ function gtk_f_content_types_field_group_info() {
       'formatter' => 'collapsed',
     ),
   );
-  $export['group_conference|node|result|form'] = $field_group;
+  $field_groups[''] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -92,7 +92,7 @@ function gtk_f_content_types_field_group_info() {
       'formatter' => 'collapsed',
     ),
   );
-  $export['group_etdk|node|result|form'] = $field_group;
+  $field_groups[''] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -120,7 +120,7 @@ function gtk_f_content_types_field_group_info() {
       'formatter' => 'collapsed',
     ),
   );
-  $export['group_highschool|node|result|form'] = $field_group;
+  $field_groups[''] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -148,7 +148,7 @@ function gtk_f_content_types_field_group_info() {
       'formatter' => 'collapsed',
     ),
   );
-  $export['group_lecturers|node|result|form'] = $field_group;
+  $field_groups[''] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -176,7 +176,7 @@ function gtk_f_content_types_field_group_info() {
       'formatter' => 'collapsed',
     ),
   );
-  $export['group_otdk|node|result|form'] = $field_group;
+  $field_groups[''] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -204,7 +204,17 @@ function gtk_f_content_types_field_group_info() {
       'formatter' => 'collapsed',
     ),
   );
-  $export['group_shadowing|node|result|form'] = $field_group;
+  $field_groups[''] = $field_group;
 
-  return $export;
+  // Translatables
+  // Included for use with string extractors like potx.
+  t('competitions');
+  t('conference');
+  t('etdk');
+  t('highschool');
+  t('lecturers');
+  t('otdk');
+  t('shadowing');
+
+  return $field_groups;
 }
