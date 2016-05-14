@@ -816,3 +816,15 @@ input#edit-submit--2 {
     clear: left;
     float: left;
 }
+
+.bx-controls.bx-has-pager.bx-has-controls-direction {
+  padding-top: 0px;
+}
+
+#section-action.section-homepage {
+  height: 130px;
+}
+
+#section-action {
+  padding: 20px 0;
+}
