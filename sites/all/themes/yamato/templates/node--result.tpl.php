@@ -8,14 +8,14 @@
         <div class="panel panel-default">
           <div class="panel-heading">
             <h4 class="panel-title">
-              <a href="#dexp-accordion-item-1414657310" data-toggle="collapse"
-                 data-parent="#dexp-accordions-wrapper-1414657310" class="">
+              <a href="#dexp-accordion-item-1414657310--0" data-toggle="collapse"
+                 data-parent="#dexp-accordions-wrapper-1414657310" class="collapsed">
                 <?php print $content['field_etdk_result']['#title']; ?>
               </a>
             </h4>
           </div>
-          <div id="dexp-accordion-item-1414657310"
-               class="panel-collapse collapse in">
+          <div id="dexp-accordion-item-1414657310--0"
+               class="panel-collapse collapse">
             <div class="panel-body">
               <?php print render($content['field_etdk_result']); ?>
             </div>
@@ -145,6 +145,9 @@
   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 ">
     <?php if(isset($content['body'])): ?>
       <?php print render($content['body']); ?>
+    <?php endif; ?>
+    <?php if(isset($content['field_downloadable'])): ?>
+      <?php print render($content['field_downloadable']); ?>
     <?php endif; ?>
   </div>
 </div>

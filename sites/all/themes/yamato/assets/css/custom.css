@@ -67,6 +67,10 @@ ul.menu {
   font-size: 14.3px;
 }
 
+.panel-group {
+  margin-right: 20px;
+ }
+ 
 .page_title {
   font-weight: normal;
 }
@@ -161,7 +165,7 @@ div#block-views-support-block-1 div.bx-controls-direction {
 }
 
 .title3 h3.block-title:after {
-  background-color: #0097CA;
+  background-color: #cccccc;
 }
 
 .views-field.views-field-title {
@@ -544,6 +548,27 @@ table.views-table.cols-16 th {
   border-top: 1px solid #ebebeb;
   background: #fff;
 }
+
+#block-gtk-payu-payu-logos {
+  margin-right: 25px;
+}
+
+form#gtk-payu-donation-form > div .form-type-textfield {
+  width: 37%;
+}
+
+#gtk-payu-donation-form > div > input#edit-submit {
+  margin-bottom: 10px;
+    background: #3498db;
+  -webkit-box-shadow: 0 4px #175783;
+  -moz-box-shadow: 0 4px #175783;
+  box-shadow: 0 4px #175783;
+  color: #fff;
+  background-color: #428bca;
+  border-color: #357ebd;
+}
+
+#search-block-form input[type="submit"]
 
 div#site-map {
   font-family: 'Roboto', sans-serif;

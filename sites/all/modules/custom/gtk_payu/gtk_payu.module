@@ -78,9 +78,9 @@ function gtk_payu_donation_form() {
     '#type' => 'checkbox',
     '#title' => t('Please read the !terms and the !return, before agreeing.',
       array(
-        '!terms' => l(t('terms and services'), '/sites/default/files/termeni_si_conditii.pdf',
+        '!terms' => l(t('terms and services'), 'sites/default/files/termeni_si_conditii.pdf',
           array('attributes' => array('target' => '_blank'))),
-        '!return' => l(t('return policy'), '/sites/default/files/politica_de_returnare.pdf',
+        '!return' => l(t('return policy'), 'sites/default/files/politica_de_returnare.pdf',
           array('attributes' => array('target' => '_blank'))),
       )),
     '#required' => TRUE,
@@ -256,10 +256,10 @@ function gtk_payu_block_view($delta = '') {
     case 'payu_logos':
       $block['content'] =
         '<div>
-            <a href="http://www.payu.ro/"><img src="'. drupal_get_path('module', 'gtk_payu') . '/inc/payu.gif"></a>
-            <img src="'. drupal_get_path('module', 'gtk_payu') . '/inc/mastercard.gif">
-            <img src="'. drupal_get_path('module', 'gtk_payu') . '/inc/visa.gif">
-            <img src="'. drupal_get_path('module', 'gtk_payu') . '/inc/verifiedbyvisa.gif">
+            <a href="http://www.payu.ro/"><img src="/'. drupal_get_path('module', 'gtk_payu') . '/inc/payu.gif"></a>
+            <img src="/'. drupal_get_path('module', 'gtk_payu') . '/inc/mastercard.gif">
+            <img src="/'. drupal_get_path('module', 'gtk_payu') . '/inc/visa.gif">
+            <img src="/'. drupal_get_path('module', 'gtk_payu') . '/inc/verifiedbyvisa.gif">
         </div>';
       break;
   }
